@@ -12,10 +12,10 @@ const Header = () => {
                          <a href="#about">O nas</a>
                          <a href="#advantages">Nasze atuty</a>
                          <a href="#partner">Zostań partnerem</a>
+                         <div className="lang">
+                             <span className="active">pl</span><span className="separator">|</span><a href="/uk/">uk</a>
+                         </div>
                      </nav>
-                     <div className="lang">
-                         <span className="active">pl</span><span className="separator">|</span><a href="/uk/">uk</a>
-                     </div>
                  </div>
              </div>
          </div>

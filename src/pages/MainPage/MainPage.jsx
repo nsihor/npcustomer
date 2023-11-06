@@ -1,7 +1,12 @@
+import FirstBlock from "../../components/FirstBlock/FirstBlock";
+import NewOpportunities from "../../components/NewOpportunities/NewOpportunities";
 
 const MainPage = () => {
     return (
-        <>Main Page</>
+        <>
+        <FirstBlock/>
+        <NewOpportunities/>
+        </>
     );
 }
 
