@@ -1,4 +1,7 @@
-import nav from 'react-bootstrap/nav';
+import BtnSuccess from "../BtnSuccess/BtnSuccess";
+import React from "react";
+import macbook from "../../images/MainPage/macbook.png";
+
 const FirstBlock = () => {
  return (
      <div className="container my-5 py-5 order" id="order">
@@ -8,10 +11,10 @@ const FirstBlock = () => {
                  <p className="fs-6">
                      Ставайте продавцем в найбільшому українському додатку, а логістику, технічну підтримку і знання
                      українського e-commerce ми беремо на себе. </p>
-                 <button className="btn btn-success text-nowrap" id="sendOrder">Залишити заявку</button>
+                 <BtnSuccess/>
              </div>
              <div className="col-12 col-md-5">
-                 <img src="../../images/MainPage/macbook.png" alt="Macbook"/>
+                 <img src={macbook} alt="Macbook"/>
              </div>
          </div>
      </div>

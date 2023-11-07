@@ -4,8 +4,8 @@ import NewOpportunities from "../../components/NewOpportunities/NewOpportunities
 const MainPage = () => {
     return (
         <>
-        <FirstBlock/>
-        <NewOpportunities/>
+            <FirstBlock/>
+            <NewOpportunities/>
         </>
     );
 }

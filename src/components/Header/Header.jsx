@@ -1,11 +1,12 @@
 import nav from 'react-bootstrap/nav';
+import sprite from "../../images/sprite.svg";
 const Header = () => {
  return (
      <header className="border-bottom py-4 mb-4 fixed-top">
          <div className="container">
              <div className="row">
                  <div className="col-12 col-md-6 text-center text-md-start mb-4 mb-md-0">
-                     <img alt="Logo" src="https://merchant.np.shopping/static/images/logo.svg" className="logo"/>
+                     <svg width="155" height="29"><use className="logo" href={sprite + "#npLogo"}/></svg>
                  </div>
                  <div className="col-12 col-md-6 text-end">
                      <nav className="menu d-flex justify-content-between fs-6">
