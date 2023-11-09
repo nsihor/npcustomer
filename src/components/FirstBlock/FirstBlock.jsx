@@ -8,7 +8,7 @@ const FirstBlock = () => {
      <div className="container my-5 py-5 order" id="order">
          <div className="row align-items-center">
              <div className="col-12 col-md-7">
-                 <h1 className="mb-3" style={{"font-size":"52px"}}>Shopping - маркетплейс польських товарів в Україні</h1>
+                 <h1 className="mb-3" style={{"fontSize":"52px"}}>Shopping - маркетплейс польських товарів в Україні</h1>
                  <p className="fs-5">
                      Ставайте продавцем в найбільшому українському додатку, а логістику, технічну підтримку і знання
                      українського e-commerce ми беремо на себе. </p>

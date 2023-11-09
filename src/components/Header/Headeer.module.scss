@@ -1,3 +1,21 @@
-header {
+.header {
+  background-color: #fff;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.04);
+
+  nav {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--brand-maximum-red, #DA291C);
+    }
+  }
 
 }

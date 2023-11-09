@@ -1,0 +1,19 @@
+$red: #DA291C;
+
+.authorize {
+
+  span {
+    color: var(--grayscale-500, #475569);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: 0.96px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+      color: $red;
+    }
+  }
+}

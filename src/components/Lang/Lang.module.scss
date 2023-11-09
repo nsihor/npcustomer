@@ -1,0 +1,25 @@
+.lang {
+  color: #475569;
+  font-size: 18px;
+  font-weight: 400;
+
+   * + *:before {
+    content: "|";
+    color: #475569;
+    padding-right: .5rem;
+  }
+
+  a {
+    color: #475569;
+    text-decoration: none;
+
+    &:hover {
+      color: #DA291C;
+    }
+  }
+
+  span {
+    color: #DBDDE1;
+  }
+}
+

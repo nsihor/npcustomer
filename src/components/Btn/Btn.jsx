@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const Btn = ({type, text, id}) => {
     return (
-        <button className={clsx(type === 'success' && css.btnSuccess, css.btn, `btn btn-${type} text-nowrap mt-4`)} id={id}>
+        <button className={clsx(type === 'success' ? css.btnSuccess : '', css.btn, `btn btn-${type} text-nowrap mt-4`)} id={id}>
             {text}
         </button>
     );
