@@ -1,5 +1,11 @@
+import RegistrationSteps from "../../components/RegistrationSteps/RegistrationSteps";
+
 const Registration = () => {
-  return <>Registration</>;
+  return (
+    <>
+      <RegistrationSteps/>
+    </>
+  );
 };
 
 export default Registration;

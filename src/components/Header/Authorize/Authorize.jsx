@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import css from "../Authorize/Autauthorizeorize.module.scss";
-import sprite from "../../images/sprite.svg";
+import css from "./Autauthorizeorize.module.scss";
+import sprite from "../../../images/sprite.svg";
 const Authorize = () => {
  return (
      <div className={clsx(css.authorize, "d-flex gap-2 align-items-center")}>

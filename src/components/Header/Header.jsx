@@ -3,7 +3,7 @@ import sprite from "../../images/sprite.svg";
 import clsx from "clsx";
 import css from "../Header/Headeer.module.scss";
 import Lang from "../Lang/Lang";
-import Authorize from "../Authorize/Authorize";
+import Authorize from "./Authorize/Authorize";
 const Header = () => {
  return (
     <header className={clsx(css.header, "py-4 mb-4 fixed-top")}>

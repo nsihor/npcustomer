@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import css from "./PostCountryList.module.scss";
-import PostCountryListItem from "../PostCountryListItem/PostCountryListItem";
+import PostCountryListItem from "./PostCountryListItem/PostCountryListItem";
 const PostCountryList = ({sliderName, title, width ,nowOpen, openFunc}) => {
     const chooseArr = (sliderName) => {
         if (sliderName === 'pl') {

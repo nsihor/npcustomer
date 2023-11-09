@@ -1,4 +1,4 @@
-import sprite from "../../images/sprite.svg";
+import sprite from "../../../images/sprite.svg";
 import css from "./PostCountryListItem.module.scss";
 
 const PostCountryListItem = ({text}) => {
