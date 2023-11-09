@@ -1,0 +1,61 @@
+.slider_item {
+  border-radius: 10px;
+  position: relative;
+  height: 685px;
+  width: 100%;
+}
+.slider_item.ua {
+  background: url(../../images/Delivery/ukr.jpg) no-repeat;
+  background-size: cover;
+}
+
+.slider_item.pl {
+  background: url(../../images/Delivery/pol.jpg) no-repeat;
+  background-size: cover;
+}
+
+.slider_item:before {
+  content: "";
+  position: absolute;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.title {
+  transform: rotate(180deg);
+  font-weight: 400;
+  font-size: 38px;
+  color: #ffffff;
+  writing-mode: vertical-lr;
+  padding: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  height: 100%;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-right: 64px;
+  width: 90%;
+  background: rgb(213 213 213 / 20%);
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 2;
+  position: relative;
+  bottom: 20px;
+}
+
+//.content_wrapper {
+//display: none;
+//}
+
+
+
+
