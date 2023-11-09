@@ -3,16 +3,16 @@ import {useState} from "react";
 import PostCountryList from "../PostCountryList/PostCountryList";
 
 const Delivery = () => {
-  const [sliderWidth, setSliderWidth] = useState({ua:'588px', pl:'155px'});
+  const [sliderWidth, setSliderWidth] = useState({ua:'wide', pl:'tight'});
   const [nowOpen, setNowOpen] = useState('ua')
 
-  const handleSliderUaHover = () => {
-    setSliderWidth({ua:'588px', pl:'155px'});
+  const handleSlider1Hover = () => {
+    setSliderWidth({ua:'wide', pl:'tight'});
     setNowOpen('ua')
   };
 
-  const handleSliderPlHover = () => {
-    setSliderWidth({pl:'588px', ua:'155px'});
+  const handleSlider2Hover = () => {
+    setSliderWidth({pl:'wide', ua:'tight'});
     setNowOpen('pl')
   };
 
@@ -26,8 +26,8 @@ const Delivery = () => {
           </div>
           <div className="col-12 col-lg-8 d-flex justify-content-end">
             <div className="slider-block d-flex flex-column flex-md-row">
-              <PostCountryList openFunc={handleSliderUaHover} nowOpen={nowOpen} width={sliderWidth.ua}  sliderName='ua' title='Nova Post в Україні'/>
-              <PostCountryList openFunc={handleSliderPlHover} nowOpen={nowOpen} width={sliderWidth.pl} sliderName='pl' title='Nova Post в Польщі'/>
+              <PostCountryList openFunc={handleSlider1Hover} nowOpen={nowOpen} width={sliderWidth.ua}  sliderName='ua' title='Nova Post в Україні'/>
+              <PostCountryList openFunc={handleSlider2Hover} nowOpen={nowOpen} width={sliderWidth.pl} sliderName='pl' title='Nova Post в Польщі'/>
             </div>
           </div>
         </div>

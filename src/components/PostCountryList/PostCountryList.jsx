@@ -30,13 +30,14 @@ const PostCountryList = ({sliderName, title, width ,nowOpen, openFunc}) => {
             className={clsx(
                 css.slider_item,
                 css[sliderName],
+                css[width],
                 "d-flex mb-4 mb-md-0 flex-column align-items-start align-items-md-end flex-md-row me-0 me-md-4"
             )}
         >
             <p className={css.title}>
                 {title}
             </p>
-            {nowOpen === sliderName && <ul style={{width}} className={css.content}>
+            {nowOpen === sliderName && <ul className={css.content}>
                 {chosenText.map(text => <PostCountryListItem key={text} text={text}/>)}
             </ul>}
         </div>
