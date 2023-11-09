@@ -1,0 +1,115 @@
+$(document).ready(function (e) {
+
+    $('.js-toggle-slide').on('mouseenter', function() {
+        let isClosed = $(this).closest('.slider-item').hasClass('closed');
+        if (isClosed) {
+            $('.slider-item').toggleClass('closed');
+        }
+    });
+
+    $('.menu a').on('click', function() {
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $("#" + $(this).attr('href')).offset().top - 150
+        }, 0);
+
+        return false;
+    });
+
+    $('#bePartner, #sendOrder').on('click', function() {
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $("#partner").offset().top - 150
+        }, 0);
+
+        return false;
+    });
+
+    $('.to-top').on('click', function() {
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $("#top").offset().top
+        }, 0);
+    });
+
+    $(window).scroll(() => {
+        if ($(this).scrollTop() > 500) {
+            $('.to-top').show();
+        } else {
+            $('.to-top').hide();
+        }
+    })
+
+    $('.send-form').on('click', function() {
+        const type = $(this).data('type');
+        const url  = $('input[type=hidden][data-type="' + type + '"]').val();
+
+        $('#formErrorsPartner').text('');
+        //$('#formErrorsOrder').text('');
+        $('.form-control').removeClass('is-invalid');
+
+        const ValidateEmail = (email) => {
+            if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+                return true;
+            }
+            return false;
+        };
+
+        if (!ValidateEmail($('[name=email][data-type="' + type + '"]').val())) {
+            $('[name=email][data-type=' + type + ']').addClass('is-invalid');
+            return false;
+        }
+
+        if (type === 'partner') {
+            const policy = $('#partner [type=checkbox]');
+            const message = policy.data('message');
+
+            if (!policy.is(':checked')) {
+                $('#formErrorsPartner').text(message);
+                return false;
+            }
+        }/* else if (type === 'order') {
+            const policy = $('#order [type=checkbox]');
+            const message = policy.data('message');
+
+            if (!policy.is(':checked')) {
+                $('#formErrorsOrder').text(message);
+                return false;
+            }
+        }*/
+
+        if (type !== undefined) {
+            const data = {};
+
+            $('input:not([type=checkbox],[type=hidden])[data-type="' + type + '"]').each(function() {
+                data[$(this).attr('name')] = $(this).val();
+            });
+
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: {
+                    type: type,
+                    data: JSON.stringify(data),
+                },
+                success: function (result) {
+                    result = $.parseJSON(result);
+
+                    if (result.status === "ok") {
+                        $('input:not([type=hidden])[data-type="' + type + '"]').each(function() {
+                            $(this).prop('checked', false)
+                            $(this).val('');
+
+                            $('.form-sent[data-type=' + type + ']').show();
+                        });
+                    }
+
+                    if (result.status === "error") {
+                        $('[name="' + result.field + '"]').addClass('is-invalid');
+                    }
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+    });
+
+});
