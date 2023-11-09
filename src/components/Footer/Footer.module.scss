@@ -1,9 +1,33 @@
 .footer {
-  background-color: #e2e8f0;
-}
+  border-top: 1.5px solid var(--shapes-divider-default, #E2E8F0);
+  background: var(--bg-gray-50, #F6F6F9);
 
-footer .menu a,
-footer .menu a:hover {
-  color: #DA291C;
-  text-decoration: none;
+  .menu a {
+    color: #DA291C;
+    text-decoration: none;
+  }
+
+  .menu a:hover {
+    color: #000;
+  }
+
+  .copyright *,
+  .copyright a {
+    font-family: Inter, serif;
+    color: var(--text-headers-body-secondary, #475569);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+  }
+
+  .copyright a {
+    border-bottom: solid 1px var(--text-headers-body-secondary, #475569);
+    text-decoration: unset;
+  }
+
+  .copyright a:hover {
+    border-color: #fff;
+  }
+
 }

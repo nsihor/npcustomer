@@ -1,6 +1,7 @@
-import BtnSuccess from "../BtnSuccess/BtnSuccess";
+
 import React from "react";
 import macbook from "../../images/MainPage/macbook.png";
+import Btn from "../Btn/Btn";
 
 const FirstBlock = () => {
  return (
@@ -11,7 +12,7 @@ const FirstBlock = () => {
                  <p className="fs-6">
                      Ставайте продавцем в найбільшому українському додатку, а логістику, технічну підтримку і знання
                      українського e-commerce ми беремо на себе. </p>
-                 <BtnSuccess/>
+                 <Btn type="success" text="Стати партнером"/>
              </div>
              <div className="col-12 col-md-5">
                  <img src={macbook} alt="Macbook"/>
