@@ -10,7 +10,7 @@ const PostCountryListItem = ({text}) => {
                     <use href={sprite + "#icon-check"}></use>
                 </svg>{" "}
             </div>
-            {text}{" "}
+            {text}
         </li>
     )
 }
