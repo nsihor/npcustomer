@@ -3,8 +3,16 @@ import css from "./LoginModal.module.scss"
 import img from "../../images/Modal/login.png"
 import {Field, Form, Formik} from "formik";
 import Btn from "../Btn/Btn";
+import {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 
 const LoginModal = () => {
+    const [userData, setUserData] = useState({});
+
+    useEffect(() => {
+        console.log(userData)
+    }, [userData]);
+
     return (
         <div className={css.main}>
             <div className={css.wrap}>
@@ -13,8 +21,8 @@ const LoginModal = () => {
                 <Formik
                     initialValues={{email: '', password: ''}}
                     onSubmit={(values, {resetForm}) => {
-                    console.log(values);
-                    resetForm()
+                        setUserData(values)
+                        resetForm()
                 }}>
                     <Form className='d-flex flex-column'>
                         <Field
@@ -32,7 +40,9 @@ const LoginModal = () => {
                         <Btn text='Продовжити' styled='secondary'/>
                     </Form>
                 </Formik>
-                <Btn text='Зареєструватися' styled='light' classes={['mt-0', 'bg-transparent', 'border-0']}/>
+                <Link to={'/registration'}  className='btn btn-light text-nowrap bg-transparent border-0 py-3 px-4'>
+                    Зареєструватися
+                </Link>
             </div>
         </div>
         // <div className=></div>
