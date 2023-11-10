@@ -12,7 +12,7 @@ const FirstBlock = () => {
                  <p className="fs-5">
                      Ставайте продавцем в найбільшому українському додатку, а логістику, технічну підтримку і знання
                      українського e-commerce ми беремо на себе. </p>
-                 <Btn type="success" text="Стати партнером"/>
+                 <Btn styled="success" text="Стати партнером"/>
              </div>
              <div className="col-12 col-md-5">
                  <img src={macbook} alt="Macbook"/>
