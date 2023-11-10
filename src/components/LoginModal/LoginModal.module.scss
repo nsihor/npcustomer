@@ -1,0 +1,26 @@
+.main {
+  width: 636px;
+  padding: 50px 128px 32px 128px;
+  background-color: #C4E9E0;
+}
+
+.wrap {
+  display: flex;
+  width: 380px;
+
+  flex-direction: column;
+  align-items: center;
+  }
+
+.title{
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 130%;
+  margin-bottom: 24px;
+}
+
+.input {
+  background-color: #F6F6F9;
+  width: 380px;
+  height: 56px;
+}

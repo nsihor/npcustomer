@@ -2,9 +2,9 @@ import css from "./Btn.module.scss";
 import clsx from "clsx";
 import PropTypes from "prop-types";
 
-const Btn = ({styled, text, classes}) => {
+const Btn = ({styled, text, classes = []}) => {
     return (
-        <button className={clsx(styled === 'success' ? css.btnSuccess : '', classes, css.btn, `btn btn-${styled} text-nowrap mt-4`)}>
+        <button className={clsx(styled === 'success' ? css.btnSuccess : '', css.btn, `btn btn-${styled} text-nowrap mt-4`, ...classes)}>
             {text}
         </button>
     );
