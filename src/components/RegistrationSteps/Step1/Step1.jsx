@@ -1,4 +1,4 @@
-import css from "./FormRegistration.module.scss";
+import css from "./Step1.scss";
 import React, { useState } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -6,7 +6,7 @@ import clsx from 'clsx';
 
 import Btn from '../../../components/Btn/Btn';
 
-const FormRegistration = () => {
+const Step1 = ({submitFunc}) => {
     return (
         <>
             <div className={clsx(css.formSmallText,"")}>КРОК 01<span>/04</span></div>
@@ -15,15 +15,14 @@ const FormRegistration = () => {
                 initialValues={{
                     email: '',
                     password: '',
+                    password2: ''
                 }}
                 validationSchema={Yup.object({
                     email: Yup.string().email('Email не коректний').required('Required'),
                     password: Yup.string().required('Required'),
                     password2: Yup.string().required('Required'),
                 })}
-                onSubmit={()=> {
-                    console.log('Submit');
-                }}
+                onSubmit={ value => submitFunc(value) }
             >
                 <Form className={clsx(css.formRegistration,"mt-4")}>
                     <Field
@@ -51,4 +50,4 @@ const FormRegistration = () => {
 
 }
 
-export default FormRegistration;
+export default Step1;
