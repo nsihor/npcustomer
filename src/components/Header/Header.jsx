@@ -4,7 +4,7 @@ import clsx from "clsx";
 import css from "../Header/Headeer.module.scss";
 import Lang from "../Lang/Lang";
 import Authorize from "./Authorize/Authorize";
-const Header = () => {
+const Header = ({openLoginModal}) => {
  return (
     <header className={clsx(css.header, "py-4 mb-4 fixed-top")}>
          <div className="container">
@@ -18,7 +18,7 @@ const Header = () => {
                          <a href="#advantages">Наші переваги</a>
                      </nav>
                     <Lang/>
-                    <Authorize/>
+                    <Authorize openModalFunc={openLoginModal}/>
                  </div>
              </div>
          </div>

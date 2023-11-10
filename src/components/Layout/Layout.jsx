@@ -2,10 +2,10 @@ import { Outlet } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
-const Layout = () => {
+const Layout = ({openLoginModal}) => {
   return (
     <>
-      <Header />
+      <Header openLoginModal={openLoginModal} />
       <Outlet />
       <Footer />
     </>

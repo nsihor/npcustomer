@@ -6,21 +6,15 @@ import BasicModalWindow from "../../components/BasicModalWindow/BasicModalWindow
 import {useState} from "react";
 import LoginModal from "../../components/LoginModal/LoginModal";
 
-const MainPage = () => {
-    const [isModalOpen, setIsModalOpen] = useState(true);
-
-    const handleClose = () => {
-        setIsModalOpen(false);
-    };
-
+const MainPage = ({isLoginModalOpen, closeModal}) => {
     return (
         <>
             <FirstBlock/>
             <NewOpportunities/>
             <Delivery/>
             <Shopping/>
-            {isModalOpen && (
-                <BasicModalWindow onClose={handleClose}>
+            {isLoginModalOpen && (
+                <BasicModalWindow onClose={closeModal}>
                     <LoginModal/>
                 </BasicModalWindow>
             )}
