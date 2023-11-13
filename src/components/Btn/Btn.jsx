@@ -4,7 +4,10 @@ import PropTypes from "prop-types";
 
 const Btn = ({styled, text, classes = []}) => {
     return (
-        <button className={clsx(styled === 'success' ? css.btnSuccess : '', css.btn, `btn btn-${styled} text-nowrap mt-4`, ...classes)}>
+        <button
+            className={clsx(styled === 'success' ? css.btnSuccess : '', css.btn, `btn btn-${styled} text-nowrap mt-4`, classes)}
+            type="submit"
+        >
             {text}
         </button>
     );
