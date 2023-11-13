@@ -1,11 +1,10 @@
 import css from "./Step1.scss";
 import React from 'react';
-import {Formik, Field, Form, ErrorMessage} from 'formik';
+import {Formik, Form} from 'formik';
 import * as Yup from 'yup';
 import clsx from 'clsx';
 
 import Btn from '../../../components/Btn/Btn';
-import {Link} from "react-router-dom";
 import InputFloating from "../../InputFloating/InputFloating";
 
 const Step1 = ({submitFunc}) => {
@@ -27,18 +26,16 @@ const Step1 = ({submitFunc}) => {
                 })}
                 onSubmit={value => submitFunc(value)}
             >
-                {({errors, touched}) => (
-                    <Form className={clsx(css.formRegistration, "formRegistration mt-4")}>
+                <Form className={clsx(css.formRegistration, "formRegistration mt-4")}>
 
-                        <InputFloating name="email" placeholder="Email" type="email"/>
+                    <InputFloating name="email" placeholder="Email" type="email"/>
 
-                        <InputFloating name='password' placeholder='Пароль'/>
+                    <InputFloating name='password' placeholder='Пароль'/>
 
-                        <InputFloating name='passwordConfirmation' placeholder='Повторити пароль'/>
+                    <InputFloating name='passwordConfirmation' placeholder='Повторити пароль'/>
 
-                        <Btn text='Продовжити' styled='secondary' classes="w-100 mt-5"/>
-                    </Form>
-                )}
+                    <Btn text='Продовжити' styled='secondary' classes="w-100 mt-5"/>
+                </Form>
             </Formik>
         </>
     )

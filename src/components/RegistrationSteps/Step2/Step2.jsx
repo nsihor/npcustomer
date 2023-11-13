@@ -1,15 +1,18 @@
 import css from "./Step2.scss";
-import React, { useState } from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import React from 'react';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import clsx from 'clsx';
 
 import Btn from '../../../components/Btn/Btn';
-import {Link} from "react-router-dom";
-import {FormSelect} from "react-bootstrap";
 import InputFloating from "../../InputFloating/InputFloating";
-
+import SelectFloating from "../../SelectFloating/SelectFloating";
 const Step2 = ({submitFunc, prevStep}) => {
+    const optionsCountry = [
+        { value: 1, label: "Польща" },
+        { value: 2, label: "Україна" },
+    ]
+
     return (
         <>
             <div className={clsx(css.formSmallText, "formSmallText")}>КРОК 02<span>/04</span></div>
@@ -30,22 +33,22 @@ const Step2 = ({submitFunc, prevStep}) => {
                 <Form className={clsx(css.formRegistration,"mt-4 formRegistration")}>
                     <InputFloating name='companyName' placeholder='Назва компанії'/>
 
-                    <FormSelect name="country" className={clsx(css.select,"select mt-4")}>
-                        <option value="">Країна місцезнаходження компанії</option>
-                        <option value="">Польша</option>
-                        <option value="">Україна</option>
-                    </FormSelect>
+                    <SelectFloating
+                        name="country"
+                        options={optionsCountry}
+                        placeholder="Країна місцезнаходження компанії"
+                    />
 
-                    <InputFloating name='nip' placeholder='NIP' />
                     <span className={clsx(css.inputSmallText,"inputSmallText")}>Вкажіть номер реєстрації бізнесу згідно законодавства країни</span>
+                    <InputFloating name='nip' placeholder='NIP'/>
 
                     <Btn text='Продовжити' styled='secondary' classes="form-control mt-5"/>
                 </Form>
             </Formik>
 
-            <Link to={'/registration'}  className='btn w-100 border-0 mt-3'>
+            <span onClick={prevStep} className='btn w-100 border-0 mt-3'>
                 Назад
-            </Link>
+            </span>
         </>
     )
 

@@ -1,6 +1,5 @@
 import css from "./InputFloating.module.scss";
 import clsx from "clsx";
-import PropTypes from "prop-types";
 import {ErrorMessage, Field} from "formik";
 import React from "react";
 

@@ -34,7 +34,7 @@ const Step4 = ({submitFunc}) => {
                     <InputFloating name='phone' placeholder='Номер телефону'/>
 
                     <Field
-                        name='phone'
+                        name='logo'
                         type='file'
                         placeholder='Номер телефону'
                         className="form-control mt-4"

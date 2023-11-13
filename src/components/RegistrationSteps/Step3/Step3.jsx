@@ -8,8 +8,21 @@ import Btn from '../../../components/Btn/Btn';
 import {FormSelect} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import InputFloating from "../../InputFloating/InputFloating";
+import SelectFloating from "../../SelectFloating/SelectFloating";
 
 const Step3 = ({submitFunc}) => {
+    const optionsRegion = [
+        { value: 1, label: "Варминьско-Мазурское" },
+        { value: 2, label: " Западно-Поморское" },
+        { value: 3, label: " Свентокшиское воеводство" },
+    ]
+
+    const optionsCity = [
+        { value: 1, label: "Варшава" },
+        { value: 2, label: "Лодзь" },
+        { value: 3, label: "Гданськ" },
+    ]
+
     return (
         <>
             <div className={clsx(css.formSmallText,"formSmallText")}>КРОК 03<span>/04</span></div>
@@ -33,17 +46,9 @@ const Step3 = ({submitFunc}) => {
             >
                 <Form className={clsx(css.formRegistration,"mt-4 formRegistration")}>
 
-                    <FormSelect name="region" className={clsx(css.select,"select mt-4")}>
-                        <option value="">Воєводство</option>
-                        <option value="1">Варшава</option>
-                        <option value="2">Вроцлав</option>
-                    </FormSelect>
+                    <SelectFloating name="region" options={optionsRegion} placeholder="Воєводство"/>
 
-                    <FormSelect name="city" className={clsx(css.select,"select mt-4")}>
-                        <option value="">Місто</option>
-                        <option value="11">Варшава</option>
-                        <option value="22">Вроцлав</option>
-                    </FormSelect>
+                    <SelectFloating name="city" options={optionsCity} placeholder="Місто"/>
 
                     <InputFloating name='street' placeholder='Вулиця'/>
 
