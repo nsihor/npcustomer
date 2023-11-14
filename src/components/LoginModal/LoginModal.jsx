@@ -7,7 +7,7 @@ import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 
 const LoginModal = () => {
-    const [userData, setUserData] = useState({});
+    const [userData, setUserData] = useState({email: '', password: ''});
 
     useEffect(() => {
         console.log(userData)
@@ -19,10 +19,10 @@ const LoginModal = () => {
                 <img className='mb-4' src={img} alt='products'/>
                 <h2 className={clsx(css.title, 'mb-4')}>Вхід</h2>
                 <Formik
-                    initialValues={{email: '', password: ''}}
-                    onSubmit={(values, {resetForm}) => {
+                    initialValues={{email: userData.email, password: ''}}
+                    onSubmit={(values) => {
                         setUserData(values)
-                        resetForm()
+                        console.log(userData)
                 }}>
                     <Form className='d-flex flex-column'>
                         <Field
@@ -30,14 +30,25 @@ const LoginModal = () => {
                             type='email'
                             placeholder='Email'
                             className={clsx(css.input, 'rounded border-0 mb-3 py-3 px-2')}
+                            value={userData.email}
+                            onChange={(e) => setUserData(() => ({ ...userData, email: e.target.value }))}
+                            autoFocus
                         />
                         <Field
                             name='password'
                             type='password'
                             placeholder='Пароль'
                             className={clsx(css.input, 'rounded border-0 mb-3 py-3 px-2')}
+                            value={userData.password}
+
+                            onChange={(e) => setUserData(() => ({ ...userData, password: e.target.value }))}
+
                         />
-                        <Btn text='Продовжити' styled='secondary'/>
+                        {userData.email && userData.password ? (
+                            <Btn text='Продовжити' styled='success' />
+                        ) : (
+                            <Btn params={{ disabled: true }} text='Продовжити' styled='secondary' />
+                        )}
                     </Form>
                 </Formik>
                 <Link to={'/registration'}  className='btn btn-light text-nowrap bg-transparent border-0 py-3 px-4'>
