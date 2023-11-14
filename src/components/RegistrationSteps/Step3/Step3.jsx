@@ -10,7 +10,7 @@ import {Link} from "react-router-dom";
 import InputFloating from "../../InputFloating/InputFloating";
 import SelectFloating from "../../SelectFloating/SelectFloating";
 
-const Step3 = ({submitFunc}) => {
+const Step3 = ({submitFunc, userData, prevStep}) => {
     const optionsRegion = [
         { value: 1, label: "Варминьско-Мазурское" },
         { value: 2, label: " Западно-Поморское" },
@@ -29,11 +29,11 @@ const Step3 = ({submitFunc}) => {
             <h1 className="fw-600 mt-4">Адреса</h1>
             <Formik
                 initialValues={{
-                    region: '',
-                    city: '',
-                    street: '',
-                    house: '',
-                    office: '',
+                    region: userData.region ?? '',
+                    city: userData.city ?? '',
+                    street: userData.street ?? '',
+                    house: userData.house ?? '',
+                    office: userData.office ?? '',
                 }}
                 validationSchema={Yup.object({
                     region: Yup.string(),
@@ -61,9 +61,7 @@ const Step3 = ({submitFunc}) => {
                 </Form>
             </Formik>
 
-            <Link to={'/registration'}  className='btn w-100 border-0 mt-3'>
-                Назад
-            </Link>
+            <span onClick={prevStep} className='btn w-100 border-0 mt-3'>Назад</span>
         </>
     )
 

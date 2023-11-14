@@ -13,50 +13,11 @@
 }
 
 .formRegistration {
-  input, select {
-    display: flex;
-    height: var(--gap-56, 56px);
-
-    padding: var(--gap-16, 16px);
-    align-items: center;
-    gap: var(--gap-8, 8px);
-    align-self: stretch;
-    border-radius: var(--angle-8, 8px);
-    background: var(--grayscale-50, #F6F6F9);
-    border: none;
-
-    color: var(--grayscale-500, #475569);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 130%;
-  }
-
   .inputSmallText {
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 130%;
     color: #475569;
-  }
-
-
-  button {
-    display: flex;
-    height: 56px;
-    padding: 16px 24px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    align-self: stretch;
-    border-radius: var(--radius-button-radius-8, 8px);
-    background: var(--shapes-button-disabled, #E2E8F0);
-    border: none;
-
-    color: var(--text-button-disabled, #94A3B8);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 130%;
   }
 }

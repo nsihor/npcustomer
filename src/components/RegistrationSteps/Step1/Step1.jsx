@@ -7,22 +7,23 @@ import clsx from 'clsx';
 import Btn from '../../../components/Btn/Btn';
 import InputFloating from "../../InputFloating/InputFloating";
 
-const Step1 = ({submitFunc}) => {
+const Step1 = ({submitFunc, userData}) => {
     return (
         <>
             <div className={clsx(css.formSmallText, "formSmallText")}>КРОК 01<span>/04</span></div>
             <h1 className="fw-600 mt-4">Авторизація</h1>
             <Formik
                 initialValues={{
-                    email: '',
-                    password: '',
-                    passwordConfirmation: ''
+                    email: userData.email ?? '',
+                    password: userData.password ?? '',
+                    passwordConfirmation: userData.passwordConfirmation ?? ''
                 }}
                 validationSchema={Yup.object({
                     email: Yup.string().email('Некоректний email').required("Поле обов'язкове для заповнення"),
                     password: Yup.string().min(6, "Мінімум 6 символів").required("Поле обов'язкове для заповнення"),
                     passwordConfirmation: Yup.string()
                         .oneOf([Yup.ref('password'), null], 'Паролі мають співпадати')
+                        .required("Поле обов'язкове для заповнення")
                 })}
                 onSubmit={value => submitFunc(value)}
             >
@@ -30,9 +31,9 @@ const Step1 = ({submitFunc}) => {
 
                     <InputFloating name="email" placeholder="Email" type="email"/>
 
-                    <InputFloating name='password' placeholder='Пароль'/>
+                    <InputFloating name='password' placeholder='Пароль' type="password"/>
 
-                    <InputFloating name='passwordConfirmation' placeholder='Повторити пароль'/>
+                    <InputFloating name='passwordConfirmation' placeholder='Повторити пароль' type="password"/>
 
                     <Btn text='Продовжити' styled='secondary' classes="w-100 mt-5"/>
                 </Form>

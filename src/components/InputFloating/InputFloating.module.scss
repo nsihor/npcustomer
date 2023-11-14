@@ -16,15 +16,20 @@
   font-weight: 400;
   line-height: 130%;
 
+  &~label::after {
+    background-color: unset !important;
+  }
+
   &:focus {
     background: var(--grayscale-50, #F6F6F9);
     border: none;
     color: var(--grayscale-500, #475569);
     box-shadow:none;
-  }
-}
 
-.label {
+    &~label::after {
+      background-color: unset !important;
+    }
+  }
 }
 
 .error {

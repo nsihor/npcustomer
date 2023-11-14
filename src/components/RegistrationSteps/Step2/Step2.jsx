@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import Btn from '../../../components/Btn/Btn';
 import InputFloating from "../../InputFloating/InputFloating";
 import SelectFloating from "../../SelectFloating/SelectFloating";
-const Step2 = ({submitFunc, prevStep}) => {
+const Step2 = ({submitFunc, userData, prevStep}) => {
     const optionsCountry = [
         { value: 1, label: "Польща" },
         { value: 2, label: "Україна" },
@@ -19,9 +19,9 @@ const Step2 = ({submitFunc, prevStep}) => {
             <h1 className="fw-600 mt-4">Про компанію</h1>
             <Formik
                 initialValues={{
-                    companyName: '',
-                    country: '',
-                    nip: '',
+                    companyName: userData.companyName ?? '',
+                    country: userData.country ?? '',
+                    nip: userData.nip ?? '',
                 }}
                 validationSchema={Yup.object({
                     companyName: Yup.string().required("Поле обов'язкове для заповнення"),
@@ -46,9 +46,7 @@ const Step2 = ({submitFunc, prevStep}) => {
                 </Form>
             </Formik>
 
-            <span onClick={prevStep} className='btn w-100 border-0 mt-3'>
-                Назад
-            </span>
+            <span onClick={prevStep} className='btn w-100 border-0 mt-3'>Назад</span>
         </>
     )
 

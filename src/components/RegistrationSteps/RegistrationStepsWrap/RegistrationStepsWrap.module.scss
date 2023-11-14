@@ -87,6 +87,7 @@ $red: #DA291C;
   .rightSide {
     padding: 60px;
     border-radius: var(--gap-0, 0px);
+    height: 750px;
 
     @media screen and (max-width: 768px) {
       padding: 30px;

@@ -11,9 +11,14 @@ const RegistrationSteps = () => {
 
     const submitUserData = (data) => {
         setUserData((prevData) => ({ ...prevData, ...data }));
-        if (openStep < 5) {
+        if (openStep < 4) {
             setOpenStep((prevStep) => prevStep + 1);
         }
+    };
+
+    const prevStep = () => {
+        setUserData((prevData) => ({ ...prevData }));
+        setOpenStep((prevStep) => prevStep - 1);
     };
 
     useEffect(() => {
@@ -23,13 +28,13 @@ const RegistrationSteps = () => {
     const renderStep = (step) => {
         switch (step) {
             case 1:
-                return <Step1 submitFunc={submitUserData} />;
+                return <Step1 submitFunc={submitUserData} userData={userData}/>;
             case 2:
-                return <Step2 submitFunc={submitUserData} />;
+                return <Step2 submitFunc={submitUserData} userData={userData} prevStep={prevStep}/>;
             case 3:
-                return <Step3 submitFunc={submitUserData} />;
+                return <Step3 submitFunc={submitUserData} userData={userData} prevStep={prevStep}/>;
             case 4:
-                return <Step4 submitFunc={submitUserData} />;
+                return <Step4 submitFunc={submitUserData} userData={userData} prevStep={prevStep}/>;
             default:
                 return null;
         }

@@ -8,16 +8,16 @@ import Btn from '../../../components/Btn/Btn';
 import {Link} from "react-router-dom";
 import InputFloating from "../../InputFloating/InputFloating";
 
-const Step4 = ({submitFunc}) => {
+const Step4 = ({submitFunc, userData, prevStep}) => {
     return (
         <>
             <div className={clsx(css.formSmallText,"formSmallText")}>КРОК 04<span>/04</span></div>
             <h1 className="fw-600 mt-4">Додаткова інформація</h1>
             <Formik
                 initialValues={{
-                    userName: '',
-                    phone: '',
-                    logo: '',
+                    userName: userData.userName ?? '',
+                    phone: userData.phone ?? '',
+                    logo: userData.logo ?? '',
                 }}
                 validationSchema={Yup.object({
                     userName: Yup.string().required("Поле обов'язкове для заповнення"),
@@ -43,9 +43,8 @@ const Step4 = ({submitFunc}) => {
                     <Btn text='Готово' styled='success' classes="form-control mt-5"/>
                 </Form>
             </Formik>
-            <Link to={'/registration'}  className='btn w-100 border-0 mt-3'>
-                Назад
-            </Link>
+
+            <span onClick={prevStep} className='btn w-100 border-0 mt-3'>Назад</span>
         </>
     )
 
