@@ -3,15 +3,14 @@ import css from "./LoginModal.module.scss"
 import img from "../../images/Modal/login.png"
 import {Field, Form, Formik} from "formik";
 import Btn from "../Btn/Btn";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {Link} from "react-router-dom";
+import PasswordInput from "../PasswordInput/PasswordInput";
 
 const LoginModal = () => {
     const [userData, setUserData] = useState({email: '', password: ''});
 
-    useEffect(() => {
-        console.log(userData)
-    }, [userData]);
+    const changeValue = ({ target: { name, value } }) => setUserData(() => ({...userData, [name]: value}));
 
     return (
         <div className={css.main}>
@@ -23,7 +22,7 @@ const LoginModal = () => {
                     onSubmit={(values) => {
                         setUserData(values)
                         console.log(userData)
-                }}>
+                    }}>
                     <Form className='d-flex flex-column'>
                         <Field
                             name='email'
@@ -31,27 +30,18 @@ const LoginModal = () => {
                             placeholder='Email'
                             className={clsx(css.input, 'rounded border-0 mb-3 py-3 px-2')}
                             value={userData.email}
-                            onChange={(e) => setUserData(() => ({ ...userData, email: e.target.value }))}
+                            onChange={changeValue}
                             autoFocus
                         />
-                        <Field
-                            name='password'
-                            type='password'
-                            placeholder='Пароль'
-                            className={clsx(css.input, 'rounded border-0 mb-3 py-3 px-2')}
-                            value={userData.password}
-
-                            onChange={(e) => setUserData(() => ({ ...userData, password: e.target.value }))}
-
-                        />
+                        <PasswordInput password={userData.password} handleSetPassword={changeValue} inputClass='login'/>
                         {userData.email && userData.password ? (
-                            <Btn text='Продовжити' styled='success' />
+                            <Btn text='Продовжити' styled='success'/>
                         ) : (
-                            <Btn params={{ disabled: true }} text='Продовжити' styled='secondary' />
+                            <Btn params={{disabled: true}} text='Продовжити' styled='secondary'/>
                         )}
                     </Form>
                 </Formik>
-                <Link to={'/registration'}  className='btn btn-light text-nowrap bg-transparent border-0 py-3 px-4'>
+                <Link to={'/registration'} className='btn btn-light text-nowrap bg-transparent border-0 py-3 px-4'>
                     Зареєструватися
                 </Link>
             </div>
