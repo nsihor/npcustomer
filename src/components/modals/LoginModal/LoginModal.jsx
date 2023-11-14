@@ -1,11 +1,11 @@
 import clsx from "clsx";
-import css from "./LoginModal.module.scss"
-import img from "../../images/Modal/login.png"
+import css from "../Modals.module.scss"
+import img from "../../../images/Modal/login.png"
 import {Field, Form, Formik} from "formik";
-import Btn from "../Btn/Btn";
+import Btn from "../../Btn/Btn";
 import {useState} from "react";
 import {Link} from "react-router-dom";
-import PasswordInput from "../PasswordInput/PasswordInput";
+import PasswordInput from "../../PasswordInput/PasswordInput";
 
 const LoginModal = () => {
     const [userData, setUserData] = useState({email: '', password: ''});
@@ -41,13 +41,11 @@ const LoginModal = () => {
                         )}
                     </Form>
                 </Formik>
-                <Link to={'/registration'} className='btn btn-light text-nowrap bg-transparent border-0 py-3 px-4'>
+                <Link to={'/registration'} className='btn btn-light text-nowrap bg-transparent border-0 py-3 px-4 w-100'>
                     Зареєструватися
                 </Link>
             </div>
         </div>
-        // <div className=></div>
-
     )
 }
 

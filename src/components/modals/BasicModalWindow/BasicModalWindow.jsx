@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
-import sprite from '../../images/sprite.svg';
+import sprite from '../../../images/sprite.svg';
 import css from './BasicModalWindow.module.scss';
 import ReactDOM from 'react-dom'
 

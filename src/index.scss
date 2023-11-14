@@ -5,6 +5,14 @@
         //("xs":320px, "sm":576px, "md":768px, "lg":992px, "xl":1200px);
 
 
+.svg{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  width: 24px;
+  height: 24px;
+}
 
 body {
   font-family: Inter, serif !important;
@@ -19,16 +27,6 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-a {
-  color: currentColor;
-  text-decoration: none;
-}
-
-p {
-  padding: 0;
-  margin: 0;
 }
 
 h1,

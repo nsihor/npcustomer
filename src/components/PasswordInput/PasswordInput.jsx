@@ -18,7 +18,7 @@ const PasswordInput = ({handleSetPassword, password, inputClass}) => {
                 value={password}
                 onChange={handleSetPassword}
             />
-            <svg onClick={switchIsPasswordVisible} className={css.svg}>
+            <svg onClick={switchIsPasswordVisible} className='svg'>
                 <use href={sprite + `${isPasswordVisible ? '#icon-openEye' : '#icon-closeEye'}`}></use>
             </svg>
         </div>
