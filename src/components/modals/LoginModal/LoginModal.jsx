@@ -18,7 +18,7 @@ const LoginModal = () => {
                 <img className='mb-4' src={img} alt='products'/>
                 <h2 className={clsx(css.title, 'mb-4')}>Вхід</h2>
                 <Formik
-                    initialValues={{email: userData.email, password: ''}}
+                    initialValues={{email: userData.email, password: userData.password}}
                     onSubmit={(values) => {
                         setUserData(values)
                         console.log(userData)
