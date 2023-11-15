@@ -4,17 +4,6 @@
 //$mdBreakpoint: 768px;
         //("xs":320px, "sm":576px, "md":768px, "lg":992px, "xl":1200px);
 
-
-.svg{
-  position: absolute;
-  top: 16px;
-  right: 16px;
-
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-}
-
 body {
   font-family: Inter, serif !important;
   margin-top: 77px !important;
@@ -41,4 +30,71 @@ h6 {
 
 img {
   max-width: 100%;
+}
+
+.svg{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+}
+
+.formSmallText {
+  color: var(--grayscale-500, #475569);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+
+  span {
+    color: var(--grayscale-400, #94A3B8);
+  }
+}
+
+.input.form-control {
+  display: flex;
+  height: var(--gap-56, 56px);
+
+  padding: var(--gap-16, 16px);
+  align-items: center;
+  gap: var(--gap-8, 8px);
+  align-self: stretch;
+  border-radius: var(--angle-8, 8px);
+  background: var(--grayscale-50, #F6F6F9);
+  border: none;
+
+  color: var(--grayscale-500, #475569);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+
+  &~label::after {
+    background-color: unset !important;
+  }
+
+  &:focus {
+    background: var(--grayscale-50, #F6F6F9);
+    border: none;
+    color: var(--grayscale-500, #475569);
+    box-shadow:none;
+
+    &~label::after {
+      background-color: unset !important;
+    }
+  }
+}
+
+.errorInput {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  align-self: stretch;
+  color: #DA291C;
 }

@@ -9,8 +9,7 @@ import InputFloating from "../../InputFloating/InputFloating";
 import SelectFloating from "../../SelectFloating/SelectFloating";
 const Step2 = ({submitFunc, userData, prevStep}) => {
     const optionsCountry = [
-        { value: 1, label: "Польща" },
-        { value: 2, label: "Україна" },
+        { value: "PL", label: "Польща" },
     ]
 
     return (
@@ -20,13 +19,13 @@ const Step2 = ({submitFunc, userData, prevStep}) => {
             <Formik
                 initialValues={{
                     companyName: userData.companyName ?? '',
-                    country: userData.country ?? '',
-                    nip: userData.nip ?? '',
+                    countryCode: userData.countryCode ?? '',
+                    companyTIN : userData.companyTIN  ?? '',
                 }}
                 validationSchema={Yup.object({
                     companyName: Yup.string().required("Поле обов'язкове для заповнення"),
-                    country: Yup.string(),
-                    nip: Yup.string().required("Поле обов'язкове для заповнення"),
+                    countryCode: Yup.string(),
+                    companyTIN : Yup.string().required("Поле обов'язкове для заповнення"),
                 })}
                 onSubmit={ value => submitFunc(value) }
             >
@@ -34,13 +33,14 @@ const Step2 = ({submitFunc, userData, prevStep}) => {
                     <InputFloating name='companyName' placeholder='Назва компанії'/>
 
                     <SelectFloating
-                        name="country"
+                        value="PL"
+                        name="countryCode"
                         options={optionsCountry}
                         placeholder="Країна місцезнаходження компанії"
                     />
 
                     <span className={clsx(css.inputSmallText,"inputSmallText")}>Вкажіть номер реєстрації бізнесу згідно законодавства країни</span>
-                    <InputFloating name='nip' placeholder='NIP'/>
+                    <InputFloating name='companyTIN' placeholder='NIP'/>
 
                     <Btn text='Продовжити' styled='secondary' classes="form-control mt-5"/>
                 </Form>

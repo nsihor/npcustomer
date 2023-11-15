@@ -12,15 +12,22 @@ import SelectFloating from "../../SelectFloating/SelectFloating";
 
 const Step3 = ({submitFunc, userData, prevStep}) => {
     const optionsRegion = [
-        { value: 1, label: "Варминьско-Мазурское" },
-        { value: 2, label: " Западно-Поморское" },
-        { value: 3, label: " Свентокшиское воеводство" },
-    ]
-
-    const optionsCity = [
-        { value: 1, label: "Варшава" },
-        { value: 2, label: "Лодзь" },
-        { value: 3, label: "Гданськ" },
+        { value: "PL-MZ", label: "Mazowieckie" },
+        { value: "PL-DS", label: "Dolnośląskie" },
+        { value: "PL-KP", label: "Kujawsko-Pomorskie" },
+        { value: "PL-LU", label: "Lubelskie" },
+        { value: "PL-LB", label: "Lubuskie" },
+        { value: "PL-LD", label: "Łódzkie" },
+        { value: "PL-MA", label: "Małopolskie" },
+        { value: "PL-OP", label: "Opolskie" },
+        { value: "PL-PK", label: "Podkarpackie" },
+        { value: "PL-PD", label: "Podlaskie" },
+        { value: "PL-PM", label: "Pomorskie" },
+        { value: "PL-SK", label: "Świętokrzyskie" },
+        { value: "PL-SL", label: "Śląskie" },
+        { value: "PL-WP", label: "Wielkopolskie" },
+        { value: "PL-WN", label: "Warmińsko-Mazurskie" },
+        { value: "PL-ZP", label: "Zachodniopomorskie" },
     ]
 
     return (
@@ -44,11 +51,11 @@ const Step3 = ({submitFunc, userData, prevStep}) => {
                 })}
                 onSubmit={ value => submitFunc(value) }
             >
-                <Form className={clsx(css.formRegistration,"mt-4 formRegistration")}>
+                <Form className={clsx("mt-4 formRegistration")}>
 
                     <SelectFloating name="region" options={optionsRegion} placeholder="Воєводство"/>
 
-                    <SelectFloating name="city" options={optionsCity} placeholder="Місто"/>
+                    <InputFloating name="city" placeholder="Місто"/>
 
                     <InputFloating name='street' placeholder='Вулиця'/>
 
@@ -64,7 +71,6 @@ const Step3 = ({submitFunc, userData, prevStep}) => {
             <span onClick={prevStep} className='btn w-100 border-0 mt-3'>Назад</span>
         </>
     )
-
 }
 
 export default Step3;
