@@ -4,12 +4,12 @@ import css from "./PasswordInput.module.scss"
 import sprite from "../../images/sprite.svg"
 import React, {useState} from "react";
 
-const PasswordInput = ({handleSetPassword, password, inputClass = '', name='password'}) => {
+const PasswordInput = ({handleSetPassword, password, inputClass = '', name='password', classes = []}) => {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const switchIsPasswordVisible = () => setIsPasswordVisible(prevState => !prevState);
 
     return (
-            <div className="form-floating mb-4 position-relative">
+            <div className={clsx("form-floating position-relative", ...classes)}>
                 <Field
                     name={name}
                     type={isPasswordVisible ? 'text' : 'password'}

@@ -1,9 +1,10 @@
 import {ErrorMessage, Field} from "formik";
 import React from "react";
+import clsx from "clsx";
 
-const InputFloating = ({name, type = 'text', placeholder, value, handleOnChange}) => {
+const InputFloating = ({name, type = 'text', placeholder, value, handleOnChange, classes = []}) => {
     return (
-        <div className="form-floating mb-4">
+        <div className={clsx('form-floating', ...classes)} >
             <Field
                 name={name}
                 type={type}

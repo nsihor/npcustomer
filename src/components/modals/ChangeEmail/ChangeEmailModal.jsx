@@ -22,11 +22,11 @@ const ChangeEmailModal = ({onClose}) => {
                         onClose()
                     }}>
                     <Form className='d-flex flex-column w-100'>
-                        <InputFloating name='email' type='email' placeholder='Email' value={email} handleOnChange={changeValue}/>
+                        <InputFloating name='email' type='email' placeholder='Email' value={email} handleOnChange={changeValue} classes={['mb-4']}/>
                         {email ? (
-                            <Btn text='Зберегти' styled='success' classes='mb-1'/>
+                            <Btn text='Зберегти' styled='success' classes={['mb-1', 'mt-2']}/>
                         ) : (
-                            <Btn params={{disabled: true}} text='Зберегти' styled='secondary' classes='mb-1'/>
+                            <Btn params={{disabled: true}} text='Зберегти' styled='secondary' classes={['mb-1', 'mt-2']}/>
                         )}
                     </Form>
                 </Formik>

@@ -25,21 +25,12 @@ const LoginModal = () => {
                         console.log(userData)
                     }}>
                     <Form className='d-flex flex-column w-100'>
-                        <InputFloating name='email' type='email' value={userData.email} handleOnChange={changeValue} placeholder='Email'/>
-                        {/*<Field*/}
-                        {/*    name='email'*/}
-                        {/*    type='email'*/}
-                        {/*    placeholder='Email'*/}
-                        {/*    className={clsx(css.input, 'rounded border-0 mb-3 py-3 px-2')}*/}
-                        {/*    value={userData.email}*/}
-                        {/*    onChange={changeValue}*/}
-                        {/*    autoFocus*/}
-                        {/*/>*/}
-                        <PasswordInput password={userData.password} handleSetPassword={changeValue}/>
+                        <InputFloating name='email' type='email' value={userData.email} handleOnChange={changeValue} placeholder='Email' classes={["mb-3"]}/>
+                        <PasswordInput password={userData.password} handleSetPassword={changeValue} classes={["mb-4", "mt-1"]}/>
                         {userData.email && userData.password ? (
-                            <Btn text='Продовжити' styled='success'/>
+                            <Btn text='Продовжити' styled='success' classes={["my-1"]}/>
                         ) : (
-                            <Btn params={{disabled: true}} text='Продовжити' styled='secondary'/>
+                            <Btn params={{disabled: true}} text='Продовжити' styled='secondary' classes={["my-1"]}/>
                         )}
                     </Form>
                 </Formik>
