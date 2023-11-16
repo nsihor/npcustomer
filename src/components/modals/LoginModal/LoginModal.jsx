@@ -1,11 +1,12 @@
 import clsx from "clsx";
 import css from "../Modals.module.scss"
 import img from "../../../images/Modal/login.png"
-import {Field, Form, Formik} from "formik";
+import {Form, Formik} from "formik";
 import Btn from "../../Btn/Btn";
 import {useState} from "react";
 import {Link} from "react-router-dom";
 import PasswordInput from "../../PasswordInput/PasswordInput";
+import InputFloating from "../../InputFloating/InputFloating";
 
 const LoginModal = () => {
     const [userData, setUserData] = useState({email: '', password: ''});
@@ -23,17 +24,18 @@ const LoginModal = () => {
                         setUserData(values)
                         console.log(userData)
                     }}>
-                    <Form className='d-flex flex-column'>
-                        <Field
-                            name='email'
-                            type='email'
-                            placeholder='Email'
-                            className={clsx(css.input, 'rounded border-0 mb-3 py-3 px-2')}
-                            value={userData.email}
-                            onChange={changeValue}
-                            autoFocus
-                        />
-                        <PasswordInput password={userData.password} handleSetPassword={changeValue} inputClass='login'/>
+                    <Form className='d-flex flex-column w-100'>
+                        <InputFloating name='email' type='email' value={userData.email} handleOnChange={changeValue} placeholder='Email'/>
+                        {/*<Field*/}
+                        {/*    name='email'*/}
+                        {/*    type='email'*/}
+                        {/*    placeholder='Email'*/}
+                        {/*    className={clsx(css.input, 'rounded border-0 mb-3 py-3 px-2')}*/}
+                        {/*    value={userData.email}*/}
+                        {/*    onChange={changeValue}*/}
+                        {/*    autoFocus*/}
+                        {/*/>*/}
+                        <PasswordInput password={userData.password} handleSetPassword={changeValue}/>
                         {userData.email && userData.password ? (
                             <Btn text='Продовжити' styled='success'/>
                         ) : (
