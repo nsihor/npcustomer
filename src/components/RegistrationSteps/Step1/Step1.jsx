@@ -34,11 +34,11 @@ const Step1 = ({submitFunc, userData}) => {
 
                     <InputFloating name="email" placeholder="Email" type="email"/>
 
-                    <PasswordInput password={Passwords.password} handleSetPassword={changeValue} name="password"/>
+                    <PasswordInput password={Passwords.password} handleSetPassword={changeValue} name="password" classes={["mt-3"]}/>
 
-                    <PasswordInput password={Passwords.passwordConfirmation} handleSetPassword={changeValue} name="passwordConfirmation"/>
+                    <PasswordInput password={Passwords.passwordConfirmation} handleSetPassword={changeValue} name="passwordConfirmation" classes={["mt-3"]}/>
 
-                    <Btn text='Продовжити' styled='secondary' classes="w-100 mt-5"/>
+                    <Btn text='Продовжити' styled='secondary' classes={["w-100 mt-5"]}/>
                 </Form>
             </Formik>
         </>

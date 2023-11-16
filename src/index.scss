@@ -98,3 +98,25 @@ img {
   align-self: stretch;
   color: #DA291C;
 }
+
+.accordion-item {
+  border: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #fff !important;
+}
+
+.accordion-button:focus {
+  box-shadow: unset !important;
+}
+.accordion-header > button {
+  color: #000;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+}
+.accordion-button:not(.collapsed) {
+  color: #000 !important;
+}

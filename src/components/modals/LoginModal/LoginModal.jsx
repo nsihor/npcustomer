@@ -7,6 +7,7 @@ import {useState} from "react";
 import {Link} from "react-router-dom";
 import PasswordInput from "../../PasswordInput/PasswordInput";
 import InputFloating from "../../InputFloating/InputFloating";
+import {login} from "../../../services/api";
 
 const LoginModal = () => {
     const [userData, setUserData] = useState({email: '', password: ''});
@@ -22,6 +23,7 @@ const LoginModal = () => {
                     initialValues={{email: userData.email, password: userData.password}}
                     onSubmit={(values) => {
                         setUserData(values)
+                        login(userData).then()
                         console.log(userData)
                     }}>
                     <Form className='d-flex flex-column w-100'>

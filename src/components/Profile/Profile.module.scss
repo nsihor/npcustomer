@@ -1,0 +1,43 @@
+.content {
+  background-color: #F6F6F9;
+
+  .leftMenu {
+    display: flex;
+    padding: 40px 32px 40px 0;
+    justify-content: center;
+    align-items: flex-start;
+
+    a {
+      color: var(--text-tabbar-selected, #DA291C);
+      text-decoration: none;
+      display: flex;
+      padding: var(--gap-16, 16px) var(--gap-24, 24px);
+      justify-content: space-between;
+      align-items: center;
+      border-radius: var(--radius-12, 12px);
+      background: var(--grayscale-0, #FFF);
+      box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.04);
+
+      &:hover {
+        color: #000;
+      }
+
+      svg {
+        margin-right: 10px;
+      }
+    }
+
+  }
+
+  .burgerWrapper {
+    display: flex;
+    height: 604px;
+    padding: 40px var(--gap-0, 0px) 40px 40px;
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    border-left: 1px solid #cbd1d9;
+
+  }
+}

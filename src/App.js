@@ -5,7 +5,7 @@ import MainPage from "./pages/MainPage/MainPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Registration from "./pages/Registration/Registration";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
-import Profile from "./pages/ProfilePage/Profile";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import {Toaster} from "react-hot-toast";
 
 function App() {
@@ -22,8 +22,8 @@ function App() {
                                                             closeModal={() => setIsLoginModalOpen(false)}/>}/>
                     <Route path="/registration" element={<Registration/>}/>
                     <Route path="/:lang/registration" element={<Registration/>}/>
-                    <Route path="/profile" element={<Profile/>}/>
-                    <Route path="/:lang/profile" element={<Profile/>}/>
+                    <Route path="/profile" element={<ProfilePage/>}/>
+                    <Route path="/:lang/profile" element={<ProfilePage/>}/>
                 </Route>
                 <Route path="*" element={<ErrorPage/>}/>
             </Routes>

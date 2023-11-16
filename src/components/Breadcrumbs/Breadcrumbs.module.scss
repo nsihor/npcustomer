@@ -1,0 +1,33 @@
+.breadcrumbs {
+  display: flex;
+  padding: 20px 0;
+  align-items: center;
+  gap: 20px;
+
+  ol {
+    margin: 0;
+
+    li:not(:last-child) {
+      a {
+        color: var(--brand-maximum-red, #000);
+        text-decoration: none;
+      }
+    }
+
+    li:last-child {
+      color: var(--brand-maximum-red, #DA291C);
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 130%;
+    }
+
+    li:not(:first-child)::before {
+      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath stroke='%23000' stroke-width='1.5' d='m5.5 14 4.586-4.586a2 2 0 0 0 0-2.828L5.5 2'/%3E%3C/svg%3E");
+      padding-top: 4px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+}
