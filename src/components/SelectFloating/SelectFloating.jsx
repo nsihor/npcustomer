@@ -1,9 +1,7 @@
 import css from "./SelectFloating.module.scss";
 import clsx from "clsx";
 import {ErrorMessage, Field} from "formik";
-import React, {useState} from "react";
-import {FormSelect} from "react-bootstrap";
-
+import React from "react";
 
 const SelectFloating = ({name, options, placeholder}) => {
     return (
@@ -14,9 +12,9 @@ const SelectFloating = ({name, options, placeholder}) => {
                 className={clsx(css.select,"select mt-4 form-control")}
                 as='select'
             >
-                <option value="0"></option>
+                <option>Виберіть країну</option>
                 {options.map((option) => (
-                    <option value={option.value}>{option.label}</option>
+                    <option key={option.value} value={option.value}>{option.label}</option>
                 ))}
             </Field>
             <label className="label" htmlFor={`floating${name}`}>{placeholder}</label>

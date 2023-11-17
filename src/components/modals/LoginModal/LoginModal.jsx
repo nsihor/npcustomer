@@ -8,11 +8,12 @@ import {Link} from "react-router-dom";
 import PasswordInput from "../../PasswordInput/PasswordInput";
 import InputFloating from "../../InputFloating/InputFloating";
 import {login} from "../../../services/api";
+import * as Yup from "yup";
 
 const LoginModal = () => {
     const [userData, setUserData] = useState({email: '', password: ''});
 
-    const changeValue = ({ target: { name, value } }) => setUserData(() => ({...userData, [name]: value}));
+    const changeValue = ({target: {name, value}}) => setUserData(() => ({...userData, [name]: value}));
 
     return (
         <div className={css.main}>
@@ -27,8 +28,24 @@ const LoginModal = () => {
                         console.log(userData)
                     }}>
                     <Form className='d-flex flex-column w-100'>
-                        <InputFloating name='email' type='email' value={userData.email} handleOnChange={changeValue} placeholder='Email' classes={["mb-3"]}/>
-                        <PasswordInput password={userData.password} handleSetPassword={changeValue} classes={["mb-4", "mt-1"]}/>
+                        <InputFloating
+                            name='email'
+                            type='email'
+                            value={userData.email}
+                            handleOnChange={changeValue}
+                            placeholder='Email' classes={["mb-3"]}
+                            validation={Yup.string()
+                                .email('Некоректний email')
+                                .required("Поле обов'язкове для заповнення")}
+                        />
+                        <PasswordInput
+                            password={userData.password}
+                            handleSetPassword={changeValue}
+                            classes={["mb-4", "mt-1"]}
+                            validation={Yup.string()
+                                .min(6, "Мінімум 6 символів")
+                                .required("Поле обов'язкове для заповнення")}
+                        />
                         {userData.email && userData.password ? (
                             <Btn text='Продовжити' styled='success' classes={["my-1"]}/>
                         ) : (
@@ -36,7 +53,8 @@ const LoginModal = () => {
                         )}
                     </Form>
                 </Formik>
-                <Link to={'/registration'} className='btn btn-light text-nowrap bg-transparent border-0 py-3 px-4 w-100'>
+                <Link to={'/registration'}
+                      className='btn btn-light text-nowrap bg-transparent border-0 py-3 px-4 w-100'>
                     Зареєструватися
                 </Link>
             </div>
