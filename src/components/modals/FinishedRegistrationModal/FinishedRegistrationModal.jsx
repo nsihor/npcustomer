@@ -14,13 +14,13 @@ const FinishedRegistrationModal = ({code = '5daf47f72ae20f7894155a1b66f85cb0'}) 
     return (
         <div className={css.main}>
             <div className={css.wrap}>
-                <img className='mb-4' src={img} alt='sandy-time'/>
+                <img className={clsx(css.img_sandy_time, 'mb-3 mb-sm-4')} src={img} alt='sandy-time'/>
                 <h2 className={clsx(css.title, 'mb-3')}>Вітаємо</h2>
-                <p className={clsx(css.text, 'mb-4')}>Для повного функціонування сервісу додай інформацію про оплату та
+                <p className={clsx(css.text, 'mb-3 mb-sm-4')}>Для повного функціонування сервісу додай інформацію про оплату та
                     доставку
                     в особистому кабінеті</p>
-                <div className={clsx(css.input, 'rounded py-3 px-2 mb-1 position-relative w-100')}>
-                    5daf47f72ae20f7894155a1b66f85cb0
+                <div className={clsx(css.input, 'rounded py-3 px-2 p mb-1 position-relative w-100')}>
+                    <p className={css.copy_input_p}>5daf47f72ae20f7894155a1b66f85cb0</p>
                     <svg className='svg' onClick={handleCopyText}>
                         <use href={sprite + '#icon-copy'}></use>
                     </svg>

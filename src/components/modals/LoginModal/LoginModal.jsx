@@ -18,7 +18,7 @@ const LoginModal = () => {
     return (
         <div className={css.main}>
             <div className={css.wrap}>
-                <img className='mb-4' src={img} alt='products'/>
+                <img className={clsx(css.img_warehouse, 'mb-sm-4 mb-3')} src={img} alt='products'/>
                 <h2 className={clsx(css.title, 'mb-4')}>Вхід</h2>
                 <Formik
                     initialValues={{email: userData.email, password: userData.password}}
@@ -41,7 +41,7 @@ const LoginModal = () => {
                         <PasswordInput
                             password={userData.password}
                             handleSetPassword={changeValue}
-                            classes={["mb-4", "mt-1"]}
+                            classes={["mb-4", "mt-sm-1"]}
                             validation={Yup.string()
                                 .min(6, "Мінімум 6 символів")
                                 .required("Поле обов'язкове для заповнення")}
@@ -53,8 +53,10 @@ const LoginModal = () => {
                         )}
                     </Form>
                 </Formik>
-                <Link to={'/registration'}
-                      className='btn btn-light text-nowrap bg-transparent border-0 py-3 px-4 w-100'>
+                <Link
+                    style={{height: '45px', color: '#475569'}}
+                    to={'/registration'}
+                    className='btn btn-light text-nowrap bg-transparent border-0 py-2 w-100'>
                     Зареєструватися
                 </Link>
             </div>

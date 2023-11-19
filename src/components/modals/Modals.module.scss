@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   width: 636px;
-  padding: 50px 15px 32px 15px;
-
+  max-width: 100%;
+  padding: 50px 16px 32px 16px;
 }
 
 .wrap {
@@ -14,16 +14,36 @@
   align-items: center;
 }
 
+.img_warehouse{
+  height: 150px;
+
+  @media (max-width: 576px) {
+    height: 103px;
+  }
+}
+
+.img_sandy_time {
+  height: 200px;
+
+  @media (max-width: 576px) {
+    height: 103px;
+  }
+}
+
 .title {
   font-size: 24px;
   font-weight: 600;
-  line-height: 130%;
+  line-height: 1.3;
   margin-bottom: 24px;
 }
 
 .text {
   font-size: 16px;
-  line-height: 20.8px;
+  line-height: 1.3;
+
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
 }
 
 .input {
@@ -31,10 +51,18 @@
   height: 56px;
 }
 
+.copy_input_p {
+  width: 90%;
+  font-size: 16px;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .additionalText {
   color: #475569;
   font-size: 12px;
-  line-height: 15.6px;
+  line-height: 1.3;
 }
 
 .link {
