@@ -3,7 +3,7 @@ import css from "./PostCountryList.module.scss";
 import PostCountryListItem from "./PostCountryListItem/PostCountryListItem";
 const PostCountryList = ({sliderName, title, width ,nowOpen, openFunc}) => {
     const chooseArr = (sliderName) => {
-        if (sliderName === 'pl') {
+        if (sliderName === 'slide2') {
             return [
                 'Працює з жовтня 2022 року',
                 'На березень 2023 року має 21 відділення у 9 містах',
@@ -11,7 +11,7 @@ const PostCountryList = ({sliderName, title, width ,nowOpen, openFunc}) => {
                 'Середній час доставки між Польщею та Україною - 2,5 доби'
             ]
         }
-        if (sliderName === 'ua') {
+        if (sliderName === 'slide1') {
             return [
                 'Найбільша логістична компанія, працює з 2001 року',
                 'Понад 23 000 точок видачі',
@@ -34,7 +34,7 @@ const PostCountryList = ({sliderName, title, width ,nowOpen, openFunc}) => {
                 "d-flex mb-4 mb-md-0 flex-column align-items-start align-items-md-end flex-md-row me-0 me-md-4"
             )}
         >
-            <p className={css.title}>
+            <p className={clsx(css.title, 'p-0')}>
                 {title}
             </p>
             {nowOpen === sliderName && <ul className={css.content}>
