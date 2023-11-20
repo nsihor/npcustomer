@@ -46,11 +46,12 @@ const LoginModal = () => {
                                 .min(6, "Мінімум 6 символів")
                                 .required("Поле обов'язкове для заповнення")}
                         />
-                        {userData.email && userData.password ? (
-                            <Btn text='Продовжити' styled='success' classes={["my-1"]}/>
-                        ) : (
-                            <Btn params={{disabled: true}} text='Продовжити' styled='secondary' classes={["my-1"]}/>
-                        )}
+                        <Btn text='Продовжити' styled='success' classes={["my-1"]}/>
+                        {/*{userData.email && userData.password ? (*/}
+                        {/*    <Btn text='Продовжити' styled='success' classes={["my-1"]}/>*/}
+                        {/*) : (*/}
+                        {/*    <Btn params={{disabled: true}} text='Продовжити' styled='secondary' classes={["my-1"]}/>*/}
+                        {/*)}*/}
                     </Form>
                 </Formik>
                 <Link
