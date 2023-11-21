@@ -13,7 +13,7 @@ export const login =
     async (user) => {
         try {
             const { data } = await axios.post('login', user);
-            localStorage.setItem("userName", data.data.userName);
+            localStorage.setItem("companyName", data.data.merchantName);
             setToken(data.data.token);
             return data;
         } catch (error) {

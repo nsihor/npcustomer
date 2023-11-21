@@ -20,7 +20,7 @@ const FinishedRegistrationModal = ({code = '5daf47f72ae20f7894155a1b66f85cb0'}) 
                     доставку
                     в особистому кабінеті</p>
                 <div className={clsx(css.input, 'rounded py-3 px-2 p mb-1 position-relative w-100')}>
-                    <p className={css.copy_input_p}>5daf47f72ae20f7894155a1b66f85cb0</p>
+                    <p className={css.copy_input_p}>{code}</p>
                     <svg className='svg' onClick={handleCopyText}>
                         <use href={sprite + '#icon-copy'}></use>
                     </svg>

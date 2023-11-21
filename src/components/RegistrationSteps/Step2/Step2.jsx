@@ -7,11 +7,8 @@ import clsx from 'clsx';
 import Btn from '../../../components/Btn/Btn';
 import InputFloating from "../../InputFloating/InputFloating";
 import SelectFloating from "../../SelectFloating/SelectFloating";
+import {Countries} from "../../../const/Constants"
 const Step2 = ({submitFunc, userData, prevStep}) => {
-    const optionsCountry = [
-        { value: "PL", label: "Польща" },
-    ]
-
     return (
         <>
             <div className={clsx(css.formSmallText, "formSmallText")}>КРОК 02<span>/04</span></div>
@@ -35,14 +32,13 @@ const Step2 = ({submitFunc, userData, prevStep}) => {
                     <SelectFloating
                         value="PL"
                         name="countryCode"
-                        options={optionsCountry}
+                        options={Countries}
                         placeholder="Країна місцезнаходження компанії"
                     />
 
-                    <span className={clsx(css.inputSmallText,"inputSmallText")}>Вкажіть номер реєстрації бізнесу згідно законодавства країни</span>
-                    <InputFloating name='companyTIN' placeholder='NIP'/>
+                    <InputFloating name='companyTIN' placeholder='NIP' smallText="Вкажіть номер реєстрації бізнесу згідно законодавства країни"/>
 
-                    <Btn text='Продовжити' styled='secondary' classes="form-control mt-5"/>
+                    <Btn text='Продовжити' styled='secondary' classes={["form-control"]}/>
                 </Form>
             </Formik>
 

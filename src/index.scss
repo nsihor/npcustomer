@@ -107,9 +107,11 @@ img {
   background-color: #fff !important;
 }
 
-.accordion-button:focus {
+.accordion-button:focus,
+.accordion-button:not(.collapsed) {
   box-shadow: unset !important;
 }
+
 .accordion-header > button {
   color: #000;
   font-size: 20px;
@@ -117,6 +119,18 @@ img {
   font-weight: 600;
   line-height: 130%;
 }
+
 .accordion-button:not(.collapsed) {
   color: #000 !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+form > .form-floating + .form-floating,
+.form-floating + .input-group,
+.form-floating + button,
+.input-group + button {
+  margin-top: 1.5rem;
 }

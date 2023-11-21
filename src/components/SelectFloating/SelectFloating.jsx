@@ -5,11 +5,11 @@ import React from "react";
 
 const SelectFloating = ({name, options, placeholder}) => {
     return (
-        <div className="form-floating mb-4">
+        <div className="form-floating">
             <Field
                 name={name}
                 id={`floating${name}`}
-                className={clsx(css.select,"select mt-4 form-control")}
+                className={clsx(css.select,"select form-control")}
                 as='select'
             >
                 <option>Виберіть країну</option>

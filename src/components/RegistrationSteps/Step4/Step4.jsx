@@ -5,14 +5,17 @@ import * as Yup from 'yup';
 import clsx from 'clsx';
 
 import Btn from '../../../components/Btn/Btn';
-import {Link} from "react-router-dom";
 import InputFloating from "../../InputFloating/InputFloating";
+import FinishedRegistrationModal from "../../modals/FinishedRegistrationModal/FinishedRegistrationModal";
+import BasicModalWindow from "../../modals/BasicModalWindow/BasicModalWindow";
 
 const Step4 = ({submitFunc, userData, prevStep}) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
         <>
             <div className={clsx(css.formSmallText,"formSmallText")}>КРОК 04<span>/04</span></div>
-            <h1 className="fw-600 mt-4">Додаткова інформація</h1>
+            <h1 className="fw-600 mt-4">Дода ткова інформація</h1>
             <Formik
                 initialValues={{
                     userName: userData.userName ?? '',
@@ -24,7 +27,11 @@ const Step4 = ({submitFunc, userData, prevStep}) => {
                     phone: Yup.string().required("Поле обов'язкове для заповнення"),
                     logo: Yup.string().required("Поле обов'язкове для заповнення"),
                 })}
-                onSubmit={ value => submitFunc(value) }
+                onSubmit={ value => {
+                    submitFunc(value);
+                    setIsModalOpen(true);
+                }
+            }
             >
                 <Form className={clsx(css.formRegistration,"formRegistration mt-4")}>
 
@@ -40,10 +47,13 @@ const Step4 = ({submitFunc, userData, prevStep}) => {
                         className="form-control mt-4"
                     />
 
-                    <Btn text='Готово' styled='success' classes="form-control mt-5"/>
+                    <Btn text='Готово' styled='success' classes={["form-control"]}/>
                 </Form>
             </Formik>
-
+            {isModalOpen &&
+                <BasicModalWindow onClose={()=>setIsModalOpen(false)}>
+                    <FinishedRegistrationModal/>
+                </BasicModalWindow>}
             <span onClick={prevStep} className='btn w-100 border-0 mt-3'>Назад</span>
         </>
     )

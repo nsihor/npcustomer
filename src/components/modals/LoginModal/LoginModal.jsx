@@ -43,7 +43,7 @@ const LoginModal = () => {
                             handleSetPassword={changeValue}
                             classes={["mb-4", "mt-sm-1"]}
                             validation={Yup.string()
-                                .min(6, "Мінімум 6 символів")
+                                .min(8, "Мінімум 8 символів")
                                 .required("Поле обов'язкове для заповнення")}
                         />
                         <Btn text='Продовжити' styled='success' classes={["my-1"]}/>
