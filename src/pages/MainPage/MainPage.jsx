@@ -6,7 +6,7 @@ import BasicModalWindow from "../../components/modals/BasicModalWindow/BasicModa
 import LoginModal from "../../components/modals/LoginModal/LoginModal";
 import Statistic from "../../components/Statistic/Statistic";
 
-const MainPage = ({isLoginModalOpen, closeModal}) => {
+const MainPage = () => {
     return (
         <>
             <FirstBlock/>
@@ -14,11 +14,6 @@ const MainPage = ({isLoginModalOpen, closeModal}) => {
             <NewOpportunities/>
             <Delivery/>
             <Shopping/>
-            {isLoginModalOpen && (
-                <BasicModalWindow onClose={closeModal}>
-                    <LoginModal/>
-                </BasicModalWindow>
-            )}
         </>
     );
 }

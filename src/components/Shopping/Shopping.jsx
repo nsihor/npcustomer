@@ -27,7 +27,7 @@ const Shopping = () => {
                                 <svg className={css.svg}>
                                     <use href={sprite + "#icon-checkInCircle"}></use>
                                 </svg>
-                                <p className="mb-3 fs-6">
+                                <p className="fs-6 w-100 px-2">
                                     {t("Shopping.p1")}
                                 </p>
                             </div>
@@ -35,7 +35,7 @@ const Shopping = () => {
                                 <svg className={css.svg}>
                                     <use href={sprite + "#icon-checkInCircle"}></use>
                                 </svg>
-                                <p className="fs-6">
+                                <p className="fs-6 w-100 px-2">
                                     {t("Shopping.p2")}
                                 </p>
                             </div>
@@ -48,7 +48,7 @@ const Shopping = () => {
                                 <svg className={css.svg}>
                                     <use href={sprite + "#icon-checkInCircle"}></use>
                                 </svg>
-                                <p className="mb-3 fs-6">
+                                <p className="fs-6 w-100 px-2">
                                     {t("Shopping.p3")}
                                 </p>
                             </div>
@@ -56,7 +56,7 @@ const Shopping = () => {
                                 <svg className={css.svg}>
                                     <use href={sprite + "#icon-checkInCircle"}></use>
                                 </svg>
-                                <p className="mb-3 fs-6">
+                                <p className="fs-6 w-100 px-2">
                                     {t("Shopping.p4")}
                                 </p>
                             </div>

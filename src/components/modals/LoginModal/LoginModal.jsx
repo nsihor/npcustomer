@@ -11,12 +11,10 @@ import {login} from "../../../services/api";
 import * as Yup from "yup";
 import {useTranslation} from "react-i18next";
 
-const LoginModal = () => {
+const LoginModal = ({onClose}) => {
     const [userData, setUserData] = useState({email: '', password: ''});
 
     const {t} = useTranslation();
-
-    const changeValue = ({target: {name, value}}) => setUserData(() => ({...userData, [name]: value}));
 
     return (
         <div className={css.main}>
@@ -25,29 +23,28 @@ const LoginModal = () => {
                 <h2 className={clsx(css.title, 'mb-4')}>{t("LoginModal.title")}</h2>
                 <Formik
                     initialValues={{email: userData.email, password: userData.password}}
+                    validationSchema={Yup.object({
+                      email: Yup.string()
+                        .email('Некоректний email')
+                        .required("Поле обов'язкове для заповнення"),
+                      password: Yup.string()
+                        .min(8, "Мінімум 8 символів")
+                        .required("Поле обов'язкове для заповнення")
+                    })}
                     onSubmit={(values) => {
                         setUserData(values)
-                        login(userData).then()
-                        console.log(userData)
+                        login(values).then()
+                        onClose();
+                        console.log(values)
                     }}>
                     <Form className='d-flex flex-column w-100'>
                         <InputFloating
                             name='email'
                             type='email'
-                            value={userData.email}
-                            handleOnChange={changeValue}
                             placeholder='Email' classes={["mb-3"]}
-                            validation={Yup.string()
-                                .email('Некоректний email')
-                                .required("Поле обов'язкове для заповнення")}
                         />
                         <PasswordInput
-                            password={userData.password}
-                            handleSetPassword={changeValue}
                             classes={["mb-4", "mt-sm-1"]}
-                            validation={Yup.string()
-                                .min(8, "Мінімум 8 символів")
-                                .required("Поле обов'язкове для заповнення")}
                         />
                         <Btn text={t("LoginModal.btn")} styled='success' classes={["my-1"]}/>
                         {/*{userData.email && userData.password ? (*/}

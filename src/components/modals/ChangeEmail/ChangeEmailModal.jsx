@@ -24,7 +24,7 @@ const ChangeEmailModal = ({onClose}) => {
                         onClose()
                     }}>
                     <Form className='d-flex flex-column w-100'>
-                        <InputFloating name='email' type='email' placeholder='Email' value={email} handleOnChange={changeValue} classes={['mb-4']}/>
+                        <InputFloating name='email' type='email' placeholder='Email' classes={['mb-4']}/>
                         {email ? (
                             <Btn text={t("modal.successBtn")} styled='success' classes={['mb-1', 'mt-2']}/>
                         ) : (

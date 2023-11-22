@@ -5,13 +5,27 @@ import 'bootstrap/dist/js/bootstrap';
 import InputFloating from '../InputFloating/InputFloating';
 import {Form, Formik} from 'formik';
 import Btn from '../Btn/Btn';
-import React from 'react';
+import React, {useState} from 'react';
 import toast from 'react-hot-toast';
 import SelectFloating from '../SelectFloating/SelectFloating';
 import {Countries, PolandRegions} from '../../const/Constants';
+import ChangeEmailModal from '../modals/ChangeEmail/ChangeEmailModal';
+import BasicModalWindow from '../modals/BasicModalWindow/BasicModalWindow';
+import ChangePasswordModal from '../modals/ChangePassword/ChangePasswordModal';
 
 
 const Profile = ({userData}) => {
+  const [isChangeEmailModal, setIsChangeEmailModal] = useState(false);
+  const [isChangePasswordModal, setIsChangePasswordModal] = useState(false);
+
+  const switchEmailModal = () => {
+    setIsChangeEmailModal(prevState => !prevState);
+  }
+
+  const switchPasswordModal = () => {
+    setIsChangePasswordModal(prevState => !prevState);
+  }
+
   const handleCopyText = () => {
     navigator.clipboard.writeText(userData.baselinkerToken);
     toast('Код скопійовано!');
@@ -159,19 +173,20 @@ const Profile = ({userData}) => {
               <div id='collapseFour' className='accordion-collapse collapse'
                    aria-labelledby='headingFour' data-bs-parent='#accordionProfile'>
                 <div className='accordion-body mb-3 pt-0'>
-                  <Formik initialValues={{
-                    email: '',
-                    password: '********',
-                  }}
-                          onSubmit={value => {
-                            console.log(1);
-                          }}>
-
+                  <Formik
+                    initialValues={{
+                      email: '',
+                      password: '********',
+                    }}
+                    onSubmit={value => {
+                      console.log(1);
+                    }}>
                     <Form>
                       <InputFloating name='email' type='email' placeholder='Email' value={userData.email} />
-                      <div className='btn btn-link text-secondary'>Змінити</div>
+                      <div onClick={switchEmailModal} className='btn btn-link text-secondary'>Змінити
+                      </div>
                       <InputFloating name='password' placeholder='Пароль' />
-                      <div className='btn btn-link text-secondary'>Змінити</div>
+                      <div onClick={switchPasswordModal} className='btn btn-link text-secondary'>Змінити</div>
                     </Form>
                   </Formik>
                 </div>
@@ -181,6 +196,16 @@ const Profile = ({userData}) => {
           </div>
         </div>
       </div>
+      {isChangeEmailModal &&
+        <BasicModalWindow onClose={switchEmailModal}>
+          <ChangeEmailModal onClose={switchEmailModal} />
+        </BasicModalWindow>
+      }
+      {isChangePasswordModal &&
+        <BasicModalWindow onClose={switchPasswordModal}>
+          <ChangePasswordModal onClose={switchPasswordModal} />
+        </BasicModalWindow>
+      }
     </div>
   );
 };

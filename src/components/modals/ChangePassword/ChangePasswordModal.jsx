@@ -24,13 +24,15 @@ const ChangeEmailModal = ({onClose}) => {
                         console.log(userPasswords)
                     }}>
                     <Form className='d-flex flex-column w-100'>
-                        <PasswordInput handleSetPassword={changeValue} name='oldPassword' password={userPasswords.oldPassword} classes={['mb-3']}/>
-                        <PasswordInput handleSetPassword={changeValue} name='newPassword' password={userPasswords.newPassword} classes={['mt-1', 'mb-4']}/>
-                        {userPasswords.oldPassword && userPasswords.newPassword ? (
+                        <PasswordInput name='oldPassword' classes={['mb-3']}/>
+                        <PasswordInput name='newPassword' classes={['mt-1', 'mb-4']}/>
+                        <Btn text={t("modal.successBtn")} styled='success' classes={['mb-1', 'mb-2']}/>
+
+                      {/*                        {userPasswords.oldPassword && userPasswords.newPassword ? (
                             <Btn text={t("modal.successBtn")} styled='success' classes={['mb-1', 'mb-2']}/>
                         ) : (
                             <Btn params={{disabled: true}} text={t("modal.successBtn")} styled='secondary' classes={['mb-1', 'mb-2']}/>
-                        )}
+                        )}*/}
                     </Form>
                 </Formik>
                 <button onClick={onClose} style={{color: '#475569', height: '45px'}}

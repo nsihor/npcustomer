@@ -18,11 +18,8 @@ const PasswordInput = ({handleSetPassword, password, inputClass = '', name='pass
                     name={name}
                     type={isPasswordVisible ? 'text' : 'password'}
                     placeholder='Пароль'
-                    // value={password}
-                    // onChange={handleSetPassword}
                     id={`floating${name}`}
                     className={clsx(css[inputClass], 'input form-control')}
-                    // validation={validation}
                 />
                 <label className="label" htmlFor={`floating${name}`}>{t("PasswordInputPlaceholder")}</label>
                 <div className="errorInput"><ErrorMessage name={name} /></div>
