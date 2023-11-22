@@ -9,9 +9,12 @@ import PasswordInput from "../../PasswordInput/PasswordInput";
 import InputFloating from "../../InputFloating/InputFloating";
 import {login} from "../../../services/api";
 import * as Yup from "yup";
+import {useTranslation} from "react-i18next";
 
 const LoginModal = () => {
     const [userData, setUserData] = useState({email: '', password: ''});
+
+    const {t} = useTranslation();
 
     const changeValue = ({target: {name, value}}) => setUserData(() => ({...userData, [name]: value}));
 
@@ -19,7 +22,7 @@ const LoginModal = () => {
         <div className={css.main}>
             <div className={css.wrap}>
                 <img className={clsx(css.img_warehouse, 'mb-sm-4 mb-3')} src={img} alt='products'/>
-                <h2 className={clsx(css.title, 'mb-4')}>Вхід</h2>
+                <h2 className={clsx(css.title, 'mb-4')}>{t("LoginModal.title")}</h2>
                 <Formik
                     initialValues={{email: userData.email, password: userData.password}}
                     onSubmit={(values) => {
@@ -46,7 +49,7 @@ const LoginModal = () => {
                                 .min(8, "Мінімум 8 символів")
                                 .required("Поле обов'язкове для заповнення")}
                         />
-                        <Btn text='Продовжити' styled='success' classes={["my-1"]}/>
+                        <Btn text={t("LoginModal.btn")} styled='success' classes={["my-1"]}/>
                         {/*{userData.email && userData.password ? (*/}
                         {/*    <Btn text='Продовжити' styled='success' classes={["my-1"]}/>*/}
                         {/*) : (*/}
@@ -58,7 +61,7 @@ const LoginModal = () => {
                     style={{height: '45px', color: '#475569'}}
                     to={'/registration'}
                     className='btn btn-light text-nowrap bg-transparent border-0 py-2 w-100'>
-                    Зареєструватися
+                    {t("LoginModal.link")}
                 </Link>
             </div>
         </div>

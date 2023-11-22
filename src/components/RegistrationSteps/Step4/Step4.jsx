@@ -8,14 +8,17 @@ import Btn from '../../../components/Btn/Btn';
 import InputFloating from "../../InputFloating/InputFloating";
 import FinishedRegistrationModal from "../../modals/FinishedRegistrationModal/FinishedRegistrationModal";
 import BasicModalWindow from "../../modals/BasicModalWindow/BasicModalWindow";
+import {useTranslation} from "react-i18next";
 
 const Step4 = ({submitFunc, userData, prevStep}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    const {t} = useTranslation();
+
     return (
         <>
-            <div className={clsx(css.formSmallText,"formSmallText")}>КРОК 04<span>/04</span></div>
-            <h1 className="fw-600 mt-4">Дода ткова інформація</h1>
+            <div className={clsx(css.formSmallText,"formSmallText")}>{t("RegistrationSteps.step").toUpperCase()} 04<span>/04</span></div>
+            <h1 className="fw-600 mt-4">{t("RegistrationSteps.Step4.title")}</h1>
             <Formik
                 initialValues={{
                     userName: userData.userName ?? '',
@@ -35,26 +38,28 @@ const Step4 = ({submitFunc, userData, prevStep}) => {
             >
                 <Form className={clsx(css.formRegistration,"formRegistration mt-4")}>
 
-                    <label className={clsx(css.inputSmallText,"inputSmallText")} htmlFor="userName">Контактна особа</label>
-                    <InputFloating name='userName' placeholder="Ім'я та прізвище"/>
+                    <label className={clsx(css.inputSmallText,"inputSmallText")} htmlFor="userName">
+                        {t("RegistrationSteps.Step4.label")}
+                    </label>
+                    <InputFloating name='userName' placeholder={t("RegistrationSteps.Step4.inputFloatingNamePlaceholder")}/>
 
-                    <InputFloating name='phone' placeholder='Номер телефону'/>
+                    <InputFloating name='phone' placeholder={t("RegistrationSteps.Step4.inputFloatingPhonePlaceholder")}/>
 
                     <Field
                         name='logo'
                         type='file'
-                        placeholder='Номер телефону'
+                        placeholder={t("RegistrationSteps.Step4.inputFloatingPhonePlaceholder")}
                         className="form-control mt-4"
                     />
 
-                    <Btn text='Готово' styled='success' classes={["form-control"]}/>
+                    <Btn text={t("RegistrationSteps.Step4.btn")} styled='success' classes={["form-control"]}/>
                 </Form>
             </Formik>
             {isModalOpen &&
-                <BasicModalWindow onClose={()=>setIsModalOpen(false)}>
+                <BasicModalWindow onClose={()=> setIsModalOpen(false)}>
                     <FinishedRegistrationModal/>
                 </BasicModalWindow>}
-            <span onClick={prevStep} className='btn w-100 border-0 mt-3'>Назад</span>
+            <span onClick={prevStep} className='btn w-100 border-0 mt-3'>{t("RegistrationSteps.btnBack")}</span>
         </>
     )
 

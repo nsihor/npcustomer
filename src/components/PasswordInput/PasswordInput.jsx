@@ -3,9 +3,13 @@ import clsx from "clsx";
 import css from "./PasswordInput.module.scss"
 import sprite from "../../images/sprite.svg"
 import React, {useState} from "react";
+import {useTranslation} from "react-i18next";
 
 const PasswordInput = ({handleSetPassword, password, inputClass = '', name='password', classes = [], validation}) => {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+    const {t} = useTranslation();
+
     const switchIsPasswordVisible = () => setIsPasswordVisible(prevState => !prevState);
 
     return (
@@ -20,7 +24,7 @@ const PasswordInput = ({handleSetPassword, password, inputClass = '', name='pass
                     className={clsx(css[inputClass], 'input form-control')}
                     // validation={validation}
                 />
-                <label className="label" htmlFor={`floating${name}`}>Пароль</label>
+                <label className="label" htmlFor={`floating${name}`}>{t("PasswordInputPlaceholder")}</label>
                 <div className="errorInput"><ErrorMessage name={name} /></div>
                 <svg onClick={switchIsPasswordVisible} className='svg'>
                     <use href={sprite + `${isPasswordVisible ? '#icon-openEye' : '#icon-closeEye'}`}></use>

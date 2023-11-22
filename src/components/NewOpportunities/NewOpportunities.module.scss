@@ -19,25 +19,6 @@
   bottom: 0;
 }
 
-.statSm {
-  background: #E63629;
-  border-radius: 10px;
-  width: 500px;
-  position: absolute;
-  right: 0;
-  top: -62px;
-  padding: 30px 25px;
-  font-size: 13px;
-  color: #ffffff;
-  z-index: 2;
-}
-
-.statSmDigit {
-  font-weight: 600;
-  font-size: 42px;
-  margin-right: 10px;
-}
-
 .statDigit {
   font-size: 60px;
   font-weight: 600;
@@ -50,21 +31,4 @@
   width: fit-content;
   padding: 0.5rem;
   margin: auto;
-}
-
-@media screen and (max-width: 720px) {
-  .statSm {
-    position: relative;
-    top: auto;
-    width: auto;
-    margin: 0 -12px;
-    overflow: hidden;
-    border-radius: 0;
-    padding: 20px 10px;
-    text-align: center;
-  }
-
-  .statSmDigit {
-    margin-right: 0;
-  }
 }

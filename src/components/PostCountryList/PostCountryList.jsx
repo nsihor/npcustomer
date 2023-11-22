@@ -1,27 +1,16 @@
 import clsx from "clsx";
 import css from "./PostCountryList.module.scss";
 import PostCountryListItem from "./PostCountryListItem/PostCountryListItem";
+import {useTranslation} from "react-i18next";
+
 const PostCountryList = ({sliderName, title, width ,nowOpen, openFunc}) => {
+    const {t} = useTranslation();
+
     const chooseArr = (sliderName) => {
-        if (sliderName === 'slide2') {
-            return [
-                'Працює з жовтня 2022 року',
-                'На березень 2023 року має 21 відділення у 9 містах',
-                'До кінця року планується відкрити 200 нових відділень',
-                'Середній час доставки між Польщею та Україною - 2,5 доби'
-            ]
-        }
-        if (sliderName === 'slide1') {
-            return [
-                'Найбільша логістична компанія, працює з 2001 року',
-                'Понад 23 000 точок видачі',
-                'Понад 1 млн доставок на день',
-                'Лояльність споживачів - 99%',
-                'Впізнаваність бренду - 100%',
-                'Додаток Nova Post входить в топ3 мобільних додатків України'
-            ]
-        }
+        if (sliderName === 'slide1') return t("PostCountryList.slide1", {returnObjects: true})
+        if (sliderName === 'slide2') return t("PostCountryList.slide2", {returnObjects: true})
     }
+
     const chosenText = chooseArr(sliderName)
 
     return (

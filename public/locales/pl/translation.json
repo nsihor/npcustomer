@@ -1,0 +1,113 @@
+{
+  "current": "pl",
+  "constants": {
+    "Countries": [
+      {
+        "value": "PL",
+        "label": "Polska"
+      }
+    ]
+  },
+  "header": {
+    "about": "Kim jesteśmy",
+    "advantages": "Nasze atuty",
+    "authorize": "Wyjście"
+  },
+  "Breadcrumbs": "Główna",
+  "DeliveryTitle": "dostarczanie przyszłości",
+  "FirstBlock": {
+    "title": "targowisko polskich towarów na Ukrainie",
+    "text": "Zostań sprzedawcą w największej ukraińskiej aplikacji, a my zajmiemy się logistyką, wsparciem technicznym i znajomością ukraińskiego e-commerce.",
+    "btn": "Stać się partnerem"
+  },
+  "footer": {
+    "rights": "Wszelkie prawa zastrzeżone",
+    "confidentiality": "Polityka prywatności"
+  },
+  "modal": {
+    "changeTitle": "Zmień",
+    "closeBtn": "Anulować",
+    "successBtn": "ratować"
+  },
+  "FinishedRegistrationModal": {
+    "toast": "Kod skopiowany!",
+    "title": "Gratulacje",
+    "infoText": "Aby usługa działała poprawnie, dodaj informacje o płatności i dostawie na swoim koncie",
+    "tokenText": "Wygenerujemy dla Ciebie token. Skopiuj ten klucz i wklej go na swoje konto BaseLinker.",
+    "link": "Do biura firmy"
+  },
+  "LoginModal": {
+    "title": "Wyjście",
+    "btn": "Kontynuować",
+    "link": "Zapisać się"
+  },
+  "NewOpportunities": {
+    "title": "Otwórz nowe możliwości dla swojego biznesu na Ukrainie",
+    "description": "Zapewniamy dostęp do milionów klientów chcących kupić polskie towary",
+    "turnover": "miliardów dolarów to wielkość handlu elektronicznego",
+    "activeCards": "miliony aktywnych kart bankowych do płatności online",
+    "customsClearance": "dla wartości < niż 150 euro odprawa celna nie jest wymagana"
+  },
+  "PasswordInputPlaceholder": "Hasło",
+  "PostCountryList": {
+    "slide1": [
+      "Największa firma logistyczna, działająca od 2001 roku",
+      "Ponad 23 000 punktów dostaw",
+      "Ponad 1 milion dostaw dziennie",
+      "Lojalność konsumentów - 99%",
+      "Rozpoznawalność marki - 100%",
+      "Aplikacja Nova Post znajduje się w pierwszej trójce aplikacji mobilnych na Ukrainie"
+    ],
+    "slide2": [
+      "Działa od października 2022",
+      "Od marca 2023 roku posiada 21 oddziałów w 9 miastach",
+      "Do końca roku planowane jest otwarcie 200 nowych oddziałów",
+      "Średni czas dostawy pomiędzy Polską a Ukrainą wynosi 2,5 dnia"
+    ]
+  },
+  "RegistrationSteps": {
+    "title": "Zarejestruj się w zaledwie 4 krokach:",
+    "step": "krok",
+    "authorizationStep": "Upoważnienie",
+    "aboutStep": "O firmie",
+    "adresStep": "Adres",
+    "additionalStep": "Dodatkowe informacje",
+    "btnContinue": "Kontynuować",
+    "btnBack": "Z powrotem",
+    "Step1": "Upoważnienie",
+    "Step2": {
+      "title": "O firmie",
+      "inputFloatingCompanyPlaceholder": "Nazwa firmy",
+      "selectFloatingPlaceholder": "Kraj lokalizacji firmy",
+      "inputFloatingNIPPlaceholder": "Nazwa firmy"
+    },
+    "Step3": {
+      "title": "Adres",
+      "selectFloatingRegionPlaceholder": "Województwo",
+      "inputFloatingCityPlaceholder": "Miasto",
+      "inputFloatingStreetPlaceholder": "Ulica",
+      "inputFloatingHousePlaceholder": "Dom",
+      "inputFloatingOfficePlaceholder": "Biuro (opcjonalnie)"
+    },
+    "Step4": {
+      "title": "Dodatkowe informacje",
+      "label": "Osoba kontaktowa",
+      "inputFloatingNamePlaceholder": "Imię i nazwisko",
+      "inputFloatingPhonePlaceholder": "Numer telefonu",
+      "btn": "Zrobione"
+    }
+  },
+  "selectFloating": "Wybierz kraj",
+  "Shopping": {
+    "app": "Dodatek",
+    "marketPlace": "Rynek",
+    "p1": "ma 7 milionów aktywnych użytkowników",
+    "p2": "około 1 miliarda interakcji miesięcznie",
+    "p3": "wygodna platforma do zarządzania produktami i realizacji zamówień",
+    "p4": "unikalne integracje z Google, które zapewniają maksymalną obecność we wszystkich kanałach reklamowych"
+  },
+  "Statistic": {
+    "users": "miliony potencjalnych użytkowników",
+    "customers": "miliony aktywnych klientów online"
+  }
+}

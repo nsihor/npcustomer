@@ -1,10 +1,13 @@
 import css from "./Delivery.module.scss";
 import {useState} from "react";
 import PostCountryList from "../PostCountryList/PostCountryList";
-
+import {useTranslation} from "react-i18next"
 const Delivery = () => {
+
   const [sliderWidth, setSliderWidth] = useState({slide1:'wide', slide2:'tight'});
   const [nowOpen, setNowOpen] = useState('slide1')
+
+  const {t} = useTranslation();
 
   const handleSlider1Hover = () => {
     setSliderWidth({slide1:'wide', slide2:'tight'});
@@ -22,7 +25,7 @@ const Delivery = () => {
       <div className="container">
         <div className="row align-items-center">
           <div className="col-12 col-lg-4">
-            <h2 className="mb-4">Nova Post - доставка майбутнього</h2>
+            <h2 className="mb-4">Nova Post - {t("DeliveryTitle")}</h2>
           </div>
           <div className="col-12 col-lg-8 d-flex">
             <div className="slider-block d-flex flex-column flex-md-row">
