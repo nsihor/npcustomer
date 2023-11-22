@@ -1,4 +1,3 @@
-import nav from 'react-bootstrap/nav';
 import sprite from "../../images/sprite.svg";
 import clsx from "clsx";
 import css from "../Header/Headeer.module.scss";
@@ -20,8 +19,8 @@ const Header = ({openLoginModal}) => {
                  </div>
                  <div className="col-12 col-md-9 justify-content-end d-flex gap-5 align-items-center">
                      <nav className="menu d-flex justify-content-between fs-6 gap-5">
-                         <a href="#about">{t("header.about")}</a>
-                         <a href="#advantages">{t("header.advantages")}</a>
+                         <a href="/#about">{t("header.about")}</a>
+                         <a href="/#advantages">{t("header.advantages")}</a>
                      </nav>
                     <Lang/>
                     <Authorize openModalFunc={openLoginModal}/>
