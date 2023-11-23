@@ -18,8 +18,8 @@ const ChangeEmailModal = ({onClose}) => {
                         console.log(values)
                     }}>
                     <Form className='d-flex flex-column w-100'>
-                        <PasswordInput name='oldPassword' classes={['mb-3']}/>
-                        <PasswordInput name='newPassword' classes={['mt-1', 'mb-4']}/>
+                        <PasswordInput name='oldPassword' placeholder='old' classes={['mb-3']}/>
+                        <PasswordInput name='newPassword' placeholder='new' classes={['mt-1', 'mb-4']}/>
                         <Btn text={t("modal.successBtn")} styled='success' classes={['mb-1', 'mb-2']}/>
                     </Form>
                 </Formik>
