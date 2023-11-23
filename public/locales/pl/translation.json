@@ -97,6 +97,7 @@
       "label": "Osoba kontaktowa",
       "inputFloatingNamePlaceholder": "Imię i nazwisko",
       "inputFloatingPhonePlaceholder": "Numer telefonu",
+      "inputFileUploader": "Pobierz logo firmy w celu dodatkowej personalizacji",
       "btn": "Zrobione"
     }
   },

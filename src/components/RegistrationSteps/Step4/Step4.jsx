@@ -3,17 +3,22 @@ import React, { useState } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import clsx from 'clsx';
+import { FileUploader } from "react-drag-drop-files";
 
 import Btn from '../../../components/Btn/Btn';
 import InputFloating from "../../InputFloating/InputFloating";
 import FinishedRegistrationModal from "../../modals/FinishedRegistrationModal/FinishedRegistrationModal";
 import BasicModalWindow from "../../modals/BasicModalWindow/BasicModalWindow";
 import {useTranslation} from "react-i18next";
+const fileTypes = ["JPG", "PNG"];
 
 const Step4 = ({submitFunc, userData, prevStep}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-
     const {t} = useTranslation();
+    const [file, setFile] = useState(null);
+    const handleChange = (file) => {
+        setFile(file);
+    };
 
     return (
         <>
@@ -26,8 +31,8 @@ const Step4 = ({submitFunc, userData, prevStep}) => {
                     logo: userData.logo ?? '',
                 }}
                 validationSchema={Yup.object({
-                    userName: Yup.string().required("Поле обов'язкове для заповнення"),
-                    phone: Yup.string().required("Поле обов'язкове для заповнення"),
+                    userName: Yup.string().required("Поле обов'язкове для заповнення").trim(),
+                    phone: Yup.string().required("Поле обов'язкове для заповнення").trim(),
                     logo: Yup.string().required("Поле обов'язкове для заповнення"),
                 })}
                 onSubmit={ value => {
@@ -45,12 +50,14 @@ const Step4 = ({submitFunc, userData, prevStep}) => {
 
                     <InputFloating name='phone' placeholder={t("RegistrationSteps.Step4.inputFloatingPhonePlaceholder")}/>
 
-                    <Field
-                        name='logo'
-                        type='file'
-                        placeholder={t("RegistrationSteps.Step4.inputFloatingPhonePlaceholder")}
-                        className="form-control mt-4"
-                    />
+                    <div className="mt-4 mb-4">
+                        <FileUploader
+                            handleChange={handleChange}
+                            name="file"
+                            types={fileTypes}
+                            label={t("RegistrationSteps.Step4.inputFileUploader")}
+                        />
+                    </div>
 
                     <Btn text={t("RegistrationSteps.Step4.btn")} styled='success' classes={["form-control"]}/>
                 </Form>

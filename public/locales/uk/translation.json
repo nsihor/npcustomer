@@ -97,6 +97,7 @@
       "label": "Контактна особа",
       "inputFloatingNamePlaceholder": "Ім'я та прізвище",
       "inputFloatingPhonePlaceholder": "Номер телефону",
+      "inputFileUploader": "Завантажити логотип компанії, для додаткової персоналізації",
       "btn": "Готово"
     }
   },

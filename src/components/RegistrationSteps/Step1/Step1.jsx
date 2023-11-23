@@ -13,7 +13,7 @@ const Step1 = ({submitFunc, userData}) => {
   return (
     <>
       <div className='formSmallText'>{t('RegistrationSteps.step').toUpperCase()} 01<span>/04</span></div>
-      <h1 className='fw-600 mt-4'>{t('RegistrationSteps.Step1').toUpperCase()}</h1>
+      <h1 className='fw-600 mt-4'>{t('RegistrationSteps.Step1')}</h1>
       <Formik
         initialValues={{
           email: userData.email ?? '',
@@ -54,7 +54,7 @@ const Step1 = ({submitFunc, userData}) => {
         })}
         onSubmit={value => submitFunc(value)}
       >
-        <Form on className='formRegistration mt-4'>
+        <Form className='formRegistration mt-4'>
 
           <InputFloating name='email' placeholder='Email' type='email' />
 
@@ -62,7 +62,7 @@ const Step1 = ({submitFunc, userData}) => {
 
           <PasswordInput name='passwordConfirmation' classes={['mt-3']} />
 
-          <Btn text={t('RegistrationSteps.btnContinue')} disabled={{/*hasError*/}} styled='secondary'
+          <Btn text={t('RegistrationSteps.btnContinue')} styled='secondary'
                classes={['w-100 mt-5']} />
         </Form>
       </Formik>

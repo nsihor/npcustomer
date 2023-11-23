@@ -15,7 +15,7 @@ const SelectFloating = ({name, options, placeholder}) => {
                 className={clsx(css.select,"select form-control")}
                 as='select'
             >
-                <option>{t("selectFloating")}</option>
+                <option></option>
                 {options.map((option) => (
                     <option key={option.value} value={option.value}>{option.label}</option>
                 ))}

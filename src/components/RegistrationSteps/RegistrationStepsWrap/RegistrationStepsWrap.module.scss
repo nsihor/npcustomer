@@ -17,7 +17,6 @@ $red: #DA291C;
 
   .leftSide {
     padding: 60px;
-    width: 459px;
     border-radius: var(--gap-0, 0px);
     background: var(--bg-powder-blue-light, #C4E9E0);
 
@@ -85,7 +84,7 @@ $red: #DA291C;
   }
 
   .rightSide {
-    padding: 60px;
+    padding: 60px 100px;
     border-radius: var(--gap-0, 0px);
     height: 750px;
 

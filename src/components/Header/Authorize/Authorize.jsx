@@ -4,8 +4,7 @@ import sprite from "../../../images/sprite.svg";
 import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 
-const Authorize = ({openModalFunc}) => {
-    const companyName = localStorage.getItem("companyName");
+const Authorize = ({openModalFunc, companyName}) => {
     const { t} = useTranslation();
 
  return (

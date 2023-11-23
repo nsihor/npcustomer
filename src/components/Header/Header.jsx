@@ -5,7 +5,7 @@ import Lang from "../Lang/Lang";
 import Authorize from "./Authorize/Authorize";
 import {useTranslation} from "react-i18next";
 
-const Header = ({openLoginModal}) => {
+const Header = ({openLoginModal, companyName}) => {
     const { t} = useTranslation();
 
  return (
@@ -23,7 +23,7 @@ const Header = ({openLoginModal}) => {
                          <a href="/#advantages">{t("header.advantages")}</a>
                      </nav>
                     <Lang/>
-                    <Authorize openModalFunc={openLoginModal}/>
+                    <Authorize openModalFunc={openLoginModal} companyName={companyName}/>
                  </div>
              </div>
          </div>

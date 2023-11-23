@@ -10,7 +10,7 @@ import {login} from "../../../services/api";
 import * as Yup from "yup";
 import {useTranslation} from "react-i18next";
 
-const LoginModal = ({onClose}) => {
+const LoginModal = ({onClose, addCompanyName}) => {
     const {t} = useTranslation();
 
     return (
@@ -29,7 +29,7 @@ const LoginModal = ({onClose}) => {
                         .required("Поле обов'язкове для заповнення")
                     })}
                     onSubmit={(values) => {
-                        login(values).then()
+                        login(values).then(data => addCompanyName(data.data.merchantName))
                         console.log(values)
                         onClose();
                     }}>

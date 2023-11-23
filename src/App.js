@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Layout from './components/Layout/Layout';
 import {Route, Routes} from 'react-router-dom';
 import MainPage from './pages/MainPage/MainPage';
@@ -12,12 +12,19 @@ import LoginModal from './components/modals/LoginModal/LoginModal';
 
 function App() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const switchLoginModal = () => setIsLoginModalOpen(prevState => !prevState)
+  const [companyName, setCompanyName] = useState('');
+  useEffect(() => {
+    !companyName && setCompanyName(localStorage.getItem('companyName'));
+    console.log(companyName);
+  }, [companyName]);
+  const switchLoginModal = () => setIsLoginModalOpen(prevState => !prevState);
+  const addCompanyName = (name) => setCompanyName(name);
+
 
   return (
     <>
       <Routes>
-        <Route path='/' element={<Layout openLoginModal={switchLoginModal} />}>
+        <Route path='/' element={<Layout openLoginModal={switchLoginModal} companyName={companyName} />}>
           <Route index element={<MainPage />} />
           <Route path='/registration' element={<Registration />} />
           <Route path='/profile' element={<ProfilePage />} />
@@ -27,7 +34,7 @@ function App() {
       <Toaster />
       {isLoginModalOpen && (
         <BasicModalWindow onClose={switchLoginModal}>
-          <LoginModal onClose={switchLoginModal} />
+          <LoginModal onClose={switchLoginModal} addCompanyName={addCompanyName}/>
         </BasicModalWindow>
       )}
     </>

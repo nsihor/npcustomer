@@ -26,11 +26,15 @@ const Step3 = ({submitFunc, userData, prevStep}) => {
                     office: userData.office ?? '',
                 }}
                 validationSchema={Yup.object({
-                    region: Yup.string().required(),
-                    city: Yup.string().required(),
-                    street: Yup.string().required("Поле обов'язкове для заповнення"),
-                    house: Yup.string().required("Поле обов'язкове для заповнення"),
-                    office: Yup.string(),
+                    region: Yup.string().required("Поле обов'язкове для заповнення"),
+                    city: Yup.string().required("Поле обов'язкове для заповнення").trim()
+                        .matches(
+                            /^(?!(?:.* ){2})/,
+                            'Заборонена послідовність декількох символів відступів підряд',
+                        ),
+                    street: Yup.string().required("Поле обов'язкове для заповнення").trim(),
+                    house: Yup.string().required("Поле обов'язкове для заповнення").trim(),
+                    office: Yup.string().trim(),
                 })}
                 onSubmit={ value => submitFunc(value) }
             >
