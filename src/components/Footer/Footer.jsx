@@ -15,8 +15,8 @@ const Footer = () => {
                   </div>
                   <div className="col-12 col-md-8">
                       <nav className={clsx(css.menu, "w-100 d-flex justify-content-md-end justify-content-center mb-4 mb-md-0 gap-5")}>
-                          <a className="px-5" href="about">{t("header.about")}</a>
-                          <a className="px-5" href="advantages">{t("header.advantages")}</a>
+                          <a className="px-5" href="/#about">{t("header.about")}</a>
+                          <a className="px-5" href="/#advantages">{t("header.advantages")}</a>
                       </nav>
                   </div>
               </div>

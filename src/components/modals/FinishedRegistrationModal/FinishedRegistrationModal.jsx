@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 import toast from "react-hot-toast";
 import {useTranslation} from "react-i18next";
 
-const FinishedRegistrationModal = ({code = '5daf47f72ae20f7894155a1b66f85cb0'}) => {
+const FinishedRegistrationModal = ({code}) => {
     const {t} = useTranslation();
 
     const handleCopyText = () => {

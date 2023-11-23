@@ -9,6 +9,7 @@ import InputFloating from "../../InputFloating/InputFloating";
 import {login} from "../../../services/api";
 import * as Yup from "yup";
 import {useTranslation} from "react-i18next";
+import toast from 'react-hot-toast';
 
 const LoginModal = ({onClose, addCompanyName}) => {
     const {t} = useTranslation();
@@ -29,9 +30,14 @@ const LoginModal = ({onClose, addCompanyName}) => {
                         .required("Поле обов'язкове для заповнення")
                     })}
                     onSubmit={(values) => {
-                        login(values).then(data => addCompanyName(data.data.merchantName))
-                        console.log(values)
-                        onClose();
+                        login(values)
+                          .then(data => {
+                              addCompanyName(data.data.merchantName);
+                              onClose();
+                          })
+                          .catch(
+                            toast.error('Email не підтверждений або не існує'),
+                          );
                     }}>
                     <Form className='d-flex flex-column w-100'>
                         <InputFloating

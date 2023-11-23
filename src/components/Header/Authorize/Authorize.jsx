@@ -10,7 +10,7 @@ const Authorize = ({openModalFunc, companyName}) => {
  return (
      <>
          {!companyName ? (
-             <div onClick={openModalFunc} className={clsx(css.authorize, "d-flex gap-2 align-items-center")}>
+             <div onClick={openModalFunc} className={clsx(css.authorize, "d-flex gap-2 align-items-center cursor-pointer")}>
                  <svg width="24" height="24"><use href={sprite + "#icon-entrance"}/></svg>
                  <span>{t("header.authorize")}</span>
              </div>

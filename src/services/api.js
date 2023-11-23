@@ -1,4 +1,5 @@
 import axios from "axios";
+import toast from 'react-hot-toast';
 
 axios.defaults.baseURL = 'http://localhost:8080/api/v1/merchant/';
 
@@ -13,13 +14,24 @@ export const login =
     async (user) => {
         try {
             const { data } = await axios.post('login', user);
-            localStorage.setItem("companyName", data.data.merchantName);
+            data?.data?.merchantName && localStorage.setItem("companyName", data.data.merchantName)
             setToken(data.data.token);
             return data;
         } catch (error) {
             return error.message;
         }
     }
+
+export const register =
+  async (user) => {
+    try {
+      const { data } = await axios.post('register', user);
+
+      return data;
+    } catch (error) {
+      return error.message;
+    }
+  };
 
 export const profile =
     async () => {

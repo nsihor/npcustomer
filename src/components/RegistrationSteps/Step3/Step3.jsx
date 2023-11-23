@@ -22,7 +22,7 @@ const Step3 = ({submitFunc, userData, prevStep}) => {
                     region: userData.region ?? '',
                     city: userData.city ?? '',
                     street: userData.street ?? '',
-                    house: userData.house ?? '',
+                  building: userData.house ?? '',
                     office: userData.office ?? '',
                 }}
                 validationSchema={Yup.object({
@@ -33,7 +33,7 @@ const Step3 = ({submitFunc, userData, prevStep}) => {
                             'Заборонена послідовність декількох символів відступів підряд',
                         ),
                     street: Yup.string().required("Поле обов'язкове для заповнення").trim(),
-                    house: Yup.string().required("Поле обов'язкове для заповнення").trim(),
+                  building: Yup.string().required("Поле обов'язкове для заповнення").trim(),
                     office: Yup.string().trim(),
                 })}
                 onSubmit={ value => submitFunc(value) }
@@ -47,7 +47,7 @@ const Step3 = ({submitFunc, userData, prevStep}) => {
                     <InputFloating name='street' placeholder={t("RegistrationSteps.Step3.inputFloatingStreetPlaceholder")}/>
 
                     <div className="input-group gap-3">
-                        <InputFloating name='house' placeholder={t("RegistrationSteps.Step3.inputFloatingHousePlaceholder")}/>
+                        <InputFloating name='building' placeholder={t("RegistrationSteps.Step3.inputFloatingHousePlaceholder")}/>
                         <InputFloating name='office' placeholder={t("RegistrationSteps.Step3.inputFloatingOfficePlaceholder")}/>
                     </div>
 
