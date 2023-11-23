@@ -14,7 +14,11 @@
     "authorize": "Wyjście"
   },
   "Breadcrumbs": "Główna",
-  "DeliveryTitle": "dostarczanie przyszłości",
+  "Delivery": {
+    "title": "Nova Post – dostawa przyszłości",
+    "slide1Title": "Nowa Post w Ukrainie",
+    "slide2Title": "Nowa Post w Polsce"
+  },
   "FirstBlock": {
     "title": "targowisko polskich towarów na Ukrainie",
     "text": "Zostań sprzedawcą w największej ukraińskiej aplikacji, a my zajmiemy się logistyką, wsparciem technicznym i znajomością ukraińskiego e-commerce.",

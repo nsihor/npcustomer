@@ -12,7 +12,7 @@ i18n
         fallbackLng: 'pl',
         // debug: true,
         detection: {
-            order: ['queryString', 'cookie']
+            order: ['localStorage', 'cookie']
         },
         interpolation: {
             escapeValue: false,

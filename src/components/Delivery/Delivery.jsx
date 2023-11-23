@@ -25,12 +25,12 @@ const Delivery = () => {
       <div className="container">
         <div className="row align-items-center">
           <div className="col-12 col-lg-4">
-            <h2 className="mb-4">Nova Post - {t("DeliveryTitle")}</h2>
+            <h2 className="mb-4">{t("Delivery.title")}</h2>
           </div>
           <div className="col-12 col-lg-8 d-flex">
             <div className="slider-block d-flex flex-column flex-md-row">
-              <PostCountryList openFunc={handleSlider1Hover} nowOpen={nowOpen} width={sliderWidth.slide1}  sliderName='slide1' title='Nova Post в Україні'/>
-              <PostCountryList openFunc={handleSlider2Hover} nowOpen={nowOpen} width={sliderWidth.slide2} sliderName='slide2' title='Nova Post в Польщі'/>
+              <PostCountryList openFunc={handleSlider1Hover} nowOpen={nowOpen} width={sliderWidth.slide1}  sliderName='slide1' title={t("Delivery.slide1Title")}/>
+              <PostCountryList openFunc={handleSlider2Hover} nowOpen={nowOpen} width={sliderWidth.slide2} sliderName='slide2' title={t("Delivery.slide2Title")}/>
             </div>
           </div>
         </div>
