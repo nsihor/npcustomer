@@ -109,5 +109,10 @@
   "Statistic": {
     "users": "miliony potencjalnych użytkowników",
     "customers": "miliony aktywnych klientów online"
+  },
+  "Page404": {
+    "title": "Wygląda na to, że się zgubiłeś",
+    "p": "strona, której szukasz, nie jest dostępna",
+    "btn": "Na głównym"
   }
 }
