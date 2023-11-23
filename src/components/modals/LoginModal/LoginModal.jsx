@@ -3,7 +3,6 @@ import css from "../Modals.module.scss"
 import img from "../../../images/Modal/login.png"
 import {Form, Formik} from "formik";
 import Btn from "../../Btn/Btn";
-import {useState} from "react";
 import {Link} from "react-router-dom";
 import PasswordInput from "../../PasswordInput/PasswordInput";
 import InputFloating from "../../InputFloating/InputFloating";
@@ -12,8 +11,6 @@ import * as Yup from "yup";
 import {useTranslation} from "react-i18next";
 
 const LoginModal = ({onClose}) => {
-    const [userData, setUserData] = useState({email: '', password: ''});
-
     const {t} = useTranslation();
 
     return (
@@ -22,7 +19,7 @@ const LoginModal = ({onClose}) => {
                 <img className={clsx(css.img_warehouse, 'mb-sm-4 mb-3')} src={img} alt='products'/>
                 <h2 className={clsx(css.title, 'mb-4')}>{t("LoginModal.title")}</h2>
                 <Formik
-                    initialValues={{email: userData.email, password: userData.password}}
+                    initialValues={{email: '', password: ''}}
                     validationSchema={Yup.object({
                       email: Yup.string()
                         .email('Некоректний email')
@@ -32,10 +29,9 @@ const LoginModal = ({onClose}) => {
                         .required("Поле обов'язкове для заповнення")
                     })}
                     onSubmit={(values) => {
-                        setUserData(values)
                         login(values).then()
-                        onClose();
                         console.log(values)
+                        onClose();
                     }}>
                     <Form className='d-flex flex-column w-100'>
                         <InputFloating
@@ -47,11 +43,7 @@ const LoginModal = ({onClose}) => {
                             classes={["mb-4", "mt-sm-1"]}
                         />
                         <Btn text={t("LoginModal.btn")} styled='success' classes={["my-1"]}/>
-                        {/*{userData.email && userData.password ? (*/}
-                        {/*    <Btn text='Продовжити' styled='success' classes={["my-1"]}/>*/}
-                        {/*) : (*/}
-                        {/*    <Btn params={{disabled: true}} text='Продовжити' styled='secondary' classes={["my-1"]}/>*/}
-                        {/*)}*/}
+                        {/* Example disabled <Btn params={{disabled: true}} text='Продовжити' styled='secondary' classes={["my-1"]}/>*/}
                     </Form>
                 </Formik>
                 <Link

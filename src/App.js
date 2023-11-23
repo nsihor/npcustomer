@@ -12,11 +12,12 @@ import LoginModal from './components/modals/LoginModal/LoginModal';
 
 function App() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const switchLoginModal = () => setIsLoginModalOpen(prevState => !prevState)
 
   return (
     <>
       <Routes>
-        <Route path='/' element={<Layout openLoginModal={() => setIsLoginModalOpen(true)} />}>
+        <Route path='/' element={<Layout openLoginModal={switchLoginModal} />}>
           <Route index element={<MainPage />} />
           <Route path='/registration' element={<Registration />} />
           <Route path='/profile' element={<ProfilePage />} />
@@ -25,12 +26,8 @@ function App() {
       </Routes>
       <Toaster />
       {isLoginModalOpen && (
-        <BasicModalWindow onClose={() => {
-          setIsLoginModalOpen(false);
-        }}>
-          <LoginModal onClose={() => {
-            setIsLoginModalOpen(false);
-          }} />
+        <BasicModalWindow onClose={switchLoginModal}>
+          <LoginModal onClose={switchLoginModal} />
         </BasicModalWindow>
       )}
     </>
