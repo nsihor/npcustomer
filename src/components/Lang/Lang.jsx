@@ -3,7 +3,7 @@ import css from "../Lang/Lang.module.scss";
 import {useTranslation} from "react-i18next";
 
 const Lang = () => {
-    const {i18n, t} = useTranslation();
+    const {i18n} = useTranslation();
 
     const changeLanguage = language => i18n.changeLanguage(language)
 
