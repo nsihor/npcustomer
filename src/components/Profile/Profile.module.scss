@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: flex-start;
 
-    a {
+    a, span {
       color: var(--text-tabbar-selected, #DA291C);
       text-decoration: none;
       display: flex;
@@ -17,6 +17,7 @@
       border-radius: var(--radius-12, 12px);
       background: var(--grayscale-0, #FFF);
       box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.04);
+      cursor: pointer;
 
       &:hover {
         color: #000;

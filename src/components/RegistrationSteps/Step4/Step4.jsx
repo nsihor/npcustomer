@@ -54,14 +54,14 @@ const Step4 = ({submitFunc, userData, prevStep}) => {
 
                     <InputFloating name='phone' placeholder={t("RegistrationSteps.Step4.inputFloatingPhonePlaceholder")}/>
 
-                    {/*<div className="mt-4 mb-4">*/}
-                    {/*    <FileUploader*/}
-                    {/*        handleChange={handleChange}*/}
-                    {/*        name="logo"*/}
-                    {/*        types={fileTypes}*/}
-                    {/*        label={t("RegistrationSteps.Step4.inputFileUploader")}*/}
-                    {/*    />*/}
-                    {/*</div>*/}
+                    <div className="mt-4 mb-4">
+                        <FileUploader
+                            handleChange={handleChange}
+                            name="logo"
+                            types={fileTypes}
+                            label={t("RegistrationSteps.Step4.inputFileUploader")}
+                        />
+                    </div>
 
                     <Btn text={t("RegistrationSteps.Step4.btn")} styled='success' classes={["form-control"]}/>
                 </Form>

@@ -1,17 +1,17 @@
-import {Breadcrumb} from 'react-bootstrap';
 import css from './Page404.scss';
 import {useTranslation} from "react-i18next"
     ;
 import Btn from "../Btn/Btn";
 import {Link} from "react-router-dom";
 import React from "react";
+import clsx from 'clsx';
 
 const Breadcrumbs = ({currentPageName}) => {
     const {t} = useTranslation();
 
     return (
         <div className="container">
-            <div className="row">
+            <div className={clsx(css.wrapper404,"row")}>
                 <div className="col-sm-12 d-flex justify-content-center">
                     <div className="col-sm-10 col-sm-offset-1  text-center">
                         <div className="four_zero_four_bg">

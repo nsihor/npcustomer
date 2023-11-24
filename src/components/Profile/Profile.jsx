@@ -36,12 +36,12 @@ const Profile = ({userData}) => {
       <div className='container d-flex'>
         <div className={clsx(css.leftMenu, 'col-12 col-md-3')}>
           <nav>
-            <a href='#'>
+            <span>
               <svg height='25' width='24'>
                 <use href={sprite + '#icon-infoCompany'}></use>
               </svg>
               Інформація про компанію
-            </a>
+            </span>
           </nav>
         </div>
         <div className={clsx(css.burgerWrapper, 'col-12 col-md-9')}>

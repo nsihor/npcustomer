@@ -2,10 +2,8 @@ import css from "./SelectFloating.module.scss";
 import clsx from "clsx";
 import {ErrorMessage, Field} from "formik";
 import React from "react";
-import {useTranslation} from "react-i18next";
 
 const SelectFloating = ({name, options, placeholder}) => {
-    const {t} = useTranslation();
 
     return (
         <div className="form-floating">

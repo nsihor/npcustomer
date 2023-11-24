@@ -1,5 +1,4 @@
 import axios from "axios";
-import toast from 'react-hot-toast';
 
 axios.defaults.baseURL = 'http://localhost:8080/api/v1/merchant/';
 
@@ -8,7 +7,7 @@ const setToken = token => {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-const clearToken = () => (axios.defaults.headers.common.Authorization = '');
+// const clearToken = () => (axios.defaults.headers.common.Authorization = '');
 
 export const login =
     async (user) => {
