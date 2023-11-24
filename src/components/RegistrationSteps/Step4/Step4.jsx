@@ -1,6 +1,6 @@
 import css from "./Step4.scss";
 import React, { useState } from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import clsx from 'clsx';
 import { FileUploader } from "react-drag-drop-files";
@@ -67,7 +67,7 @@ const Step4 = ({submitFunc, userData, prevStep}) => {
                 </Form>
             </Formik>
             {isModalOpen &&
-                <BasicModalWindow onClose={()=> setIsModalOpen(false)}>
+                <BasicModalWindow onClose={()=> setIsModalOpen(false)} navigateTo='/'>
                     <FinishedRegistrationModal code={baseLinkerToken}/>
                 </BasicModalWindow>}
             <span onClick={prevStep} className='btn w-100 border-0 mt-3'>{t("RegistrationSteps.btnBack")}</span>

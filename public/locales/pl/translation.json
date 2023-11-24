@@ -51,7 +51,11 @@
     "activeCards": "miliony aktywnych kart bankowych do płatności online",
     "customsClearance": "dla wartości < niż 150 euro odprawa celna nie jest wymagana"
   },
-  "PasswordInputPlaceholder": "Hasło",
+  "PasswordInputPlaceholder": {
+    "default": "Hasło",
+    "old": "Stare hasło",
+    "new": "Nowe hasło"
+  },
   "PostCountryList": {
     "slide1": [
       "Największa firma logistyczna, działająca od 2001 roku",
