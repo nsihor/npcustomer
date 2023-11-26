@@ -24,10 +24,10 @@ const LoginModal = ({onClose, addCompanyName}) => {
                     validationSchema={Yup.object({
                       email: Yup.string()
                         .email('Некоректний email')
-                        .required("Поле обов'язкове для заповнення"),
+                        .required(t('Validation.required')),
                       password: Yup.string()
                         .min(8, "Мінімум 8 символів")
-                        .required("Поле обов'язкове для заповнення")
+                        .required(t('Validation.required'))
                     })}
                     onSubmit={(values) => {
                         login(values)

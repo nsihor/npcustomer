@@ -77,7 +77,7 @@
     "step": "крок",
     "authorizationStep": "Авторизація",
     "aboutStep": "Про компанію",
-    "adresStep": "Адреса",
+    "addressStep": "Адреса",
     "additionalStep": "Додаткова інформація",
     "btnContinue": "Продовжити",
     "btnBack": "Назад",
@@ -101,7 +101,7 @@
       "label": "Контактна особа",
       "inputFloatingNamePlaceholder": "Ім'я та прізвище",
       "inputFloatingPhonePlaceholder": "Номер телефону",
-      "inputFileUploader": "Завантажити логотип компанії, для додаткової персоналізації",
+      "inputFloatingLogoPlaceholder": "URL адреса логотипу, для додаткової персоналізації",
       "btn": "Готово"
     }
   },
@@ -122,5 +122,18 @@
     "title": "Схоже ви заблукали",
     "p": "сторінка яку ви шукаєте не доступна",
     "btn": "На головну"
+  },
+  "Validation": {
+    "required": "Поле обов'язкове для заповнення",
+    "email": "Некоректний email",
+    "min8": "Мінімум 8 символів",
+    "max128": "Максимум 128 символів",
+    "matchesWithoutSpace": "Заборонено символи відступів",
+    "matchesLowerCase": "Хоча б одна Мала буква (лише англійські символи)",
+    "matchesUpperCase": "Хоча б одна Велика буква (лише англійські символи)",
+    "matchesNumber": "Хача б одна цифра",
+    "matchesSpecSymbol": "Хоча б один символ:",
+    "repeatPassword": "Паролі мають співпадати",
+    "controlSumNIP": "NIP має розрахунок контрольної суми",
   }
 }

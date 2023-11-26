@@ -32,7 +32,7 @@ const RegistrationStepsWrap = ({children, openStep}) => {
                                 <span className={clsx(css.circleNumber)}>03</span>
                                 <span className={clsx(css.circleStepText)}>{t("RegistrationSteps.step")}</span>
                             </div>
-                            <div className={clsx(css.title, "fs-5")}>{t("RegistrationSteps.adresStep")}</div>
+                            <div className={clsx(css.title, "fs-5")}>{t("RegistrationSteps.addressStep")}</div>
                         </div>
                         <div className={clsx(openStep >= 4 ? css.active : '', "d-flex align-items-center gap-4")}>
                             <div className={clsx(css.circleStep, "d-flex row")}>

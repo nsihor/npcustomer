@@ -77,7 +77,7 @@
     "step": "krok",
     "authorizationStep": "Upoważnienie",
     "aboutStep": "O firmie",
-    "adresStep": "Adres",
+    "addressStep": "Adres",
     "additionalStep": "Dodatkowe informacje",
     "btnContinue": "Kontynuować",
     "btnBack": "Z powrotem",
@@ -101,7 +101,7 @@
       "label": "Osoba kontaktowa",
       "inputFloatingNamePlaceholder": "Imię i nazwisko",
       "inputFloatingPhonePlaceholder": "Numer telefonu",
-      "inputFileUploader": "Pobierz logo firmy w celu dodatkowej personalizacji",
+      "inputFloatingLogoPlaceholder": "Adres URL logo, w celu dodatkowej personalizacji",
       "btn": "Zrobione"
     }
   },
@@ -122,5 +122,18 @@
     "title": "Wygląda na to, że się zgubiłeś",
     "p": "strona, której szukasz, nie jest dostępna",
     "btn": "Na głównym"
+  },
+  "Validation": {
+    "required": "Pole jest obowiązkowe",
+    "email": "Nieprawidłowy email",
+    "min8": "Minimum 8 znaków",
+    "max128": "Maksymalnie 128 znaków",
+    "matchesWithoutSpace": "Znaki wcięcia są zabronione",
+    "matchesLowerCase": "Co najmniej jedna mała litera (tylko znaki angielskie)",
+    "matchesUpperCase": "Co najmniej jedna wielka litera (tylko znaki angielskie)",
+    "matchesNumber": "Przynajmniej jeden numer",
+    "matchesSpecSymbol": "Przynajmniej jeden znak:",
+    "repeatPassword": "Hasło musi pasować",
+    "controlSumNIP": "NIP posiada funkcję obliczania sumy kontrolnej"
   }
 }

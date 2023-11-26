@@ -2,6 +2,7 @@ import clsx from "clsx";
 import css from "./Footer.module.scss";
 import sprite from "../../images/sprite.svg";
 import {useTranslation} from "react-i18next"
+import {Link} from 'react-router-dom';
 
 const Footer = () => {
     const {t} = useTranslation();
@@ -25,7 +26,7 @@ const Footer = () => {
                       <div className={clsx(css.copyright, "mt-3 mt-md-0 text-center text-md-start")}>
                           <div className="mb-1">© 2023 Shopping {t("footer.rights")}</div>
                           <div>
-                              <a href="https://about.np.shopping/policy/" target="_blank">{t("footer.confidentiality")}</a>
+                              <Link to={"https://about.np.shopping/policy/"}>{t("footer.confidentiality")}</Link>
                           </div>
                       </div>
                   </div>

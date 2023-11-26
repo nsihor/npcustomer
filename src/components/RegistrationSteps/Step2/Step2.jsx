@@ -26,27 +26,16 @@ const Step2 = ({submitFunc, userData, prevStep}) => {
         }}
         validationSchema={Yup.object({
           companyName: Yup.string()
-            .required('Поле обов\'язкове для заповнення')
-            .matches(
-              /^(?! )/,
-              'Перший символ не відступ',
-            )
-            .matches(
-              /^(?!.* $)/,
-              'Останній символ не відступ',
-            )
-            .matches(
-              /^(?!(?:.* ){2})/,
-              'Заборонена послідовність декількох символів відступів підряд',
-            ),
-          countryCode: Yup.string().required('Поле обов\'язкове для заповнення'),
+            .required(t('Validation.required'))
+            .trim(),
+          countryCode: Yup.string().required(t('Validation.required')),
           companyTIN: Yup.string()
-            .required('Поле обов\'язкове для заповнення')
+            .required(t('Validation.required'))
             .matches(
               /^(?=.*[0-9]{10})/,
               'NIP складається з 10 цифр',
             )
-            .test('NIP', 'NIP має розрахунок контрольної суми',
+            .test('NIP', t('Validation.controlSumNIP'),
               function(value) {
                 const сhecksum = (
                     ((value[0] * 6 + value[1] * 5 + value[2] * 7 + value[3] * 2 + value[4] * 3 +

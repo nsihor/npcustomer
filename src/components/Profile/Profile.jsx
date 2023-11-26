@@ -12,6 +12,7 @@ import {Countries, PolandRegions} from '../../const/Constants';
 import ChangeEmailModal from '../modals/ChangeEmail/ChangeEmailModal';
 import BasicModalWindow from '../modals/BasicModalWindow/BasicModalWindow';
 import ChangePasswordModal from '../modals/ChangePassword/ChangePasswordModal';
+import Step1 from '../RegistrationSteps/Step1/Step1';
 
 
 const Profile = ({userData}) => {
