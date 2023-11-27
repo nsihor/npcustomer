@@ -26,7 +26,7 @@ const Footer = () => {
                       <div className={clsx(css.copyright, "mt-3 mt-md-0 text-center text-md-start")}>
                           <div className="mb-1">© 2023 Shopping {t("footer.rights")}</div>
                           <div>
-                              <Link to={"https://about.np.shopping/policy/"}>{t("footer.confidentiality")}</Link>
+                              <Link to={"/policy"}>{t("footer.confidentiality")}</Link>
                           </div>
                       </div>
                   </div>

@@ -43,6 +43,17 @@ export const profile =
         }
     }
 
+export const update =
+    async () => {
+        try {
+            const { data } = await axios.post('update');
+
+            return data;
+        } catch (error) {
+            return error.message;
+        }
+    }
+
 export const refreshUser =
     async () => {
         const token = localStorage.getItem("jwt");

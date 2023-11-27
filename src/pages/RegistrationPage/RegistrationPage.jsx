@@ -1,6 +1,6 @@
 import RegistrationSteps from "../../components/RegistrationSteps/RegistrationSteps";
 
-const Registration = () => {
+const RegistrationPage = () => {
   return (
     <>
       <RegistrationSteps/>
@@ -8,4 +8,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default RegistrationPage;

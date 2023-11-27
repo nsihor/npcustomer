@@ -55,7 +55,7 @@ const Step4 = ({submitFunc, userData, prevStep}) => {
                     <InputFloating name='phone'
                                    placeholder={t('RegistrationSteps.Step4.inputFloatingPhonePlaceholder')} />
 
-                    <InputFloating name='logo'
+                    <InputFloating name='externalLogoUrl'
                                    placeholder={t('RegistrationSteps.Step4.inputFloatingLogoPlaceholder')} />
 
                     <Btn text={t('RegistrationSteps.Step4.btn')} styled='success' classes={['form-control']} />

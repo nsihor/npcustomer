@@ -12,7 +12,7 @@ import {Countries, PolandRegions} from '../../const/Constants';
 import ChangeEmailModal from '../modals/ChangeEmail/ChangeEmailModal';
 import BasicModalWindow from '../modals/BasicModalWindow/BasicModalWindow';
 import ChangePasswordModal from '../modals/ChangePassword/ChangePasswordModal';
-import Step1 from '../RegistrationSteps/Step1/Step1';
+import {update} from '../../services/api';
 
 
 const Profile = ({userData}) => {
@@ -46,7 +46,7 @@ const Profile = ({userData}) => {
           </nav>
         </div>
         <div className={clsx(css.burgerWrapper, 'col-12 col-md-9')}>
-          <div className={clsx(css.burger, 'accordion w-100')} id='accorhdionProfile'>
+          <div className={clsx(css.burger, 'accordion w-100 pb-5')} id='accorhdionProfile'>
             <div className='accordion-item'>
               <h2 className='accordion-header' id='headingOne'>
                 <button className='accordion-button'
@@ -61,7 +61,7 @@ const Profile = ({userData}) => {
               </h2>
               <div id='collapseOne' className='accordion-collapse collapse'
                    aria-labelledby='headingOne' data-bs-parent='#accordionProfile'>
-                <div className='accordion-body mb-3 pt-0'>
+                <div className='aaccordion-body mb-3 pt-0'>
                   <Formik
                     initialValues={{
                       nip: userData.nip ?? '',
@@ -176,17 +176,21 @@ const Profile = ({userData}) => {
                 <div className='accordion-body mb-3 pt-0'>
                   <Formik
                     initialValues={{
-                      email: '',
+                      email: userData.email ?? '',
                       password: '********',
                     }}
                     onSubmit={value => {
-                      console.log(1);
+                      update(userData).then((data) => {
+                        console.log(data);
+                      }).catch(
+                          console.log('')
+                      )
                     }}>
                     <Form>
-                      <InputFloating name='email' type='email' placeholder='Email' value={userData.email} />
+                      <InputFloating name='email' type='email' placeholder='Email' value={userData.email} readonly />
                       <div onClick={switchEmailModal} className='btn btn-link text-secondary'>Змінити
                       </div>
-                      <InputFloating name='password' placeholder='Пароль' />
+                      <InputFloating name='password' placeholder='Пароль' readonly/>
                       <div onClick={switchPasswordModal} className='btn btn-link text-secondary'>Змінити</div>
                     </Form>
                   </Formik>
