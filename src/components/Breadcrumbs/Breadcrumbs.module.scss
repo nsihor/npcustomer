@@ -7,6 +7,11 @@
   ol {
     margin: 0;
 
+    li {
+      display: flex;
+      align-items: center;
+    }
+
     li:not(:last-child) {
       a {
         color: var(--brand-maximum-red, #000);

@@ -135,5 +135,6 @@
     "matchesSpecSymbol": "Przynajmniej jeden znak:",
     "repeatPassword": "Hasło musi pasować",
     "controlSumNIP": "NIP posiada funkcję obliczania sumy kontrolnej"
-  }
+  },
+  "PrivacyPolicy": "Polityka prywatności"
 }

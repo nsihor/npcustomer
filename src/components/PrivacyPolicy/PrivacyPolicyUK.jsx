@@ -5,8 +5,6 @@ const PrivacyPolicyUK = () => {
 
     return (
         <>
-            <Breadcrumbs currentPageName="Політика конфіденційності"/>
-
             <div className='container py-4'>
                 <h1 id='about-page-title'>Політика конфіденційності</h1>
                 <p><em>Дата публікації: 02.10.2023</em></p>

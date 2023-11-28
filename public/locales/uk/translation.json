@@ -135,5 +135,6 @@
     "matchesSpecSymbol": "Хоча б один символ:",
     "repeatPassword": "Паролі мають співпадати",
     "controlSumNIP": "NIP має розрахунок контрольної суми"
-  }
+  },
+  "PrivacyPolicy": "Політика конфіденційності"
 }

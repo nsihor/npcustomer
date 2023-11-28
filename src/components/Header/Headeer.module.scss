@@ -16,6 +16,26 @@
     a:hover {
       color: var(--brand-maximum-red, #DA291C);
     }
+
+    .authorizeWrap {
+      margin-left: auto;
+    }
+
+    .burgerIco {
+        &:focus {
+          box-shadow: none;
+        }
+    }
+
+  .burgerMob {
+    margin-top: -20px;
+    background-color: #fff;
+    padding: 20px 0;
+
+    & > * {
+      padding-bottom: 16px;
+    }
+  }
   }
 
 }

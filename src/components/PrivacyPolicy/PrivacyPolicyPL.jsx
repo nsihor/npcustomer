@@ -5,9 +5,7 @@ const PrivacyPolicyUK = () => {
 
     return (
         <>
-            <Breadcrumbs currentPageName="Політика конфіденційності"/>
-
-            <div className="container">
+            <div className="container py-4">
                 <h1>Polityka prywatności</h1>
                 <p><em>Data publikacji: 02.10.2023</em></p>
                 <p>Witamy na NP.Shopping - Platformie B2C stworzonej w celu sprzedaży/zakupu Towarów z terytorium Rzeczypospolitej Polskiej.</p>
