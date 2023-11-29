@@ -15,6 +15,7 @@ function App() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [companyName, setCompanyName] = useState('');
   useEffect(() => {
+    if (!localStorage.getItem('companyName')) return
     !companyName && setCompanyName(localStorage.getItem('companyName'));
     console.log(companyName);
   }, [companyName]);

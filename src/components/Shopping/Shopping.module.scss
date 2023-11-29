@@ -1,18 +1,39 @@
 .title{
   margin-bottom: 24px;
 
-  @media (min-width: 576px) {
+  @media (min-width: 768px) {
     margin-bottom: 140px;
   }
 }
 
 .shopping {
-  padding-bottom: 200px;
+  margin-bottom: 60px;
 }
 
 .shopping h2 {
   font-size: 52px;
   font-weight: 600;
+}
+
+.imgPhone{
+  width: 68vw;
+  max-width: 380px;
+  margin-left: -55px;
+
+  @media (min-width: 768px) {
+    max-width: 585px;
+    width: 585px;
+    margin-left: 0;
+  }
+}
+
+.imgBanner{
+  position: absolute;
+  bottom: 108px;
+  right: -48px;
+
+  width: 61vw;
+  max-width: 408px;
 }
 
 .svg {
