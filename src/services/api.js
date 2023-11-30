@@ -53,6 +53,16 @@ export const update =
             return error.message;
         }
     }
+export const updatePassword =
+    async () => {
+        try {
+            const { data } = await axios.post('update-password');
+
+            return data;
+        } catch (error) {
+            return error.message;
+        }
+    }
 
 export const refreshUser =
     async () => {

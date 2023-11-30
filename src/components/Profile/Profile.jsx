@@ -13,6 +13,7 @@ import ChangeEmailModal from '../modals/ChangeEmail/ChangeEmailModal';
 import BasicModalWindow from '../modals/BasicModalWindow/BasicModalWindow';
 import ChangePasswordModal from '../modals/ChangePassword/ChangePasswordModal';
 import {update} from '../../services/api';
+import {Link} from 'react-router-dom';
 
 
 const Profile = ({userData}) => {
@@ -37,12 +38,14 @@ const Profile = ({userData}) => {
       <div className='container d-flex'>
         <div className={clsx(css.leftMenu, 'col-12 col-md-3')}>
           <nav>
-            <span>
-              <svg height='25' width='24'>
-                <use href={sprite + '#icon-infoCompany'}></use>
-              </svg>
-              Інформація про компанію
-            </span>
+            <Link to='#'>
+              <span>
+                <svg height='25' width='24'>
+                  <use href={sprite + '#icon-infoCompany'}></use>
+                </svg>
+              </span>
+              <span>Інформація про компанію</span>
+            </Link>
           </nav>
         </div>
         <div className={clsx(css.burgerWrapper, 'col-12 col-md-9')}>
@@ -61,7 +64,7 @@ const Profile = ({userData}) => {
               </h2>
               <div id='collapseOne' className='accordion-collapse collapse'
                    aria-labelledby='headingOne' data-bs-parent='#accordionProfile'>
-                <div className='aaccordion-body mb-3 pt-0'>
+                <div className='accordion-body mb-3 pt-0'>
                   <Formik
                     initialValues={{
                       nip: userData.nip ?? '',
@@ -190,7 +193,7 @@ const Profile = ({userData}) => {
                       <InputFloating name='email' type='email' placeholder='Email' value={userData.email} readonly />
                       <div onClick={switchEmailModal} className='btn btn-link text-secondary'>Змінити
                       </div>
-                      <InputFloating name='password' placeholder='Пароль' readonly/>
+                      <InputFloating name='password' placeholder='Пароль' params='readonly'/>
                       <div onClick={switchPasswordModal} className='btn btn-link text-secondary'>Змінити</div>
                     </Form>
                   </Formik>

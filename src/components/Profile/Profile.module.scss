@@ -7,7 +7,8 @@
     justify-content: center;
     align-items: flex-start;
 
-    a, span {
+    a {
+      display: flex;
       color: var(--text-tabbar-selected, #DA291C);
       text-decoration: none;
       display: flex;

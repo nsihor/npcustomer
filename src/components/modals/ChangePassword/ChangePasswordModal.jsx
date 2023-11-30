@@ -4,6 +4,7 @@ import {Form, Formik} from "formik";
 import Btn from "../../Btn/Btn";
 import PasswordInput from "../../PasswordInput/PasswordInput";
 import {useTranslation} from "react-i18next";
+import {updatePassword} from '../../../services/api';
 
 const ChangeEmailModal = ({onClose}) => {
     const {t} = useTranslation();
@@ -15,7 +16,7 @@ const ChangeEmailModal = ({onClose}) => {
                 <Formik
                     initialValues={{oldPassword: '', newPassword: ''}}
                     onSubmit={(values) => {
-                        console.log(values)
+                        updatePassword(values).then().catch(console.log)
                     }}>
                     <Form className='d-flex flex-column w-100'>
                         <PasswordInput name='oldPassword' placeholder='old' classes={['mb-3']}/>

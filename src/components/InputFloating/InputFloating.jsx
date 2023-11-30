@@ -3,7 +3,7 @@ import React from 'react';
 import clsx from 'clsx';
 import css from '../RegistrationSteps/Step2/Step2.scss';
 
-const InputFloating = ({name, type = 'text', placeholder, classes = [], smallText}) => {
+const InputFloating = ({name, type = 'text', placeholder, classes = [], smallText, params = []}) => {
   return (
     <div className={clsx('form-floating', ...classes)}>
       <Field
@@ -12,6 +12,7 @@ const InputFloating = ({name, type = 'text', placeholder, classes = [], smallTex
         placeholder={placeholder}
         className='input form-control'
         id={`floating${name}`}
+        {...params}
       />
       <label className='label' htmlFor={`floating${name}`}>{placeholder}</label>
       {smallText && <div className={clsx(css.inputSmallText, 'inputSmallText')}>{smallText}</div>}

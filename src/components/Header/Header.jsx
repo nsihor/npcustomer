@@ -4,12 +4,13 @@ import css from '../Header/Headeer.module.scss';
 import Lang from '../Lang/Lang';
 import Authorize from './Authorize/Authorize';
 import {useTranslation} from 'react-i18next';
+import {Link} from 'react-router-dom';
 
 const Header = ({openLoginModal, companyName}) => {
     const {t} = useTranslation();
 
     return (
-        <header className={clsx(css.header, 'py-0 py-md-4 fixed-top')}>
+        <header className={clsx(css.header, 'py-0 py-md-3 fixed-top')}>
             <div className='container'>
                 <nav className='navbar navbar-expand-md'>
                     <div className={clsx('container-fluid justify-content-start p-0 gap-4')}>
@@ -19,11 +20,11 @@ const Header = ({openLoginModal, companyName}) => {
                             <span className='navbar-toggler-icon'></span>
                         </button>
                         <div className='text-md-start mb-md-0'>
-                            <a href='/'>
+                            <Link to='/'>
                                 <svg width='155' height='29'>
                                     <use className='logo' href={sprite + '#npLogo'} />
                                 </svg>
-                            </a>
+                            </Link>
                         </div>
                         <div className={clsx(css.authorizeWrap,"d-flex d-md-none")}>
                             <Authorize openModalFunc={openLoginModal} companyName={companyName} />
@@ -32,12 +33,12 @@ const Header = ({openLoginModal, companyName}) => {
                         <div className='collapse navbar-collapse justify-content-end' id='navbarTopMenu'>
                             <div className={clsx(css.burgerMob, 'navbar-nav d-flex justify-content-between fs-6 gap-3 gap-md-5 d-flex d-md-none')}>
                                 <div className="d-flex justify-content-end"><Lang /></div>
-                                <a href='/#about' className="border-bottom">{t('header.about')}</a>
-                                <a href='/#advantages' className="border-bottom">{t('header.advantages')}</a>
+                                <Link to='/#about' className="border-bottom">{t('header.about')}</Link>
+                                <Link to='/#advantages' className="border-bottom">{t('header.advantages')}</Link>
                             </div>
                             <div className='navbar-nav d-flex justify-content-between fs-6 gap-3 gap-md-5 d-none d-md-flex'>
-                                <a href='/#about'>{t('header.about')}</a>
-                                <a href='/#advantages'>{t('header.advantages')}</a>
+                                <Link to='/#about'>{t('header.about')}</Link>
+                                <Link to='/#advantages'>{t('header.advantages')}</Link>
                                 <Lang />
                                 <Authorize openModalFunc={openLoginModal} companyName={companyName} />
                             </div>

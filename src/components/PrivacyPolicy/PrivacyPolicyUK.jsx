@@ -1,4 +1,3 @@
-import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
 import {Link} from 'react-router-dom';
 
 const PrivacyPolicyUK = () => {
