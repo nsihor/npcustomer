@@ -4,6 +4,7 @@ import {Form, Formik} from "formik";
 import Btn from "../../Btn/Btn";
 import InputFloating from "../../InputFloating/InputFloating";
 import {useTranslation} from "react-i18next"
+import * as Yup from "yup";
 
 const ChangeEmailModal = ({onClose}) => {
     const {t} = useTranslation();
@@ -17,7 +18,12 @@ const ChangeEmailModal = ({onClose}) => {
                     onSubmit={(values) => {
                         console.log(values)
                         onClose()
-                    }}>
+                    }}
+                    validationSchema={Yup.object({
+                        email: Yup.string()
+                                .email(t('Validation.email'))
+                                .required(t('Validation.required'))
+                    })}>
                     <Form className='d-flex flex-column w-100'>
                         <InputFloating name='email' type='email' placeholder='Email' classes={['mb-4']}/>
                         <Btn text={t("modal.successBtn")} styled='success' classes={['mb-1', 'mt-2']}/>
