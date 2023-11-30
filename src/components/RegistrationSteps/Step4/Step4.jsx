@@ -35,7 +35,7 @@ const Step4 = ({submitFunc, userData, prevStep}) => {
                 onSubmit={value => {
                     submitFunc(value);
                     register(userData).then((data) => {
-                        setBaseLinkerToken(data.data.baselinker_token);
+                        setBaseLinkerToken(data.data.baselinkerToken);
                     });
                     setIsModalOpen(true);
                 }
