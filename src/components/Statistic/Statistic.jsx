@@ -5,7 +5,7 @@ import {useTranslation} from "react-i18next";
 const Statistic = () => {
     const {t} = useTranslation();
 
-    return (<div className="container position-relative" id="about">
+    return (<div className="container-sm position-relative" id="about">
         <div className={css.statSm}>
             <div className="d-flex align-items-start align-items-md-center">
                 <div className="d-flex align-items-center flex-column flex-md-row">
