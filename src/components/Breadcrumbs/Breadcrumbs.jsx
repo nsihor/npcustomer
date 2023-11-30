@@ -9,7 +9,7 @@ const Breadcrumbs = ({currentPageName}) => {
     return (
     <div className='container'>
       <Breadcrumb className={clsx(css.breadcrumbs, 'd-flex align-items-center')}>
-        <Breadcrumb.Item href='/'>{t("Breadcrumbs")}</Breadcrumb.Item>
+        <Breadcrumb.Item href='/my/'>{t("Breadcrumbs")}</Breadcrumb.Item>
         <Breadcrumb.Item active>{currentPageName}</Breadcrumb.Item>
       </Breadcrumb>
     </div>

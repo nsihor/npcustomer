@@ -16,7 +16,12 @@ i18n
         },
         interpolation: {
             escapeValue: false,
-        }
+        },
+        backend: {
+            loadPath: () => {
+                return '/my/locales/{{lng}}/{{ns}}.json';
+            },
+        },
     });
 
 

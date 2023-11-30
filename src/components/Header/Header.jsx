@@ -37,8 +37,8 @@ const Header = ({openLoginModal, companyName}) => {
                                 <Link to='/#advantages' className="border-bottom">{t('header.advantages')}</Link>
                             </div>
                             <div className='navbar-nav d-flex justify-content-between fs-6 gap-3 gap-md-5 d-none d-md-flex'>
-                                <Link to='/#about'>{t('header.about')}</Link>
-                                <Link to='/#advantages'>{t('header.advantages')}</Link>
+                                <Link to='/about'>{t('header.about')}</Link>
+                                <Link to='/advantages'>{t('header.advantages')}</Link>
                                 <Lang />
                                 <Authorize openModalFunc={openLoginModal} companyName={companyName} />
                             </div>

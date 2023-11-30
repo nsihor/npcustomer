@@ -53,10 +53,21 @@ export const update =
             return error.message;
         }
     }
-export const updatePassword =
+export const changePassword =
     async () => {
         try {
-            const { data } = await axios.post('update-password');
+            const { data } = await axios.post('change-password');
+
+            return data;
+        } catch (error) {
+            return error.message;
+        }
+    }
+
+    export const deleteMerchant =
+    async () => {
+        try {
+            const { data } = await axios.post('delete');
 
             return data;
         } catch (error) {
