@@ -15,13 +15,13 @@ const Shopping = () => {
                     <h2 className={css.title}>Shopping</h2>
                 </div>
                 <div className="row">
-                    <div className={clsx('col-12 mb-5', css.npAppBlockContainer)}>
+                    <div className='col-12 col-md-6 mb-5'>
                         <div className='row'>
-                            <div className='col-4 col-md-6 mt-5'>
+                            <div className='col-4 col-md-12 mt-5 mt-md-0 mb-md-4'>
                                 <img className={css.imgPhone} alt="phone" src={phoneImg}/>
                             </div>
-                            <div className="col-8 col-md-6 d-flex flex-column pe-0 ps-4">
-                                <h3 className="mb-4 fw-semibold fs-5">{t("Shopping.app")} Nova Post</h3>
+                            <div className="col-8 col-md-12 d-flex flex-column pe-0 ps-4">
+                                <h3 className={clsx(css.h3, "mb-4 fw-semibold")}>{t("Shopping.app")} Nova Post</h3>
                                 <ul className="px-0">
                                     <li className='d-flex'>
                                         <svg className={css.svg}>
@@ -45,10 +45,10 @@ const Shopping = () => {
                     </div>
                     <div className="col-12 col-md-6 pt-md-5">
                         <div className="row">
-                            <div className="col-11 col-md-6">
-                                <h3 className="mb-4 fw-semibold fs-5">{t("Shopping.marketPlace")} Shopping</h3>
+                            <div className={clsx("col-11 col-md-10", css.marketPlaceBlock)}>
+                                <h3 className={clsx(css.h3, "mb-4 fw-semibold")}>{t("Shopping.marketPlace")} Shopping</h3>
                                 <ul className="px-0">
-                                    <li className='d-flex w-75'>
+                                    <li className={clsx(css.marketPlaceFirstItem, 'd-flex')}>
                                         <svg className={css.svg}>
                                             <use href={sprite + "#icon-checkInCircle"}></use>
                                         </svg>
@@ -66,7 +66,7 @@ const Shopping = () => {
                                     </li>
                                 </ul>
                             </div>
-                            <div className="col-1 col-md-6 position-relative">
+                            <div className="col-md-12 position-relative">
                                 <img className={css.imgBanner} alt="banner" src={bannerImg} width={"546px"}/>
                             </div>
                         </div>

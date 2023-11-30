@@ -2,17 +2,34 @@
   margin-bottom: 24px;
 
   @media (min-width: 768px) {
-    margin-bottom: 140px;
+    margin-bottom: 125px;
   }
 }
 
 .shopping {
   margin-bottom: 60px;
+
+  overflow-x: hidden;
 }
 
 .shopping h2 {
   font-size: 52px;
   font-weight: 600;
+}
+
+.marketPlaceBlock{
+  @media (min-width: 768px) {
+    margin-left: 8vw;
+    //padding-right: 50px;
+  }
+}
+
+.marketPlaceFirstItem{
+  width: 75%;
+
+  @media (min-width: 768px) {
+    width: 100%;
+  }
 }
 
 .imgPhone{
@@ -22,7 +39,7 @@
 
   @media (min-width: 768px) {
     max-width: 585px;
-    width: 585px;
+    width: 100%;
     margin-left: 0;
   }
 }
@@ -34,6 +51,20 @@
 
   width: 61vw;
   max-width: 408px;
+
+  @media (min-width: 768px) {
+    position: static;
+    max-width: 635px;
+    width: 100%;
+  }
+}
+
+.h3 {
+  font-size: 18px;
+
+  @media (min-width: 768px) {
+    font-size: 36px;
+  }
 }
 
 .svg {
