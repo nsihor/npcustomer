@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Layout from './components/Layout/Layout';
-import {Route, Routes} from 'react-router-dom';
+import {Route, Routes, useLocation} from 'react-router-dom';
 import MainPage from './pages/MainPage/MainPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
@@ -14,11 +14,25 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage/PrivacyPolicyPage';
 function App() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [companyName, setCompanyName] = useState('');
+
   useEffect(() => {
     if (!localStorage.getItem('companyName')) return
     !companyName && setCompanyName(localStorage.getItem('companyName'));
     console.log(companyName);
   }, [companyName]);
+
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const element = document.getElementById(hash.substring(1));
+
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [hash]);
+
   const switchLoginModal = () => setIsLoginModalOpen(prevState => !prevState);
   const addCompanyName = (name) => setCompanyName(name);
 
