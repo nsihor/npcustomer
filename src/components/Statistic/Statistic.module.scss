@@ -9,27 +9,37 @@
   font-size: 13px;
   color: #ffffff;
   z-index: 2;
-}
 
-.statSmDigit {
-  font-weight: 600;
-  font-size: 42px;
-  margin-right: 10px;
-}
-
-@media screen and (max-width: 576px) {
-  .statSm {
+  @media screen and (max-width: 576px) {
     position: relative;
     top: auto;
     width: auto;
     margin: 0 -12px;
     overflow: hidden;
     border-radius: 0;
-    padding: 20px 10px;
+    padding: 20px 20px;
     text-align: center;
+    font-size: 14px;
   }
+}
 
-  .statSmDigit {
-    margin-right: 0;
+.statSmDigit {
+  font-weight: 600;
+  font-size: 42px;
+
+  @media screen and (max-width: 576px) {
+    font-size: 34px;
   }
+}
+
+//.svgWrapper{
+//  @media screen and (min-width: 576px) {
+//    width: 47px;
+//  }
+//}
+
+
+.mobileDiagonalLines{
+  width: 29vw;
+  height: 12px;
 }
