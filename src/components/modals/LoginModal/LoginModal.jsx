@@ -8,11 +8,10 @@ import PasswordInput from "../../PasswordInput/PasswordInput";
 import InputFloating from "../../InputFloating/InputFloating";
 import {login} from "../../../services/api";
 import * as Yup from "yup";
-import {useTranslation} from "react-i18next";
 import toast from 'react-hot-toast';
+import {t} from "i18next";
 
 const LoginModal = ({onClose, addCompanyName}) => {
-    const {t} = useTranslation();
 
     return (
         <div className={css.main}>

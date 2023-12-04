@@ -8,8 +8,16 @@
     ]
   },
   "header": {
-    "about": "Kim jesteśmy",
-    "advantages": "Nasze atuty",
+    "links": [
+      {
+        "anchor": "/#about",
+        "text": "Kim jesteśmy"
+      },
+      {
+        "anchor": "/#advantages",
+        "text": "Nasze atuty"
+      }
+    ],
     "authorize": "Wyjście"
   },
   "Breadcrumbs": "Główna",

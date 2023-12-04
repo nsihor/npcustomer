@@ -10,10 +10,19 @@
 
     .navContainer{
       height: 60px;
+
+      @media (min-width: 576px) {
+        height: 80px;
+      }
     }
 
     .logo {
       width: 129px;
+      height: 60px;
+
+      @media (min-width: 576px) {
+        width: 169px;
+      }
     }
 
     a {
