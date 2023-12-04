@@ -11,7 +11,7 @@ const Statistic = () => {
 
     useEffect(() => {
         const handleResize = () => {
-            setIsMobile(window.innerWidth <= 576); // Перевірка ширини екрану на мобільний розмір
+            setIsMobile(window.innerWidth <= 576);
         };
 
         window.addEventListener('resize', handleResize);

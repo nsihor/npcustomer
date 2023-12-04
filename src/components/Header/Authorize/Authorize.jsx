@@ -4,7 +4,7 @@ import sprite from "../../../images/sprite.svg";
 import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 
-const Authorize = ({openModalFunc, companyName}) => {
+const Authorize = ({openModalFunc, companyName, isMobile}) => {
     const { t} = useTranslation();
 
  return (
@@ -12,7 +12,7 @@ const Authorize = ({openModalFunc, companyName}) => {
          {!companyName ? (
              <div onClick={openModalFunc} className={clsx(css.authorize, "d-flex gap-2 align-items-center cursor-pointer")}>
                  <svg width="24" height="24"><use href={sprite + "#icon-entrance"}/></svg>
-                 <span>{t("header.authorize")}</span>
+                 {!isMobile && <span>{t("header.authorize")}</span>}
              </div>
          ) : (
              <div onClick={openModalFunc} className={clsx(css.authorize, "d-flex gap-2 align-items-center")}>
