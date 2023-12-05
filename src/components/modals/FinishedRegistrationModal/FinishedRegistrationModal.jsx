@@ -11,7 +11,7 @@ const FinishedRegistrationModal = ({code}) => {
 
     const handleCopyText = () => {
         navigator.clipboard.writeText(code);
-        toast(t("FinishedRegistrationModal.toast"))
+        toast(t("toastCopy"))
     };
 
     return (

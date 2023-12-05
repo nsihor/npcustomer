@@ -33,7 +33,6 @@
     "successBtn": "ratować"
   },
   "FinishedRegistrationModal": {
-    "toast": "Kod skopiowany!",
     "title": "Gratulacje",
     "infoText": "Aby usługa działała poprawnie, dodaj informacje o płatności i dostawie na swoim koncie",
     "tokenText": "Wygenerujemy dla Ciebie token. Skopiuj ten klucz i wklej go na swoje konto BaseLinker.",
@@ -71,6 +70,33 @@
       "Do końca roku planowane jest otwarcie 200 nowych oddziałów",
       "Średni czas dostawy pomiędzy Polską a Ukrainą wynosi 2,5 dnia"
     ]
+  },
+  "ProfileNav": "Informacje o firmie",
+  "PayUSettings": {
+    "title": "Konfiguracja metody płatności PayU",
+    "saveBtn": "Zapisz zmiany"
+  },
+  "DeliverySettings": {
+    "title": "Ustawianie metody dostawy Nova Post",
+    "inputCompanyName": "Nazwa firmy",
+    "inputPhone": "Numer telefonu osoby kontaktowej",
+    "inputName": "osoba kontaktowa",
+    "selectCountryCode": "Kraj lokalizacji firmy",
+    "selectRegion": "Województwo",
+    "inputCity": "Miasto",
+    "inputStreet": "Ulica",
+    "inputHouse": "Dom",
+    "inputOffice": "Biuro (opcjonalnie)",
+    "saveBtn": "Zapisz zmiany"
+  },
+  "BaseLinker": {
+    "title": "Podłączenie BaseLinkera",
+    "copyText": "Skopiuj ten klucz i wklej go do szafki BaseLinker."
+  },
+  "UserDataChanging": {
+    "title": "Dane do wejścia na profil firmy",
+    "changeText": "Zmiana",
+    "inputPassword": "Hasło"
   },
   "RegistrationSteps": {
     "title": "Zarejestruj się w zaledwie 4 krokach:",
@@ -118,6 +144,7 @@
     "users": "miliony potencjalnych użytkowników",
     "customers": "miliony aktywnych klientów online"
   },
+  "toastCopy": "Kod skopiowany!",
   "Page404": {
     "title": "Wygląda na to, że się zgubiłeś",
     "p": "strona, której szukasz, nie jest dostępna",

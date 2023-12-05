@@ -20,3 +20,7 @@ export const PolandRegions = [
 export const Countries = [
     { value: "PL", label: "Польща" },
 ]
+
+export const CountriesPl = [
+    { value: "PL", label: "Polska" },
+]
