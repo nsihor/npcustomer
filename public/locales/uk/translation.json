@@ -8,16 +8,8 @@
     ]
   },
   "header": {
-    "links": [
-      {
-        "anchor": "/#about",
-        "text": "Хто ми"
-      },
-      {
-        "anchor": "/#advantages",
-        "text": "Наші переваги"
-      }
-    ],
+    "about": "Хто ми",
+    "advantages": "Наші переваги",
     "authorize": "Вхід"
   },
   "Breadcrumbs": "Головна",

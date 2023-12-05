@@ -7,7 +7,6 @@ import {useTranslation} from "react-i18next";
 
 const BurgerMenu = ({onClose}) => {
     const {t} = useTranslation()
-    const linksT = t('header.links', {returnObjects: true});
 
     const handleBackdropClick = (e) => {
         e.target === e.currentTarget && onClose();
@@ -38,16 +37,24 @@ const BurgerMenu = ({onClose}) => {
                 <div className={clsx(css.bottom, 'bg-white h-100')}>
                     <div className='container h-100'>
                         <div className='d-flex flex-column pt-3 fw-semibold'>
-                            {linksT.map(link => <Link
+                            <Link
                                 className={clsx('py-2 d-flex justify-content-between border-bottom')}
                                 onClick={onClose}
-                                key={link.anchor}
-                                to={link.anchor}>
-                                {link.text}
+                                to="/#about">
+                                {t("header.about")}
                                 <svg width='16' height='16'>
                                     <use href={sprite + "#icon-linkArrow"}></use>
                                 </svg>
-                            </Link>)}
+                            </Link>
+                            <Link
+                                className={clsx('py-2 d-flex justify-content-between border-bottom')}
+                                onClick={onClose}
+                                to="/#advantages">
+                                {t("header.advantages")}
+                                <svg width='16' height='16'>
+                                    <use href={sprite + "#icon-linkArrow"}></use>
+                                </svg>
+                            </Link>
                         </div>
                     </div>
                 </div>
