@@ -5,6 +5,7 @@ import {Toaster} from 'react-hot-toast';
 import BasicModalWindow from './components/modals/BasicModalWindow/BasicModalWindow';
 import Layout from "./components/Layout/Layout";
 import LoginModal from "./components/modals/LoginModal/LoginModal";
+import Loader from "./components/Loader/Loader";
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const RegistrationPage = lazy(() => import('pages/RegistrationPage/RegistrationPage'));
@@ -39,7 +40,7 @@ function App() {
 
 
   return (
-    <Suspense fallback={<div></div>}>
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route path='/' element={<Layout openLoginModal={switchLoginModal} companyName={companyName}/>}>
           <Route index element={<MainPage/>}/>
