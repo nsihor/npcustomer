@@ -1,15 +1,16 @@
-import React, {useEffect, useState} from 'react';
-import Layout from './components/Layout/Layout';
+import React, {lazy, Suspense, useEffect, useState} from 'react';
 import {Route, Routes, useLocation} from 'react-router-dom';
-import MainPage from './pages/MainPage/MainPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
-import ErrorPage from './pages/ErrorPage/ErrorPage';
-import ProfilePage from './pages/ProfilePage/ProfilePage';
 import {Toaster} from 'react-hot-toast';
 import BasicModalWindow from './components/modals/BasicModalWindow/BasicModalWindow';
-import LoginModal from './components/modals/LoginModal/LoginModal';
-import PrivacyPolicyPage from './pages/PrivacyPolicyPage/PrivacyPolicyPage';
+import Layout from "./components/Layout/Layout";
+import LoginModal from "./components/modals/LoginModal/LoginModal";
+
+const MainPage = lazy(() => import('pages/MainPage/MainPage'));
+const RegistrationPage = lazy(() => import('pages/RegistrationPage/RegistrationPage'));
+const ErrorPage = lazy(() => import('pages/ErrorPage/ErrorPage'));
+const ProfilePage = lazy(() => import('pages/ProfilePage/ProfilePage'));
+const PrivacyPolicyPage = lazy(() => import('pages/PrivacyPolicyPage/PrivacyPolicyPage'));
 
 function App() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -38,23 +39,23 @@ function App() {
 
 
   return (
-    <>
-      <Routes>
-        <Route path='/' element={<Layout openLoginModal={switchLoginModal} companyName={companyName} />}>
-          <Route index element={<MainPage />} />
-          <Route path='/registration' element={<RegistrationPage />} />
-          <Route path='/profile' element={<ProfilePage />} />
-          <Route path='/policy' element={<PrivacyPolicyPage />} />
-        </Route>
-        <Route path='*' element={<ErrorPage />} />
-      </Routes>
-      <Toaster />
-      {isLoginModalOpen && (
-        <BasicModalWindow onClose={switchLoginModal}>
-          <LoginModal onClose={switchLoginModal} addCompanyName={addCompanyName}/>
-        </BasicModalWindow>
-      )}
-    </>
+      <Suspense fallback={<div>...Loading</div>}>
+        <Routes>
+          <Route path='/' element={<Layout openLoginModal={switchLoginModal} companyName={companyName} />}>
+            <Route index element={<MainPage />} />
+            <Route path='/registration' element={<RegistrationPage />} />
+            <Route path='/profile' element={<ProfilePage />} />
+            <Route path='/policy' element={<PrivacyPolicyPage />} />
+          </Route>
+          <Route path='*' element={<ErrorPage />} />
+        </Routes>
+        <Toaster />
+        {isLoginModalOpen && (
+            <BasicModalWindow onClose={switchLoginModal}>
+              <LoginModal onClose={switchLoginModal} addCompanyName={addCompanyName}/>
+            </BasicModalWindow>
+        )}
+      </Suspense>
   );
 }
 
