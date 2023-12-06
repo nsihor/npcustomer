@@ -54,6 +54,7 @@ const LoginModal = ({onClose, addCompanyName}) => {
                 <Link
                     style={{height: '45px', color: '#475569'}}
                     to={'/registration'}
+                    onClick={onClose}
                     className='btn btn-light text-nowrap bg-transparent border-0 py-2 w-100'>
                     {t("LoginModal.link")}
                 </Link>
