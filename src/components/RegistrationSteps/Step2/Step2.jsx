@@ -23,6 +23,7 @@ const Step2 = ({submitFunc, userData, prevStep}) => {
           companyName: userData.companyName ?? '',
           countryCode: userData.countryCode ?? '',
           companyTIN: userData.companyTIN ?? '',
+          externalLogoUrl: userData.externalLogoUrl ?? '',
         }}
         validationSchema={Yup.object({
           companyName: Yup.string()
@@ -44,6 +45,7 @@ const Step2 = ({submitFunc, userData, prevStep}) => {
 
                 return сhecksum;
               }),
+          externalLogoUrl: Yup.string()
         })}
         onSubmit={value => submitFunc(value)}
       >
@@ -64,6 +66,11 @@ const Step2 = ({submitFunc, userData, prevStep}) => {
             name='companyTIN'
             placeholder='NIP'
             smallText={t('RegistrationSteps.Step2.inputFloatingNIPPlaceholder')}
+          />
+
+          <InputFloating
+            name='externalLogoUrl'
+            placeholder={t('RegistrationSteps.Step4.inputFloatingLogoPlaceholder')}
           />
 
           <Btn text={t('RegistrationSteps.btnContinue')} styled='secondary' classes={['form-control']} />

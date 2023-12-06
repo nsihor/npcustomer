@@ -24,7 +24,7 @@ const Step3 = ({submitFunc, userData, prevStep}) => {
                     region: userData.region ?? '',
                     city: userData.city ?? '',
                     street: userData.street ?? '',
-                    building: userData.house ?? '',
+                    building: userData.building ?? '',
                     office: userData.office ?? '',
                 }}
                 validationSchema={Yup.object({
