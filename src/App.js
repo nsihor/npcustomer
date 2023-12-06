@@ -22,14 +22,14 @@ function App() {
     console.log(companyName);
   }, [companyName]);
 
-  const { hash } = useLocation();
+  const {hash} = useLocation();
 
   useEffect(() => {
     if (hash) {
       const element = document.getElementById(hash.substring(1));
 
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({behavior: 'smooth'});
       }
     }
   }, [hash]);
@@ -39,23 +39,23 @@ function App() {
 
 
   return (
-      <Suspense fallback={<div>...Loading</div>}>
-        <Routes>
-          <Route path='/' element={<Layout openLoginModal={switchLoginModal} companyName={companyName} />}>
-            <Route index element={<MainPage />} />
-            <Route path='/registration' element={<RegistrationPage />} />
-            <Route path='/profile' element={<ProfilePage />} />
-            <Route path='/policy' element={<PrivacyPolicyPage />} />
-          </Route>
-          <Route path='*' element={<ErrorPage />} />
-        </Routes>
-        <Toaster />
-        {isLoginModalOpen && (
-            <BasicModalWindow onClose={switchLoginModal}>
-              <LoginModal onClose={switchLoginModal} addCompanyName={addCompanyName}/>
-            </BasicModalWindow>
-        )}
-      </Suspense>
+    <Suspense fallback={<div></div>}>
+      <Routes>
+        <Route path='/' element={<Layout openLoginModal={switchLoginModal} companyName={companyName}/>}>
+          <Route index element={<MainPage/>}/>
+          <Route path='/registration' element={<RegistrationPage/>}/>
+          <Route path='/profile' element={<ProfilePage/>}/>
+          <Route path='/policy' element={<PrivacyPolicyPage/>}/>
+        </Route>
+        <Route path='*' element={<ErrorPage/>}/>
+      </Routes>
+      <Toaster/>
+      {isLoginModalOpen && (
+        <BasicModalWindow onClose={switchLoginModal}>
+          <LoginModal onClose={switchLoginModal} addCompanyName={addCompanyName}/>
+        </BasicModalWindow>
+      )}
+    </Suspense>
   );
 }
 
