@@ -7,12 +7,23 @@ import BasicModalWindow from "../../modals/BasicModalWindow/BasicModalWindow";
 import ChangeEmailModal from "../../modals/ChangeEmail/ChangeEmailModal";
 import ChangePasswordModal from "../../modals/ChangePassword/ChangePasswordModal";
 import {useTranslation} from "react-i18next";
+import * as Yup from "yup";
 
 const UserDataChanging = ({userData}) => {
     const [isChangeEmailModal, setIsChangeEmailModal] = useState(false);
     const [isChangePasswordModal, setIsChangePasswordModal] = useState(false);
 
-    const {t} = useTranslation()
+    const {t} = useTranslation();
+
+    const initialValues = {
+        email: userData.email ?? '',
+        password: '',
+    }
+
+    const validationSchema = Yup.object({
+        email: Yup.string()
+          .email(t('Validation.email'))
+    })
 
     const switchEmailModal = () => {
         setIsChangeEmailModal(prevState => !prevState);
@@ -25,11 +36,9 @@ const UserDataChanging = ({userData}) => {
     return(
         <AccordionWrapper id='collapseFour' title={{id: 'headingFour', text: t('UserDataChanging.title')}}>
             <Formik
-                initialValues={{
-                    email: userData.email ?? '',
-                    password: '',
-                }}
-                onSubmit={value => {
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={() => {
                     update(userData).then((data) => {
                         console.log(data);
                     }).catch(console.log)

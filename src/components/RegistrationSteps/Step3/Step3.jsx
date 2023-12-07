@@ -11,57 +11,63 @@ import {PolandRegions} from '../../../const/Constants';
 import {useTranslation} from 'react-i18next';
 
 const Step3 = ({submitFunc, userData, prevStep}) => {
-    const {t} = useTranslation();
+  const {t} = useTranslation();
 
-    return (
-        <>
-            <div
-                className={clsx(css.formSmallText, 'formSmallText')}>{t('RegistrationSteps.step').toUpperCase()} 03<span>/04</span>
-            </div>
-            <h1 className='fw-600 mt-4'>{t('RegistrationSteps.Step3.title')}</h1>
-            <Formik
-                initialValues={{
-                    region: userData.region ?? '',
-                    city: userData.city ?? '',
-                    street: userData.street ?? '',
-                    building: userData.building ?? '',
-                    office: userData.office ?? '',
-                }}
-                validationSchema={Yup.object({
-                    region: Yup.string().required(t('Validation.required')),
-                    city: Yup.string().required(t('Validation.required')).trim(),
-                    street: Yup.string().required(t('Validation.required')).trim(),
-                    building: Yup.string().required(t('Validation.required')).trim(),
-                    office: Yup.string().trim(),
-                })}
-                onSubmit={value => submitFunc(value)}
-            >
-                <Form className={clsx('mt-4 formRegistration')}>
+  const initialValues = {
+    region: userData.region ?? '',
+    city: userData.city ?? '',
+    street: userData.street ?? '',
+    building: userData.building ?? '',
+    office: userData.office ?? '',
+  };
 
-                    <SelectFloating name='region'
-                                    options={PolandRegions}
-                                    placeholder={t('RegistrationSteps.Step3.selectFloatingRegionPlaceholder')} />
+  const validationSchema = Yup.object({
+    region: Yup.string().required(t('Validation.required')),
+    city: Yup.string().required(t('Validation.required')).trim(),
+    street: Yup.string().required(t('Validation.required')).trim(),
+    building: Yup.string().required(t('Validation.required')).trim(),
+    office: Yup.string().trim(),
+  });
 
-                    <InputFloating name='city'
-                                   placeholder={t('RegistrationSteps.Step3.inputFloatingCityPlaceholder')} />
+  const onSubmit = value => submitFunc(value);
 
-                    <InputFloating name='street'
-                                   placeholder={t('RegistrationSteps.Step3.inputFloatingStreetPlaceholder')} />
+  return (
+    <>
+      <div
+        className={clsx(css.formSmallText, 'formSmallText')}>{t('RegistrationSteps.step').toUpperCase()} 03<span>/04</span>
+      </div>
+      <h1 className='fw-600 mt-4'>{t('RegistrationSteps.Step3.title')}</h1>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
+        <Form className={clsx('mt-4 formRegistration')}>
 
-                    <div className='input-group gap-3'>
-                        <InputFloating name='building'
-                                       placeholder={t('RegistrationSteps.Step3.inputFloatingHousePlaceholder')} />
-                        <InputFloating name='office'
-                                       placeholder={t('RegistrationSteps.Step3.inputFloatingOfficePlaceholder')} />
-                    </div>
+          <SelectFloating name='region'
+                          options={PolandRegions}
+                          placeholder={t('RegistrationSteps.Step3.selectFloatingRegionPlaceholder')}/>
 
-                    <Btn text={t('RegistrationSteps.btnContinue')} styled='secondary' classes={['form-control']} />
-                </Form>
-            </Formik>
+          <InputFloating name='city'
+                         placeholder={t('RegistrationSteps.Step3.inputFloatingCityPlaceholder')}/>
 
-            <span onClick={prevStep} className='btn w-100 border-0 mt-3'>{t('RegistrationSteps.btnBack')}</span>
-        </>
-    );
+          <InputFloating name='street'
+                         placeholder={t('RegistrationSteps.Step3.inputFloatingStreetPlaceholder')}/>
+
+          <div className='input-group gap-3'>
+            <InputFloating name='building'
+                           placeholder={t('RegistrationSteps.Step3.inputFloatingHousePlaceholder')}/>
+            <InputFloating name='office'
+                           placeholder={t('RegistrationSteps.Step3.inputFloatingOfficePlaceholder')}/>
+          </div>
+
+          <Btn text={t('RegistrationSteps.btnContinue')} styled='secondary' classes={['form-control']}/>
+        </Form>
+      </Formik>
+
+      <span onClick={prevStep} className='btn w-100 border-0 mt-3'>{t('RegistrationSteps.btnBack')}</span>
+    </>
+  );
 };
 
 export default Step3;

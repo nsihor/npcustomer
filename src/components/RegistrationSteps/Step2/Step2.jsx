@@ -12,6 +12,38 @@ import {useTranslation} from 'react-i18next';
 const Step2 = ({submitFunc, userData, prevStep}) => {
   const {t} = useTranslation();
 
+  const initialValues = {
+    companyName: userData.companyName ?? '',
+    countryCode: userData.countryCode ?? '',
+    companyTIN: userData.companyTIN ?? '',
+    externalLogoUrl: userData.externalLogoUrl ?? '',
+  };
+
+  const validationSchema = Yup.object({
+    companyName: Yup.string()
+      .required(t('Validation.required'))
+      .trim(),
+    countryCode: Yup.string().required(t('Validation.required')),
+    companyTIN: Yup.string()
+      .required(t('Validation.required'))
+      .matches(
+        /^(?=.*[0-9]{10})/,
+        'NIP складається з 10 цифр',
+      )
+      .test('NIP', t('Validation.controlSumNIP'),
+        function (value) {
+          const сhecksum = (
+            ((value[0] * 6 + value[1] * 5 + value[2] * 7 + value[3] * 2 + value[4] * 3 +
+              value[5] * 4 + value[6] * 5 + value[7] * 6 + value[8] * 7
+            ) % 11) % 10) === value[9] * 1;
+
+          return сhecksum;
+        }),
+    externalLogoUrl: Yup.string()
+  });
+
+  const onSubmit = value => submitFunc(value)
+
   return (
     <>
       <div
@@ -19,35 +51,9 @@ const Step2 = ({submitFunc, userData, prevStep}) => {
       </div>
       <h1 className='fw-600 mt-4'>{t('RegistrationSteps.Step2.title')}</h1>
       <Formik
-        initialValues={{
-          companyName: userData.companyName ?? '',
-          countryCode: userData.countryCode ?? '',
-          companyTIN: userData.companyTIN ?? '',
-          externalLogoUrl: userData.externalLogoUrl ?? '',
-        }}
-        validationSchema={Yup.object({
-          companyName: Yup.string()
-            .required(t('Validation.required'))
-            .trim(),
-          countryCode: Yup.string().required(t('Validation.required')),
-          companyTIN: Yup.string()
-            .required(t('Validation.required'))
-            .matches(
-              /^(?=.*[0-9]{10})/,
-              'NIP складається з 10 цифр',
-            )
-            .test('NIP', t('Validation.controlSumNIP'),
-              function(value) {
-                const сhecksum = (
-                    ((value[0] * 6 + value[1] * 5 + value[2] * 7 + value[3] * 2 + value[4] * 3 +
-                        value[5] * 4 + value[6] * 5 + value[7] * 6 + value[8] * 7
-                    ) % 11) % 10) === value[9] * 1;
-
-                return сhecksum;
-              }),
-          externalLogoUrl: Yup.string()
-        })}
-        onSubmit={value => submitFunc(value)}
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
       >
         <Form className={clsx(css.formRegistration, 'mt-4 formRegistration')}>
           <InputFloating
@@ -73,7 +79,7 @@ const Step2 = ({submitFunc, userData, prevStep}) => {
             placeholder={t('RegistrationSteps.Step4.inputFloatingLogoPlaceholder')}
           />
 
-          <Btn text={t('RegistrationSteps.btnContinue')} styled='secondary' classes={['form-control']} />
+          <Btn text={t('RegistrationSteps.btnContinue')} styled='secondary' classes={['form-control']}/>
         </Form>
       </Formik>
 

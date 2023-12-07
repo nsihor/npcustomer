@@ -15,15 +15,15 @@ const ChangeEmailModal = ({onClose}) => {
                 <h2 className={clsx(css.title, 'mb-4')}>{t("modal.changeTitle")} Email</h2>
                 <Formik
                     initialValues={{email: ''}}
-                    onSubmit={(values) => {
-                        console.log(values)
-                        onClose()
-                    }}
                     validationSchema={Yup.object({
                         email: Yup.string()
                                 .email(t('Validation.email'))
                                 .required(t('Validation.required'))
-                    })}>
+                    })}
+                    onSubmit={(values) => {
+                      console.log(values)
+                      onClose()
+                    }}>
                     <Form className='d-flex flex-column w-100'>
                         <InputFloating name='email' type='email' placeholder='Email' classes={['mb-4']}/>
                         <Btn text={t("modal.successBtn")} styled='success' classes={['mb-1', 'mt-2']}/>

@@ -16,6 +16,24 @@ const Step4 = ({submitFunc, userData, prevStep}) => {
   const [baseLinkerToken, setBaseLinkerToken] = useState('');
   const {t} = useTranslation();
 
+  const initialValues = {
+    name: userData.userName ?? '',
+    phone: userData.phone ?? '',
+  };
+
+  const validationSchema = Yup.object({
+    name: Yup.string().required(t('Validation.required')).trim(),
+    phone: Yup.string().required(t('Validation.required')).trim(),
+  });
+
+  const onSubmit = value => {
+    submitFunc(value);
+    register(userData).then((data) => {
+      setBaseLinkerToken(data.data.baselinkerToken);
+    });
+    setIsModalOpen(true);
+  }
+
   return (
     <>
       <div className={clsx(css.formSmallText, 'formSmallText')}>
@@ -23,21 +41,9 @@ const Step4 = ({submitFunc, userData, prevStep}) => {
       </div>
       <h1 className='fw-600 mt-4'>{t('RegistrationSteps.Step4.title')}</h1>
       <Formik
-        initialValues={{
-          name: userData.userName ?? '',
-          phone: userData.phone ?? '',
-        }}
-        validationSchema={Yup.object({
-          name: Yup.string().required(t('Validation.required')).trim(),
-          phone: Yup.string().required(t('Validation.required')).trim(),
-        })}
-        onSubmit={value => {
-          submitFunc(value);
-          register(userData).then((data) => {
-            setBaseLinkerToken(data.data.baselinkerToken);
-          });
-          setIsModalOpen(true);
-        }}
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
       >
         <Form className={clsx(css.formRegistration, 'formRegistration mt-4')}>
 
@@ -46,7 +52,7 @@ const Step4 = ({submitFunc, userData, prevStep}) => {
           </label>
           <InputFloating
             name='name'
-                         placeholder={t('RegistrationSteps.Step4.inputFloatingNamePlaceholder')}
+            placeholder={t('RegistrationSteps.Step4.inputFloatingNamePlaceholder')}
           />
 
           <InputFloating
@@ -54,12 +60,12 @@ const Step4 = ({submitFunc, userData, prevStep}) => {
             placeholder={t('RegistrationSteps.Step4.inputFloatingPhonePlaceholder')}
           />
 
-          <Btn text={t('RegistrationSteps.Step4.btn')} styled='success' classes={['form-control']} />
+          <Btn text={t('RegistrationSteps.Step4.btn')} styled='success' classes={['form-control']}/>
         </Form>
       </Formik>
       {isModalOpen &&
         <BasicModalWindow onClose={() => setIsModalOpen(false)} navigateTo='/'>
-          <FinishedRegistrationModal code={baseLinkerToken} />
+          <FinishedRegistrationModal code={baseLinkerToken}/>
         </BasicModalWindow>}
       <span onClick={prevStep} className='btn w-100 border-0 mt-3'>{t('RegistrationSteps.btnBack')}</span>
     </>
