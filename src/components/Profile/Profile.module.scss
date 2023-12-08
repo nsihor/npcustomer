@@ -7,11 +7,14 @@
     justify-content: center;
     align-items: flex-start;
 
+    @media (max-width: 767px) {
+      display: none;
+    }
+
     a {
       display: flex;
       color: var(--text-tabbar-selected, #DA291C);
       text-decoration: none;
-      display: flex;
       padding: var(--gap-16, 16px) var(--gap-24, 24px);
       justify-content: space-between;
       align-items: center;
@@ -33,12 +36,14 @@
 
   .burgerWrapper {
     display: flex;
-    padding: 40px var(--gap-0, 0px) 40px 40px;
-
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
-    border-left: 1px solid #cbd1d9;
+
+    @media (min-width: 768px) {
+      padding: 40px var(--gap-0, 0px) 40px 40px;
+      border-left: 1px solid #cbd1d9;
+    }
 
     .burger {
       background-color: #fff;

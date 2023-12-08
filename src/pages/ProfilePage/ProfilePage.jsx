@@ -9,11 +9,11 @@ const ProfilePage = () => {
 
   useEffect(() => {
     refreshUser().then();
-    profile().then(
-      res => (
-        setUserData(res.data.merchant)
-      ),
-    );
+    // profile().then(
+    //   res => (
+    //     setUserData(res.data.merchant)
+    //   ),
+    // );
 
   }, []);
 

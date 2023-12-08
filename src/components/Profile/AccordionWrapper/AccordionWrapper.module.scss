@@ -1,0 +1,17 @@
+.wrapper {
+  position: relative;
+}
+
+.wrapper:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 24px;
+  right: 24px;
+  height: 1px;
+  background-color: #E2E8F0;
+}
+
+.h2 {
+  font-size: 16px;
+}

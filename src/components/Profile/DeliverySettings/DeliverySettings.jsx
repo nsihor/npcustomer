@@ -30,15 +30,15 @@ const DeliverySettings = ({userData}) => {
         /^(?=.*[0-9]{10})/,
         'NIP складається з 10 цифр',
       ),
-      // .test('NIP', t('Validation.controlSumNIP'),
-      //   function (value) {
-      //     const сhecksum = (
-      //       ((value[0] * 6 + value[1] * 5 + value[2] * 7 + value[3] * 2 + value[4] * 3 +
-      //         value[5] * 4 + value[6] * 5 + value[7] * 6 + value[8] * 7
-      //       ) % 11) % 10) === value[9] * 1;
-      //
-      //     return сhecksum;
-      //   }),
+    // .test('NIP', t('Validation.controlSumNIP'),
+    //   function (value) {
+    //     const сhecksum = (
+    //       ((value[0] * 6 + value[1] * 5 + value[2] * 7 + value[3] * 2 + value[4] * 3 +
+    //         value[5] * 4 + value[6] * 5 + value[7] * 6 + value[8] * 7
+    //       ) % 11) % 10) === value[9] * 1;
+    //
+    //     return сhecksum;
+    //   }),
     companyName: Yup.string().trim(),
     phone: Yup.string().trim(),
     name: Yup.string().trim(),
@@ -53,7 +53,7 @@ const DeliverySettings = ({userData}) => {
   const onSubmit = (value) => {
     const filteredValues = Object.entries(value)
       .filter(([_, val]) => val !== '')
-      .reduce((acc, [key, val]) => ({ ...acc, [key]: val }), {});
+      .reduce((acc, [key, val]) => ({...acc, [key]: val}), {});
 
     console.log(filteredValues);
   };
