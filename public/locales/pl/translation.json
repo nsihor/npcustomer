@@ -161,7 +161,8 @@
     "matchesNumber": "Przynajmniej jeden numer",
     "matchesSpecSymbol": "Przynajmniej jeden znak:",
     "repeatPassword": "Hasło musi pasować",
-    "controlSumNIP": "NIP posiada funkcję obliczania sumy kontrolnej"
+    "controlSumNIP": "NIP posiada funkcję obliczania sumy kontrolnej",
+    "nipSymbolCount": "NIP składa się z 10 cyfr"
   },
   "PrivacyPolicy": "Polityka prywatności"
 }

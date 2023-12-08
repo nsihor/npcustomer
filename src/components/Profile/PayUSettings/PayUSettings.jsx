@@ -8,7 +8,16 @@ import {useTranslation} from "react-i18next";
 const PayUSettings = ({userData}) => {
   const {t} = useTranslation()
 
-  const initialValues = {};
+  const initialValues = {
+    oauth_client_id: userData.oauth_client_id ?? '',
+    oauth_client_secret: userData.oauth_client_secret ?? '',
+    merchant_pos_id: userData.merchant_pos_id ?? '',
+    second_key: userData.second_key ?? '',
+  };
+
+  const validationSchema = {
+    // validationSchema
+  }
 
   const onSubmit = value => {
     console.log(value);
@@ -18,7 +27,9 @@ const PayUSettings = ({userData}) => {
     <AccordionWrapper id='collapseOne' title={{id: 'headingOne', text: t("PayUSettings.title")}}>
       <Formik
         initialValues={initialValues}
-        onSubmit={onSubmit}>
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
         <Form>
           <InputFloating value='' name='oauth_client_id'
                          placeholder='oauth_client_id'/>

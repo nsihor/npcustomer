@@ -161,7 +161,8 @@
     "matchesNumber": "Хача б одна цифра",
     "matchesSpecSymbol": "Хоча б один символ:",
     "repeatPassword": "Паролі мають співпадати",
-    "controlSumNIP": "NIP має розрахунок контрольної суми"
+    "controlSumNIP": "NIP має розрахунок контрольної суми",
+    "nipSymbolCount": "NIP складається з 10 цифр"
   },
   "PrivacyPolicy": "Політика конфіденційності"
 }

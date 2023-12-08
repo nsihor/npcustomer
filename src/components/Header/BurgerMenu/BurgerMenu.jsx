@@ -21,7 +21,7 @@ const BurgerMenu = ({onClose}) => {
                         <div className='d-flex justify-content-between pe-5'>
                             <button
                                 onClick={onClose}
-                                className='border-0 px-0 py-3'
+                                className='border-0 px-0 py-3 bg-white'
                                 type='button'
                                 aria-controls='navbarTopMenu'
                                 aria-expanded='false'
