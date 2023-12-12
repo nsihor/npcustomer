@@ -13,7 +13,7 @@ const Btn = ({styled, text, params, classes = []}) => {
 
     return (
         <button
-            className={clsx(styled === 'success' ? css.btnSuccess : '', css.btn, `border-0 btn btn-${styled} text-nowrap`, ...classes)}
+            className={clsx(styled === 'success' ? css.btnSuccess : '', css.btn, `border-0 btn btn-${styled} text-nowrap ${classes}`)}
             type="submit"
             {...params}
             style={{backgroundColor, color}}

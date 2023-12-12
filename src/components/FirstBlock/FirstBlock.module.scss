@@ -6,3 +6,12 @@
     font-size: 52px;
   }
 }
+
+.btn {
+  @media screen and (min-width: 1200px) {
+    margin-top: -50px;
+  }
+  @media screen and (min-width: 1400px) {
+    margin-top: -190px;
+  }
+}
