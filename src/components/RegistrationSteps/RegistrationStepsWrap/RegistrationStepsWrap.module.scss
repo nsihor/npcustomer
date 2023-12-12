@@ -1,11 +1,5 @@
 $red: #DA291C;
 
-.registrationWrap {
-  @media screen and (max-width: 768px) {
-    margin-top: 120px;
-  }
-}
-
 .registration {
   overflow: hidden;
 
@@ -20,7 +14,7 @@ $red: #DA291C;
 
 
   .leftSide {
-    padding: 32px;
+    padding: 20px 32px;
     border-radius: var(--gap-0, 0px);
     background: var(--bg-powder-blue-light, #C4E9E0);
 
@@ -100,10 +94,6 @@ $red: #DA291C;
       padding: 30px;
       width: 100%;
       height: auto;
-    }
-
-    .formWrapper {
-
     }
   }
 }

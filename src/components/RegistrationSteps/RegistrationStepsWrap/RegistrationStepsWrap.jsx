@@ -21,10 +21,10 @@ const RegistrationStepsWrap = ({children, openStep}) => {
 
 
   return (
-    <div className={clsx(css.registrationWrap, `${!isMobile && 'container'} mb-5 py-5`)}>
-      <h1 className='ms-4'>{t("RegistrationSteps.title")}</h1>
+    <div className={`${!isMobile && 'container'} mb-5 py-md-5`}>
+      <h1 className='ms-4 mb-3 fw-medium'>{t("RegistrationSteps.title")}</h1>
 
-      <div className={clsx(css.registration, "d-flex flex-column flex-md-row mt-5")}>
+      <div className={clsx(css.registration, "d-flex flex-column flex-md-row mt-md-5")}>
         <div className={clsx(css.leftSide, "col-12 col-md-4 d-md-flex")}>
           <div className={clsx(css.stepsBlock, "row justify-content-start")}>
             <div className={clsx(openStep >= 1 ? css.active : '', "d-flex align-items-center gap-4")}>
@@ -58,7 +58,7 @@ const RegistrationStepsWrap = ({children, openStep}) => {
           </div>
         </div>
         <div className={clsx(css.rightSide, "col-12 col-md-8")}>
-          <div className={clsx(css.formWrapper, "mt-4")}>
+          <div className="mt-4">
             {children}
           </div>
         </div>
