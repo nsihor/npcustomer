@@ -7,18 +7,26 @@ $red: #DA291C;
 }
 
 .registration {
-  border-radius: 8px;
-  background: #FFF;
-  box-shadow:
-    0px 8px 40px 0px rgba(0, 0, 0, 0.20),
-    0px 14px 20px 0px rgba(0, 0, 0, 0.20),
-    0px 0px 1px 0px rgba(0, 0, 0, 0.70);
   overflow: hidden;
 
+  @media screen and (min-width: 768px) {
+    border-radius: 8px;
+    background: #FFF;
+    box-shadow:
+            0 8px 40px 0 rgba(0, 0, 0, 0.20),
+            0 14px 20px 0 rgba(0, 0, 0, 0.20),
+            0 0 1px 0 rgba(0, 0, 0, 0.70);
+  }
+
+
   .leftSide {
-    padding: 60px;
+    padding: 32px;
     border-radius: var(--gap-0, 0px);
     background: var(--bg-powder-blue-light, #C4E9E0);
+
+    @media screen and (min-width: 768px) {
+      padding: 60px;
+    }
 
     .stepsBlock {
       height: fit-content;
