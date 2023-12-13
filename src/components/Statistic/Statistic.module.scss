@@ -1,7 +1,6 @@
 .statSm {
   background: #E63629;
   border-radius: 10px;
-  width: 500px;
   position: absolute;
   right: 0;
   top: -62px;
@@ -10,7 +9,7 @@
   color: #ffffff;
   z-index: 2;
 
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: 575px) {
     position: relative;
     top: auto;
     width: auto;
@@ -20,6 +19,10 @@
     padding: 20px 20px;
     text-align: center;
     font-size: 14px;
+  }
+
+  @media screen and (min-width: 768px){
+    width: 500px;
   }
 }
 
@@ -31,13 +34,6 @@
     font-size: 34px;
   }
 }
-
-//.svgWrapper{
-//  @media screen and (min-width: 576px) {
-//    width: 47px;
-//  }
-//}
-
 
 .mobileDiagonalLines{
   width: 29vw;
