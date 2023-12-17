@@ -14,12 +14,12 @@ $red: #DA291C;
 
 
   .leftSide {
-    padding: 20px 32px;
+    padding: 20px 0 20px 32px;
     border-radius: var(--gap-0, 0px);
     background: var(--bg-powder-blue-light, #C4E9E0);
 
-    @media screen and (min-width: 768px) {
-      padding: 60px;
+    @media screen and (min-width: 992px) {
+      padding: 60px 50px;
     }
 
     .stepsBlock {
@@ -53,6 +53,11 @@ $red: #DA291C;
 
       .title {
         color: #94A3B8;
+        font-size: 15px;
+
+        @media screen and (min-width: 1200px) {
+          font-size: 20px;
+        }
       }
 
       .active .title {
@@ -86,14 +91,17 @@ $red: #DA291C;
   }
 
   .rightSide {
-    padding: 60px 100px;
     border-radius: var(--gap-0, 0px);
-    height: 750px;
+    padding: 30px;
+    height: auto;
 
-    @media screen and (max-width: 768px) {
-      padding: 30px;
-      width: 100%;
-      height: auto;
+    @media screen and (min-width: 768px) {
+      height: 620px;
+    }
+
+    @media screen and (min-width: 992px) {
+      padding: 60px 100px;
+      height: 750px;
     }
   }
 }
