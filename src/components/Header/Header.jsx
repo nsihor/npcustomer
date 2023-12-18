@@ -8,7 +8,7 @@ import {useEffect, useState} from "react";
 import BurgerMenu from "./BurgerMenu/BurgerMenu";
 import {useTranslation} from "react-i18next";
 
-const Header = ({openLoginModal, companyName}) => {
+const Header = ({openLoginModal, company, setCompany}) => {
     const [isMobile, setIsMobile] = useState(true);
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -51,7 +51,7 @@ const Header = ({openLoginModal, companyName}) => {
                             </Link>
                         </div>
                         <div className={clsx(css.authorizeWrap, "d-flex d-md-none")}>
-                            <Authorize openModalFunc={openLoginModal} companyName={companyName} isMobile={isMobile}/>
+                            <Authorize openModalFunc={openLoginModal} company={company} isMobile={isMobile} setCompany={setCompany}/>
                         </div>
 
                         <div className='justify-content-end' id='navbarTopMenu'>
@@ -68,7 +68,7 @@ const Header = ({openLoginModal, companyName}) => {
                                 </div>
                                 <div className='d-flex gap-5'>
                                     {!isMobile && <Lang/>}
-                                    <Authorize openModalFunc={openLoginModal} companyName={companyName}/>
+                                    <Authorize openModalFunc={openLoginModal} company={company} setCompany={setCompany}/>
                                 </div>
                             </div>
                         </div>

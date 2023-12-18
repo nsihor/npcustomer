@@ -1,4 +1,5 @@
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
 axios.defaults.baseURL = 'http://localhost:8080/api/v1/merchant/';
 
@@ -7,15 +8,28 @@ const setToken = token => {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-// const clearToken = () => (axios.defaults.headers.common.Authorization = '');
+const clearToken = () => {
+  (axios.defaults.headers.common.Authorization = '');
+  localStorage.removeItem("jwt")
+}
 
 export const login =
     async (user) => {
         try {
             const { data } = await axios.post('login', user);
-            data?.data?.merchantName && localStorage.setItem("companyName", data.data.merchantName)
-            setToken(data.data.token);
-            return data;
+            setToken(data.token);
+            const decodedToken = jwtDecode(data.token);
+
+            return {...data, company_name: decodedToken.company_name};
+        } catch (error) {
+            return error.message;
+        }
+    }
+
+export const logOut =
+    async () => {
+        try {
+            clearToken();
         } catch (error) {
             return error.message;
         }

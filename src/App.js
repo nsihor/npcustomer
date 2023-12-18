@@ -6,6 +6,7 @@ import BasicModalWindow from './components/modals/BasicModalWindow/BasicModalWin
 import Layout from "./components/Layout/Layout";
 import LoginModal from "./components/modals/LoginModal/LoginModal";
 import Loader from "./components/Loader/Loader";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const RegistrationPage = lazy(() => import('pages/RegistrationPage/RegistrationPage'));
@@ -15,13 +16,7 @@ const PrivacyPolicyPage = lazy(() => import('pages/PrivacyPolicyPage/PrivacyPoli
 
 function App() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const [companyName, setCompanyName] = useState('');
-
-  useEffect(() => {
-    if (!localStorage.getItem('companyName')) return
-    !companyName && setCompanyName(localStorage.getItem('companyName'));
-    console.log(companyName);
-  }, [companyName]);
+  const [company, setCompany] = useLocalStorage('company','');
 
   const {hash} = useLocation();
 
@@ -36,13 +31,12 @@ function App() {
   }, [hash]);
 
   const switchLoginModal = () => setIsLoginModalOpen(prevState => !prevState);
-  const addCompanyName = (name) => setCompanyName(name);
 
 
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
-        <Route path='/' element={<Layout openLoginModal={switchLoginModal} companyName={companyName}/>}>
+        <Route path='/' element={<Layout openLoginModal={switchLoginModal} company={company} setCompany={setCompany}/>}>
           <Route index element={<MainPage/>}/>
           <Route path='/registration' element={<RegistrationPage/>}/>
           <Route path='/profile' element={<ProfilePage/>}/>
@@ -53,7 +47,7 @@ function App() {
       <Toaster/>
       {isLoginModalOpen && (
         <BasicModalWindow onClose={switchLoginModal}>
-          <LoginModal onClose={switchLoginModal} addCompanyName={addCompanyName}/>
+          <LoginModal onClose={switchLoginModal} addCompanyName={setCompany}/>
         </BasicModalWindow>
       )}
     </Suspense>

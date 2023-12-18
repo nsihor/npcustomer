@@ -31,11 +31,10 @@ const LoginModal = ({onClose, addCompanyName}) => {
                     onSubmit={(values) => {
                         login(values)
                           .then(data => {
-                              addCompanyName(data.data.merchantName);
+                              addCompanyName(data.company_name);
                               onClose();
                           })
-                          .catch(
-                            toast.error('Email не підтверждений або не існує'),
+                          .catch(e => e && toast.error('Email не підтверждений або не існує')
                           );
                     }}>
                     <Form className='d-flex flex-column w-100'>
