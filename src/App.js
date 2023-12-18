@@ -7,6 +7,7 @@ import Layout from "./components/Layout/Layout";
 import LoginModal from "./components/modals/LoginModal/LoginModal";
 import Loader from "./components/Loader/Loader";
 import useLocalStorage from "./hooks/useLocalStorage";
+import {PrivateRoute} from "./routeGuard/privateRoute";
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const RegistrationPage = lazy(() => import('pages/RegistrationPage/RegistrationPage'));
@@ -39,7 +40,7 @@ function App() {
         <Route path='/' element={<Layout openLoginModal={switchLoginModal} company={company} setCompany={setCompany}/>}>
           <Route index element={<MainPage/>}/>
           <Route path='/registration' element={<RegistrationPage/>}/>
-          <Route path='/profile' element={<ProfilePage/>}/>
+          <Route path='/profile' element={<PrivateRoute company={company} component={ProfilePage} />}/>
           <Route path='/policy' element={<PrivacyPolicyPage/>}/>
         </Route>
         <Route path='*' element={<ErrorPage/>}/>
