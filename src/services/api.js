@@ -22,7 +22,8 @@ export const login =
 
       return {...data, company_name};
     } catch (error) {
-      throw new Error()
+      console.log(error)
+      throw new Error(error.message)
     }
   }
 
@@ -42,7 +43,7 @@ export const register =
 
       return data;
     } catch (error) {
-      return error.message;
+      throw new Error(error.response.status)
     }
   };
 

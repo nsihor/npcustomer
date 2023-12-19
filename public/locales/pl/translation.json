@@ -39,6 +39,7 @@
     "link": "Do biura firmy"
   },
   "LoginModal": {
+    "errorToast": "Adres e-mail nie został zweryfikowany lub nie istnieje",
     "title": "Wyjście",
     "btn": "Kontynuować",
     "link": "Zapisać się"

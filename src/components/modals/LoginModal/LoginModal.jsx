@@ -18,7 +18,7 @@ const LoginModal = ({onClose, addCompanyName}) => {
       addCompanyName(data.company_name)
       onClose()
     } catch (e) {
-      toast.error('Email не підтверждений або не існує')
+      toast.error(t('LoginModal.errorToast'))
     }
   }
 
@@ -31,10 +31,10 @@ const LoginModal = ({onClose, addCompanyName}) => {
           initialValues={{email: '', password: ''}}
           validationSchema={Yup.object({
             email: Yup.string()
-              .email('Некоректний email')
+              .email(t('Validation.email'))
               .required(t('Validation.required')),
             password: Yup.string()
-              .min(8, "Мінімум 8 символів")
+              .min(8, t('Validation.min8'))
               .required(t('Validation.required'))
           })}
           onSubmit={handleLogin}

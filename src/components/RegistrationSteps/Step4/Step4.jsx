@@ -10,6 +10,7 @@ import FinishedRegistrationModal from '../../modals/FinishedRegistrationModal/Fi
 import BasicModalWindow from '../../modals/BasicModalWindow/BasicModalWindow';
 import {useTranslation} from 'react-i18next';
 import {register} from '../../../services/api';
+import toast from "react-hot-toast";
 
 const Step4 = ({submitFunc, userData, prevStep}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,12 +27,21 @@ const Step4 = ({submitFunc, userData, prevStep}) => {
     phone: Yup.string().required(t('Validation.required')).trim(),
   });
 
-  const onSubmit = value => {
-    submitFunc(value);
-    register(userData).then((data) => {
-      setBaseLinkerToken(data.data.baselinkerToken);
-    });
-    setIsModalOpen(true);
+  const onSubmit = async values => {
+    try {
+      submitFunc(values);
+      const data = await register(userData);
+      setBaseLinkerToken(data.baseLinkerToken);
+      setIsModalOpen(true);
+    }
+    catch (e) {
+      if (e instanceof Error) {
+        // const errorMessage = e.message;
+        toast.error(`error status #${e.message}`);
+      } else {
+        console.error('Помилка:', e);
+      }
+    }
   }
 
   return (
