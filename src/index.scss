@@ -124,6 +124,10 @@ img {
   color: #000 !important;
 }
 
+.accordion-button:hover, .accordion-button:focus {
+  z-index: auto !important;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -134,3 +138,4 @@ form > .form-floating + .form-floating,
 .input-group + button {
   margin-top: 1.5rem;
 }
+

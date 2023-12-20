@@ -8,19 +8,24 @@ const ProfilePage = () => {
 
 
   useEffect(() => {
-    refreshUser().then();
-    // profile().then(
-    //   res => (
-    //     setUserData(res.data.merchant)
-    //   ),
-    // );
+    // refreshUser().then();
+    const fetchProfile = async () => {
+      try {
+        const data = await profile()
+        setUserData(data);
+        console.log(userData);
+      } catch (e) {
+        console.log(e)
+      }
+    };
 
-  }, []);
+    fetchProfile();
+  }, [userData]);
 
   return (
     <>
-      <Breadcrumbs currentPageName='Профіль компанії' />
-      <Profile userData={userData} />
+      <Breadcrumbs currentPageName='Профіль компанії'/>
+      <Profile userData={userData}/>
     </>
   );
 

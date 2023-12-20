@@ -9,10 +9,10 @@ const PayUSettings = ({userData}) => {
   const {t} = useTranslation()
 
   const initialValues = {
-    oauth_client_id: userData.oauth_client_id ?? '',
-    oauth_client_secret: userData.oauth_client_secret ?? '',
-    merchant_pos_id: userData.merchant_pos_id ?? '',
-    second_key: userData.second_key ?? '',
+    oauth_client_id: userData.oauthClientId ?? '',
+    oauth_client_secret: userData.oauthClientSecret ?? '',
+    merchant_pos_id: userData.merchantPosId ?? '',
+    second_key: userData.secondKey ?? '',
   };
 
   const validationSchema = {

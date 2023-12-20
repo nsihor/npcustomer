@@ -46,12 +46,19 @@ const UserDataChanging = ({userData}) => {
         validationSchema={validationSchema}
         onSubmit={onSubmit}>
         <Form>
-          <InputFloating name='email' type='email' placeholder='Email'
-                         value={userData.email} readonly/>
+          <InputFloating
+            name='email'
+            type='email'
+            placeholder='Email'
+            value={userData.email}
+          />
           <div onClick={switchEmailModal}
                className='btn btn-link text-secondary'>{t('UserDataChanging.changeText')}
           </div>
-          <InputFloating name='password' placeholder={t('UserDataChanging.inputPassword')} params='readonly'/>
+          <InputFloating
+            name='password'
+            placeholder={t('UserDataChanging.inputPassword')}
+            params={{disabled: true}}/>
           <div onClick={switchPasswordModal}
                className='btn btn-link text-secondary'>{t('UserDataChanging.changeText')}
           </div>
