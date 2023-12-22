@@ -1,7 +1,7 @@
 import axios from "axios";
 import {jwtDecode} from "jwt-decode";
 
-axios.defaults.baseURL = 'http://localhost:8080/api/v1/merchant/';
+axios.defaults.baseURL = 'http://localhost:8085/api/v1/merchant/';
 
 const setToken = token => {
   localStorage.setItem("jwt", token);
@@ -54,6 +54,12 @@ export const profile =
 
       return data;
     } catch (error) {
+      try {
+
+      }
+      catch (e) {
+
+      }
       return error.message;
     }
   }

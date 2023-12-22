@@ -10,10 +10,15 @@
   "header": {
     "about": "Kim jesteśmy",
     "advantages": "Nasze atuty",
-    "authorize": "Wyjście",
-    "logoutToast": "Wylogowanie z profilu powiodło się"
+    "authorize": "Logowanie",
+    "logoutToast": "Wylogowanie z profilu powiodło się",
+    "exitTitle": "Wyjście",
+    "profileTitle": "Profil"
   },
   "Breadcrumbs": "Główna",
+  "BreadcrumbsPages": {
+    "profile": "Profil firmy"
+  },
   "Delivery": {
     "title": "Nova Post – dostawa przyszłości",
     "slide1Title": "Nowa Post w Ukrainie",

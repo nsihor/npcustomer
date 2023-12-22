@@ -18,6 +18,11 @@ $red: #DA291C;
   }
 }
 
-svg {
+.svg {
   cursor: pointer;
+  fill: #475569;
+}
+
+.svg:hover, .svg:focus {
+  fill: #DA291C;
 }

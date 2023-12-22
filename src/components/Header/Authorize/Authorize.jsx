@@ -13,24 +13,31 @@ const Authorize = ({openModalFunc, company, isMobile, setCompany}) => {
     <>
       {!company ? (
         <div onClick={openModalFunc}
+             title={t('header.authorize')}
              className={clsx(css.authorize, "d-flex gap-2 align-items-center cursor-pointer")}>
-          <svg width="24" height="24">
+          <svg width="24" height="24"
+            className={css.svg}
+          >
             <use href={sprite + "#icon-entrance"}/>
           </svg>
           {!isMobile && <span>{t("header.authorize")}</span>}
         </div>
       ) : (
         <div className={clsx(css.authorize, "d-flex gap-2 align-items-center")}>
-          <svg
-            onClick={() => {
-              setCompany('')
-              logOut()
-              toast.success(t('header.logoutToast'))
-            }}
-            width="24" height="24">
-            <use href={sprite + "#icon-entrance"}/>
-          </svg>
-          <Link to="/profile">{company}</Link>
+          <div title={t('header.exitTitle')}>
+            <svg
+              onClick={() => {
+                setCompany('')
+                logOut()
+                toast.success(t('header.logoutToast'))
+              }}
+              width="24" height="24"
+              className={css.svg}
+            >
+              <use href={sprite + "#icon-exit"}/>
+            </svg>
+          </div>
+          <Link title={t('header.profileTitle')} to="/profile">{company}</Link>
         </div>
       )}
     </>

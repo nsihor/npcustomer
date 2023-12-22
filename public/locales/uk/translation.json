@@ -11,9 +11,14 @@
     "about": "Хто ми",
     "advantages": "Наші переваги",
     "authorize": "Вхід",
-    "logoutToast": "Вихід із профілю був успішно виконаний"
+    "logoutToast": "Вихід із профілю був успішно виконаний",
+    "exitTitle": "Вихід",
+    "profileTitle": "Профіль"
   },
   "Breadcrumbs": "Головна",
+  "BreadcrumbsPages": {
+    "profile": "Профіль компанії"
+  },
   "Delivery": {
     "title": "Nova Post - доставка майбутнього",
     "slide1Title": "Nova Post в Україні",
