@@ -10,7 +10,8 @@
   "header": {
     "about": "Хто ми",
     "advantages": "Наші переваги",
-    "authorize": "Вхід"
+    "authorize": "Вхід",
+    "logoutToast": "Вихід із профілю був успішно виконаний"
   },
   "Breadcrumbs": "Головна",
   "Delivery": {
@@ -40,6 +41,7 @@
   },
   "LoginModal": {
     "errorToast": "Email не підтверждений або не існує",
+    "successToast": "Вхід успішно виконаний",
     "title": "Вхід",
     "btn": "Продовжити",
     "link": "Зареєструватися"

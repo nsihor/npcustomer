@@ -10,7 +10,8 @@
   "header": {
     "about": "Kim jesteśmy",
     "advantages": "Nasze atuty",
-    "authorize": "Wyjście"
+    "authorize": "Wyjście",
+    "logoutToast": "Wylogowanie z profilu powiodło się"
   },
   "Breadcrumbs": "Główna",
   "Delivery": {
@@ -40,6 +41,7 @@
   },
   "LoginModal": {
     "errorToast": "Adres e-mail nie został zweryfikowany lub nie istnieje",
+    "successToast": "Logowanie powiodło się",
     "title": "Wyjście",
     "btn": "Kontynuować",
     "link": "Zapisać się"

@@ -4,6 +4,7 @@ import sprite from "../../../images/sprite.svg";
 import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {logOut} from "../../../services/api";
+import toast from "react-hot-toast";
 
 const Authorize = ({openModalFunc, company, isMobile, setCompany}) => {
   const {t} = useTranslation();
@@ -24,6 +25,7 @@ const Authorize = ({openModalFunc, company, isMobile, setCompany}) => {
             onClick={() => {
               setCompany('')
               logOut()
+              toast.success(t('header.logoutToast'))
             }}
             width="24" height="24">
             <use href={sprite + "#icon-entrance"}/>

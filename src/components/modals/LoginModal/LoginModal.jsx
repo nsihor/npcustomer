@@ -17,6 +17,7 @@ const LoginModal = ({onClose, addCompanyName}) => {
       const data = await login(values)
       addCompanyName(data.company_name)
       onClose()
+      toast.success(t('LoginModal.successToast'))
     } catch (e) {
       toast.error(t('LoginModal.errorToast'))
     }
