@@ -43,7 +43,9 @@ export const register =
 
       return data;
     } catch (error) {
-      throw new Error(error.response.status)
+      const details = error.response.data.details;
+      console.log(Object.values(details)[0]);
+      throw new Error(Object.values(details)[0]);
     }
   };
 
@@ -56,8 +58,7 @@ export const profile =
     } catch (error) {
       try {
 
-      }
-      catch (e) {
+      } catch (e) {
 
       }
       return error.message;

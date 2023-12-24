@@ -18,7 +18,7 @@ const Step4 = ({submitFunc, userData, prevStep}) => {
   const {t} = useTranslation();
 
   const initialValues = {
-    name: userData.userName ?? '',
+    name: userData.name ?? '',
     phone: userData.phone ?? '',
   };
 
@@ -36,8 +36,8 @@ const Step4 = ({submitFunc, userData, prevStep}) => {
     }
     catch (e) {
       if (e instanceof Error) {
-        // const errorMessage = e.message;
-        toast.error(`error status #${e.message}`);
+        console.log(e)
+        toast.error(e.message);
       } else {
         console.error('Помилка:', e);
       }
