@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import Step1 from "./Step1/Step1";
 import Step2 from "./Step2/Step2";
 import Step3 from "./Step3/Step3";
@@ -8,7 +8,7 @@ import useLocalStorage from "../../hooks/useLocalStorage";
 
 const RegistrationSteps = () => {
   const [userData, setUserData] = useLocalStorage('userData', {});
-  const [openStep, setOpenStep] = useLocalStorage('stepNumber', 1);
+  const [openStep, setOpenStep] = useState( 1);
 
   const submitUserData = (data) => {
     setUserData((prevData) => ({...prevData, ...data}));

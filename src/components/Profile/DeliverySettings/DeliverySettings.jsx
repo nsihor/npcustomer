@@ -5,28 +5,34 @@ import InputFloating from "../../InputFloating/InputFloating";
 import SelectFloating from "../../SelectFloating/SelectFloating";
 import {Countries, CountriesPl, PolandRegions} from "../../../const/Constants";
 import Btn from "../../Btn/Btn";
-import React from "react";
+import {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
 
-const DeliverySettings = ({userData}) => {
+const DeliverySettings = ({userData = undefined}) => {
   const {t, i18n} = useTranslation();
 
+  const [forceRerender, setForceRerender] = useState(false)
+
+  useEffect(() => {
+    setForceRerender(prevState => !prevState)
+  }, [userData])
+
   const initialValues = {
-    nip: userData.nip ?? '',
-    companyName: userData.companyName ?? '',
-    phone: userData.phone ?? '',
-    name: userData.name ?? '',
-    country_code: userData.country_code ?? '',
-    region: userData.region ?? '',
-    city: userData.city ?? '',
-    street: userData.street ?? '',
-    house: userData.building ?? '',
-    office: userData.flat ?? '',
-    externalLogoUrl: userData.externalLogoUrl ?? ''
+    companyTin: userData?.companyTin ?? '',
+    companyName: userData?.companyName ?? '',
+    phone: userData?.phone ?? '',
+    name: userData?.name ?? '',
+    countryCode: userData?.countryCode ?? '',
+    region: userData?.region ?? '',
+    city: userData?.city ?? '',
+    street: userData?.street ?? '',
+    house: userData?.building ?? '',
+    office: userData?.flat ?? '',
+    externalLogoUrl: userData?.externalLogoUrl ?? ''
   };
 
   const validationSchema = Yup.object().shape({
-    nip: Yup.string()
+    companyTin: Yup.string()
       .matches(
         /^(?=.*[0-9]{10})/,
         t("Validation.nipSymbolCount"),
@@ -43,7 +49,7 @@ const DeliverySettings = ({userData}) => {
     companyName: Yup.string().trim().required(t('Validation.required')),
     phone: Yup.string().trim().required(t('Validation.required')),
     name: Yup.string().trim().required(t('Validation.required')),
-    country_code: Yup.string().required(t('Validation.required')),
+    countryCode: Yup.string().required(t('Validation.required')),
     region: Yup.string().required(t('Validation.required')),
     city: Yup.string().trim().required(t('Validation.required')),
     street: Yup.string().trim().required(t('Validation.required')),
@@ -63,12 +69,12 @@ const DeliverySettings = ({userData}) => {
 
   return (
     <AccordionWrapper id='collapseTwo' title={{id: 'headingTwo', text: t('DeliverySettings.title')}}>
-      <Formik
+      {forceRerender && <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={onSubmit}>
         <Form>
-          <InputFloating name='nip' placeholder='NIP'/>
+          <InputFloating name='companyTin' placeholder='NIP'/>
           <InputFloating name='companyName' placeholder={t('DeliverySettings.inputCompanyName')}/>
           <InputFloating name='phone' placeholder={t('DeliverySettings.inputPhone')}/>
           <InputFloating name='name' placeholder={t('DeliverySettings.inputName')}/>
@@ -88,10 +94,11 @@ const DeliverySettings = ({userData}) => {
             <InputFloating name='house' placeholder={t('DeliverySettings.inputHouse')}/>
             <InputFloating name='office' placeholder={t('DeliverySettings.inputOffice')}/>
           </div>
-          <InputFloating name='externalLogoUrl' placeholder={t('RegistrationSteps.Step4.inputFloatingLogoPlaceholder')}/>
+          <InputFloating name='externalLogoUrl'
+                         placeholder={t('RegistrationSteps.Step4.inputFloatingLogoPlaceholder')}/>
           <Btn text={t('DeliverySettings.saveBtn')} styled='success' classes={['form-control']}/>
         </Form>
-      </Formik>
+      </Formik>}
     </AccordionWrapper>
   )
 }

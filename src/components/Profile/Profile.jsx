@@ -15,12 +15,12 @@ const Profile = ({userData}) => {
       <div className='container d-flex'>
         <ProfileNav/>
         <div className={clsx(css.burgerWrapper, 'col-12 col-md-9')}>
-          <div className={clsx(css.burger, 'accordion w-100 pb-5')} id='accorhdionProfile'>
+          {userData !== {} && <div className={clsx(css.burger, 'accordion w-100 pb-5')} id='accorhdionProfile'>
             <PayUSettings userData={userData}/>
             <DeliverySettings userData={userData}/>
-            <BaseLinker baselinkerToken={userData.baselinkerToken}/>
+            <BaseLinker baselinkerToken={userData.baseLinkerToken}/>
             <UserDataChanging userData={userData}/>
-          </div>
+          </div>}
         </div>
       </div>
     </div>

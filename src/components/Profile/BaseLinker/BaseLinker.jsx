@@ -11,7 +11,7 @@ const BaseLinker = ({baselinkerToken}) => {
   const {t} = useTranslation()
   const handleCopyText = () => {
     navigator.clipboard.writeText(baselinkerToken);
-    toast(t('toastCopy'));
+    toast.success(t('toastCopy'));
   };
 
   return (

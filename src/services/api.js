@@ -13,6 +13,8 @@ const clearToken = () => {
   localStorage.removeItem("jwt")
 }
 
+export const updateToken = () => axios.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem("jwt")}`
+
 export const login =
   async (user) => {
     try {

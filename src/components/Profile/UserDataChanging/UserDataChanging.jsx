@@ -2,7 +2,7 @@ import AccordionWrapper from "../AccordionWrapper/AccordionWrapper";
 import {Form, Formik} from "formik";
 import {update} from "../../../services/api";
 import InputFloating from "../../InputFloating/InputFloating";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import BasicModalWindow from "../../modals/BasicModalWindow/BasicModalWindow";
 import ChangeEmailModal from "../../modals/ChangeEmail/ChangeEmailModal";
 import ChangePasswordModal from "../../modals/ChangePassword/ChangePasswordModal";
@@ -12,12 +12,17 @@ import * as Yup from "yup";
 const UserDataChanging = ({userData}) => {
   const [isChangeEmailModal, setIsChangeEmailModal] = useState(false);
   const [isChangePasswordModal, setIsChangePasswordModal] = useState(false);
+  const [forceRerender, setForceRerender] = useState(false);
 
   const {t} = useTranslation();
 
+  useEffect(() => {
+    setForceRerender(prevState => !prevState)
+  }, [userData]);
+
   const initialValues = {
     email: userData.email ?? '',
-    password: '',
+    password: '*******',
   }
 
   const validationSchema = Yup.object({
@@ -41,7 +46,7 @@ const UserDataChanging = ({userData}) => {
 
   return (
     <AccordionWrapper id='collapseFour' title={{id: 'headingFour', text: t('UserDataChanging.title')}}>
-      <Formik
+      {forceRerender && <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={onSubmit}>
@@ -50,7 +55,7 @@ const UserDataChanging = ({userData}) => {
             name='email'
             type='email'
             placeholder='Email'
-            value={userData.email}
+            params={{disabled: true}}
           />
           <div onClick={switchEmailModal}
                className='btn btn-link text-secondary'>{t('UserDataChanging.changeText')}
@@ -58,12 +63,13 @@ const UserDataChanging = ({userData}) => {
           <InputFloating
             name='password'
             placeholder={t('UserDataChanging.inputPassword')}
-            params={{disabled: true}}/>
+            params={{disabled: true}}
+          />
           <div onClick={switchPasswordModal}
                className='btn btn-link text-secondary'>{t('UserDataChanging.changeText')}
           </div>
         </Form>
-      </Formik>
+      </Formik>}
       {isChangeEmailModal &&
         <BasicModalWindow onClose={switchEmailModal}>
           <ChangeEmailModal onClose={switchEmailModal}/>

@@ -2,11 +2,17 @@ import AccordionWrapper from "../AccordionWrapper/AccordionWrapper";
 import {Form, Formik} from "formik";
 import InputFloating from "../../InputFloating/InputFloating";
 import Btn from "../../Btn/Btn";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
 
 const PayUSettings = ({userData}) => {
   const {t} = useTranslation()
+
+  const [forceRerender, setForceRerender] = useState(false);
+
+  useEffect(() => {
+    setForceRerender(prevState => !prevState)
+  }, [userData]);
 
   const initialValues = {
     oauth_client_id: userData.oauthClientId ?? '',
@@ -25,7 +31,7 @@ const PayUSettings = ({userData}) => {
 
   return (
     <AccordionWrapper id='collapseOne' title={{id: 'headingOne', text: t("PayUSettings.title")}}>
-      <Formik
+      {forceRerender && <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={onSubmit}
@@ -40,7 +46,7 @@ const PayUSettings = ({userData}) => {
           <InputFloating value='' name='second_key' placeholder='second_key'/>
           <Btn text={t('PayUSettings.saveBtn')} styled='success' classes={['form-control']}/>
         </Form>
-      </Formik>
+      </Formik>}
     </AccordionWrapper>
   )
 }

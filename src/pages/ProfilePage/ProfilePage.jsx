@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {profile, refreshUser} from '../../services/api';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import Profile from '../../components/Profile/Profile';
@@ -9,25 +9,29 @@ const ProfilePage = () => {
 
   const {t} = useTranslation();
 
-  const fetchProfile = async () => {
-    try {
-      const data = await profile()
-      setUserData(data);
-      console.log(userData);
-    } catch (e) {
-      console.log(e)
-    }
-  };
-  
+  const isFirstRender = useRef(true);
+
   useEffect(() => {
-    // refreshUser().then();
-    fetchProfile();
-  }, []);
+    console.log(userData)
+    if (isFirstRender.current) {
+      const fetchProfile = async () => {
+        try {
+          const data = await profile();
+          setUserData(data);
+        } catch (e) {
+          console.log(e);
+        }
+      };
+      fetchProfile();
+
+      isFirstRender.current = false;
+    }
+  }, [userData]);
 
   return (
     <>
       <Breadcrumbs currentPageName={t('BreadcrumbsPages.profile')}/>
-      <Profile userData={userData}/>
+      {userData && <Profile userData={userData}/>}
     </>
   );
 
