@@ -3,14 +3,16 @@ import {jwtDecode} from "jwt-decode";
 
 axios.defaults.baseURL = 'http://localhost:8085/api/v1/merchant/';
 
-const setToken = token => {
+const setToken = ({token, refreshToken}) => {
   localStorage.setItem("jwt", token);
+  localStorage.setItem("rjwt", refreshToken);
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 const clearToken = () => {
   (axios.defaults.headers.common.Authorization = '');
-  localStorage.removeItem("jwt")
+  localStorage.removeItem("jwt");
+  localStorage.removeItem("rjwt")
 }
 
 export const updateToken = () => axios.defaults.headers.common.Authorization = `Bearer ${localStorage.getItem("jwt")}`
@@ -19,12 +21,11 @@ export const login =
   async (user) => {
     try {
       const {data} = await axios.post('login', user);
-      setToken(data.token);
+      setToken(data);
       const {company_name} = jwtDecode(data.token);
 
       return {...data, company_name};
     } catch (error) {
-      console.log(error)
       throw new Error(error.message)
     }
   }
@@ -58,13 +59,19 @@ export const profile =
 
       return data;
     } catch (error) {
-      try {
-
-      } catch (e) {
-
-      }
-      return error.message;
+      throw new Error(error.message)
     }
+  }
+
+export const refreshUser =
+  async () => {
+    const {data} = await axios.post('refresh-token');
+    setToken(data);
+    console.log(data)
+
+    const {company_name} = jwtDecode(data.token);
+
+    return {...data, company_name};
   }
 
 export const update =
@@ -88,25 +95,25 @@ export const changePassword =
     }
   }
 
-export const deleteMerchant =
-  async () => {
-    try {
-      const {data} = await axios.post('delete');
+// export const deleteMerchant =
+//   async () => {
+//     try {
+//       const {data} = await axios.post('delete');
+//
+//       return data;
+//     } catch (error) {
+//       return error.message;
+//     }
+//   }
 
-      return data;
-    } catch (error) {
-      return error.message;
-    }
-  }
-
-export const refreshUser =
-  async () => {
-    const token = localStorage.getItem("jwt");
-
-    try {
-      if (!token) return;
-      setToken(token);
-    } catch (error) {
-      return error.message;
-    }
-  }
+// export const refreshUser =
+//   async () => {
+//     const token = localStorage.getItem("jwt");
+//
+//     try {
+//       if (!token) return;
+//       setToken(token);
+//     } catch (error) {
+//       return error.message;
+//     }
+//   }

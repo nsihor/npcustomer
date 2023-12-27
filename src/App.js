@@ -45,7 +45,10 @@ function App() {
         <Route path='/' element={<Layout openLoginModal={switchLoginModal} company={company} setCompany={setCompany}/>}>
           <Route index element={<MainPage/>}/>
           <Route path='/registration' element={<RegistrationPage/>}/>
-          <Route path='/profile' element={<PrivateRoute company={company} component={ProfilePage} />}/>
+          <Route path='/profile' element={
+            <PrivateRoute company={company} >
+              <ProfilePage addCompanyName={setCompany}/>
+            </PrivateRoute>}/>
           <Route path='/policy' element={<PrivacyPolicyPage/>}/>
         </Route>
         <Route path='*' element={<ErrorPage/>}/>

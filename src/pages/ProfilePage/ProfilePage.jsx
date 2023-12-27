@@ -1,10 +1,14 @@
 import {useEffect, useRef, useState} from 'react';
+import { useNavigate  } from 'react-router-dom';
 import {profile, refreshUser} from '../../services/api';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import Profile from '../../components/Profile/Profile';
 import {useTranslation} from "react-i18next";
+import toast from "react-hot-toast";
 
-const ProfilePage = () => {
+const ProfilePage = ({addCompanyName}) => {
+  const navigate = useNavigate ();
+
   const [userData, setUserData] = useState({});
 
   const {t} = useTranslation();
@@ -19,19 +23,31 @@ const ProfilePage = () => {
           const data = await profile();
           setUserData(data);
         } catch (e) {
-          console.log(e);
+          try {
+            const refreshData = await refreshUser();
+            addCompanyName(refreshData.company_name)
+
+            const data = await profile();
+            setUserData(data);
+          }
+          catch (e) {
+            console.log(e);
+            navigate('/');
+            addCompanyName('')
+            toast.error('Помилка авторизації');
+          }
         }
       };
       fetchProfile();
 
       isFirstRender.current = false;
     }
-  }, [userData]);
+  }, [addCompanyName, navigate, userData]);
 
   return (
     <>
       <Breadcrumbs currentPageName={t('BreadcrumbsPages.profile')}/>
-      {userData && <Profile userData={userData}/>}
+      <Profile userData={userData}/>
     </>
   );
 
