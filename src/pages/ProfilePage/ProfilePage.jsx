@@ -24,8 +24,10 @@ const ProfilePage = ({addCompanyName}) => {
           setUserData(data);
         } catch (e) {
           try {
-            const refreshData = await refreshUser();
-            addCompanyName(refreshData.company_name)
+            const company = await refreshUser();
+            addCompanyName(company)
+
+            console.log('company', company)
 
             const data = await profile();
             setUserData(data);

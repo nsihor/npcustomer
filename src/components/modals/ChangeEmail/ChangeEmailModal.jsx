@@ -5,9 +5,22 @@ import Btn from "../../Btn/Btn";
 import InputFloating from "../../InputFloating/InputFloating";
 import {useTranslation} from "react-i18next"
 import * as Yup from "yup";
+import {update} from "../../../services/api";
+import toast from "react-hot-toast";
 
 const ChangeEmailModal = ({onClose}) => {
     const {t} = useTranslation();
+
+  const onSubmit = async (value) => {
+    try {
+      await update(value)
+      toast.success('Profile updated -t')
+    }
+    catch (e) {
+      console.log(e)
+      toast.error('Profile update error -t')
+    }
+  };
 
     return (
         <div className={css.main}>
@@ -20,10 +33,7 @@ const ChangeEmailModal = ({onClose}) => {
                                 .email(t('Validation.email'))
                                 .required(t('Validation.required'))
                     })}
-                    onSubmit={(values) => {
-                      console.log(values)
-                      onClose()
-                    }}>
+                    onSubmit={onSubmit}>
                     <Form className='d-flex flex-column w-100'>
                         <InputFloating name='email' type='email' placeholder='Email' classes={['mb-4']}/>
                         <Btn text={t("modal.successBtn")} styled='success' classes={['mb-1', 'mt-2']}/>

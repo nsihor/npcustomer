@@ -24,7 +24,7 @@ export const login =
       setToken(data);
       const {company_name} = jwtDecode(data.token);
 
-      return {...data, company_name};
+      return company_name;
     } catch (error) {
       throw new Error(error.message)
     }
@@ -65,19 +65,25 @@ export const profile =
 
 export const refreshUser =
   async () => {
-    const {data} = await axios.post('refresh-token');
-    setToken(data);
-    console.log(data)
+    try {
+      const refresh_token = localStorage.getItem("rjwt")
+      const {data} = await axios.post('refresh-token', {refresh_token});
+      setToken(data);
+      console.log(data)
 
-    const {company_name} = jwtDecode(data.token);
+      const {company_name} = jwtDecode(data.token);
 
-    return {...data, company_name};
+      return company_name;
+    }
+    catch (e) {
+      console.log(e)
+    }
   }
 
 export const update =
-  async () => {
+  async (userData) => {
     try {
-      const {data} = await axios.post('update');
+      const {data} = await axios.post('update', userData);
 
       return data;
     } catch (error) {

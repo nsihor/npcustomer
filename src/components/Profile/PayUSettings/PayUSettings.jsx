@@ -4,6 +4,8 @@ import InputFloating from "../../InputFloating/InputFloating";
 import Btn from "../../Btn/Btn";
 import React, {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
+import {update} from "../../../services/api";
+import toast from "react-hot-toast";
 
 const PayUSettings = ({userData}) => {
   const {t} = useTranslation()
@@ -15,35 +17,47 @@ const PayUSettings = ({userData}) => {
   }, [userData]);
 
   const initialValues = {
-    oauth_client_id: userData.oauthClientId ?? '',
-    oauth_client_secret: userData.oauthClientSecret ?? '',
-    merchant_pos_id: userData.merchantPosId ?? '',
-    second_key: userData.secondKey ?? '',
+    oauthClientId: userData.oauthClientId ?? '',
+    oauthClientSecret: userData.oauthClientSecret ?? '',
+    merchantPosId: userData.merchantPosId ?? '',
+    secondKey: userData.secondKey ?? '',
   };
 
-  const validationSchema = {
-    // validationSchema
-  }
+  // const validationSchema = {
+  //   // validationSchema
+  // }
 
-  const onSubmit = value => {
-    console.log(value);
-  }
+  const onSubmit = async (value) => {
+    const filteredValues = Object.entries(value)
+      .filter(([_, val]) => val !== '')
+      .reduce((acc, [key, val]) => ({...acc, [key]: val}), {});
+
+    try {
+      await update(filteredValues)
+      toast.success('Profile updated -t')
+    }
+    catch (e) {
+      toast.error('Profile update error -t')
+    }
+
+    console.log(filteredValues);
+  };
 
   return (
     <AccordionWrapper id='collapseOne' title={{id: 'headingOne', text: t("PayUSettings.title")}}>
       {forceRerender && <Formik
         initialValues={initialValues}
-        validationSchema={validationSchema}
+        // validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
         <Form>
-          <InputFloating value='' name='oauth_client_id'
+          <InputFloating value='' name='oauthClientId'
                          placeholder='oauth_client_id'/>
-          <InputFloating value='' name='oauth_client_secret'
+          <InputFloating value='' name='oauthClientSecret'
                          placeholder='oauth_client_secret'/>
-          <InputFloating value='' name='merchant_pos_id'
+          <InputFloating value='' name='merchantPosId'
                          placeholder='merchant_pos_id'/>
-          <InputFloating value='' name='second_key' placeholder='second_key'/>
+          <InputFloating value='' name='secondKey' placeholder='second_key'/>
           <Btn text={t('PayUSettings.saveBtn')} styled='success' classes={['form-control']}/>
         </Form>
       </Formik>}

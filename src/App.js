@@ -8,7 +8,7 @@ import LoginModal from "./components/modals/LoginModal/LoginModal";
 import Loader from "./components/Loader/Loader";
 import useLocalStorage from "./hooks/useLocalStorage";
 import {PrivateRoute} from "./routeGuard/privateRoute";
-import {updateToken} from "./services/api";
+import {refreshUser, updateToken} from "./services/api";
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const RegistrationPage = lazy(() => import('pages/RegistrationPage/RegistrationPage'));
@@ -21,8 +21,20 @@ function App() {
   const [company, setCompany] = useLocalStorage('company','');
 
   useEffect(() => {
-    updateToken()
-  }, []);
+    const updateUser = async () => {
+      try {
+        updateToken()
+        const company = await refreshUser();
+        if (company) setCompany(company)
+
+        console.log('company', company)      }
+      catch (e){
+        console.log(e)
+      }
+    }
+
+    updateUser()
+  }, [setCompany]);
 
   const {hash} = useLocation();
 

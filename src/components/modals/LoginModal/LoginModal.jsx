@@ -14,8 +14,8 @@ import {t} from "i18next";
 const LoginModal = ({onClose, addCompanyName}) => {
   const handleLogin = async (values) => {
     try {
-      const data = await login(values)
-      addCompanyName(data.company_name)
+      const company = await login(values)
+      addCompanyName(company)
       onClose()
       toast.success(t('LoginModal.successToast'))
     } catch (e) {

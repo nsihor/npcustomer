@@ -7,8 +7,10 @@ import {Countries, CountriesPl, PolandRegions} from "../../../const/Constants";
 import Btn from "../../Btn/Btn";
 import {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
+import {update} from "../../../services/api";
+import toast from "react-hot-toast";
 
-const DeliverySettings = ({userData = undefined}) => {
+const DeliverySettings = ({userData}) => {
   const {t, i18n} = useTranslation();
 
   const [forceRerender, setForceRerender] = useState(false)
@@ -27,7 +29,7 @@ const DeliverySettings = ({userData = undefined}) => {
     city: userData?.city ?? '',
     street: userData?.street ?? '',
     house: userData?.building ?? '',
-    office: userData?.flat ?? '',
+    flat: userData?.flat ?? '',
     externalLogoUrl: userData?.externalLogoUrl ?? ''
   };
 
@@ -54,14 +56,23 @@ const DeliverySettings = ({userData = undefined}) => {
     city: Yup.string().trim().required(t('Validation.required')),
     street: Yup.string().trim().required(t('Validation.required')),
     house: Yup.string().trim().required(t('Validation.required')),
-    office: Yup.string().trim(),
+    flat: Yup.string().trim(),
     externalLogoUrl: Yup.string()
   });
 
-  const onSubmit = (value) => {
+  const onSubmit = async (value) => {
     const filteredValues = Object.entries(value)
       .filter(([_, val]) => val !== '')
       .reduce((acc, [key, val]) => ({...acc, [key]: val}), {});
+
+    try {
+      await update(filteredValues)
+      toast.success('Profile updated -t')
+    }
+    catch (e) {
+      console.log(e)
+      toast.error('Profile update error -t')
+    }
 
     console.log(filteredValues);
   };
@@ -92,7 +103,7 @@ const DeliverySettings = ({userData = undefined}) => {
           <InputFloating name='street' placeholder={t('DeliverySettings.inputStreet')}/>
           <div className='input-group gap-3 mb-4'>
             <InputFloating name='house' placeholder={t('DeliverySettings.inputHouse')}/>
-            <InputFloating name='office' placeholder={t('DeliverySettings.inputOffice')}/>
+            <InputFloating name='flat' placeholder={t('DeliverySettings.inputOffice')}/>
           </div>
           <InputFloating name='externalLogoUrl'
                          placeholder={t('RegistrationSteps.Step4.inputFloatingLogoPlaceholder')}/>
