@@ -1,11 +1,11 @@
 import {ErrorMessage, Field} from 'formik';
 import React from 'react';
 import clsx from 'clsx';
-import css from '../RegistrationSteps/Step2/Step2.scss';
+import css from './InputFloating.module.scss';
 
 const InputFloating = ({name, type = 'text', placeholder, classes = [], smallText, params = []}) => {
   return (
-    <div className={clsx('form-floating', ...classes)}>
+    <div className={clsx('form-floating inputContainer', css.inputContainer, ...classes)}>
       <Field
         name={name}
         type={type}

@@ -1,6 +1,6 @@
 import css from './Step2.scss';
 import React from 'react';
-import {Formik, Form} from 'formik';
+import {Form, Formik} from 'formik';
 import * as Yup from 'yup';
 import clsx from 'clsx';
 
@@ -9,7 +9,7 @@ import InputFloating from '../../InputFloating/InputFloating';
 import SelectFloating from '../../SelectFloating/SelectFloating';
 import {useTranslation} from 'react-i18next';
 
-const Step2 = ({submitFunc, userData, prevStep}) => {
+const Step2 = ({submitFunc, userData, prevStep, isDesktop}) => {
   const {t} = useTranslation();
 
   const initialValues = {
@@ -32,12 +32,10 @@ const Step2 = ({submitFunc, userData, prevStep}) => {
       )
       .test('NIP', t('Validation.controlSumNIP'),
         function (value) {
-          const сhecksum = (
+          return (
             ((value[0] * 6 + value[1] * 5 + value[2] * 7 + value[3] * 2 + value[4] * 3 +
               value[5] * 4 + value[6] * 5 + value[7] * 6 + value[8] * 7
             ) % 11) % 10) === value[9] * 1;
-
-          return сhecksum;
         }),
     externalLogoUrl: Yup.string()
   });
@@ -76,7 +74,7 @@ const Step2 = ({submitFunc, userData, prevStep}) => {
 
           <InputFloating
             name='externalLogoUrl'
-            placeholder={t('RegistrationSteps.Step4.inputFloatingLogoPlaceholder')}
+            placeholder={isDesktop? t('RegistrationSteps.Step4.inputFloatingLogoPlaceholder') : t('RegistrationSteps.Step4.inputFloatingLogoPlaceholderShort')}
           />
 
           <Btn text={t('RegistrationSteps.btnContinue')} styled='secondary' classes={['form-control']}/>

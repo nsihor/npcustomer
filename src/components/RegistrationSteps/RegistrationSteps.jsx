@@ -9,6 +9,20 @@ import useLocalStorage from "../../hooks/useLocalStorage";
 const RegistrationSteps = () => {
   const [userData, setUserData] = useLocalStorage('userData', {});
   const [openStep, setOpenStep] = useState( 1);
+  const [isMobile, setIsMobile] = useState(true);
+  const [isDesktop, setIsDesktop] = useState(false)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+      setIsDesktop(window.innerWidth >= 992)
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const submitUserData = (data) => {
     setUserData((prevData) => ({...prevData, ...data}));
@@ -31,7 +45,7 @@ const RegistrationSteps = () => {
       case 1:
         return <Step1 submitFunc={submitUserData} userData={userData}/>;
       case 2:
-        return <Step2 submitFunc={submitUserData} userData={userData} prevStep={prevStep}/>;
+        return <Step2 submitFunc={submitUserData} userData={userData} prevStep={prevStep} isDesktop={isDesktop}/>;
       case 3:
         return <Step3 submitFunc={submitUserData} userData={userData} prevStep={prevStep}/>;
       case 4:
@@ -42,7 +56,7 @@ const RegistrationSteps = () => {
   };
 
   return (
-    <RegistrationStepsWrap openStep={openStep}>
+    <RegistrationStepsWrap isMobile={isMobile} openStep={openStep}>
       {renderStep(openStep)}
     </RegistrationStepsWrap>
   );

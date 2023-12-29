@@ -136,6 +136,7 @@
       "inputFloatingNamePlaceholder": "Ім'я та прізвище",
       "inputFloatingPhonePlaceholder": "Номер телефону",
       "inputFloatingLogoPlaceholder": "URL адреса логотипу, для додаткової персоналізації",
+      "inputFloatingLogoPlaceholderShort": "URL адреса логотипу",
       "btn": "Готово"
     }
   },

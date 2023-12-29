@@ -1,24 +1,9 @@
 import clsx from "clsx";
 import css from "./RegistrationStepsWrap.module.scss";
 import {useTranslation} from "react-i18next";
-import {useEffect, useState} from "react";
 
-const RegistrationStepsWrap = ({children, openStep}) => {
+const RegistrationStepsWrap = ({children, openStep, isMobile}) => {
   const {t} = useTranslation();
-
-  const [isMobile, setIsMobile] = useState(true);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    window.addEventListener('resize', handleResize);
-    handleResize();
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
 
   return (
     <div className={`${!isMobile && 'container'} mb-5 py-md-5`}>

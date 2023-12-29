@@ -1,0 +1,19 @@
+.formSmallText {
+  color: var(--grayscale-500, #475569);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+
+  span {
+    color: var(--grayscale-400, #94A3B8);
+  }
+}
+
+.inputContainer {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

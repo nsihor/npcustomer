@@ -136,6 +136,7 @@
       "inputFloatingNamePlaceholder": "Imię i nazwisko",
       "inputFloatingPhonePlaceholder": "Numer telefonu",
       "inputFloatingLogoPlaceholder": "Adres URL logo, w celu dodatkowej personalizacji",
+      "inputFloatingLogoPlaceholderShort": "Adres URL logo",
       "btn": "Zrobione"
     }
   },
