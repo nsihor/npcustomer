@@ -14,11 +14,14 @@ const ChangeEmailModal = ({onClose}) => {
   const onSubmit = async (value) => {
     try {
       await update(value)
-      toast.success('Profile updated -t')
+      toast.success(t('toastUpdateSuccess'))
     }
     catch (e) {
-      console.log(e)
-      toast.error('Profile update error -t')
+      if (e instanceof Error) {
+        toast.error(e.message);
+      } else {
+        console.error('Помилка:', e);
+      }
     }
   };
 

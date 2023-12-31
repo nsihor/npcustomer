@@ -25,8 +25,8 @@ export const login =
       const {company_name} = jwtDecode(data.token);
 
       return company_name;
-    } catch (error) {
-      throw new Error(error.message)
+    } catch (e) {
+      throw new Error(e.message)
     }
   }
 
@@ -34,8 +34,8 @@ export const logOut =
   async () => {
     try {
       clearToken();
-    } catch (error) {
-      return error.message;
+    } catch (e) {
+      return e.message;
     }
   }
 
@@ -45,8 +45,8 @@ export const register =
       const {data} = await axios.post('register', user);
 
       return data;
-    } catch (error) {
-      const details = error.response.data.details;
+    } catch (e) {
+      const details = e.response.data.details;
       console.log(Object.values(details)[0]);
       throw new Error(Object.values(details)[0]);
     }
@@ -58,8 +58,10 @@ export const profile =
       const {data} = await axios.post('profile');
 
       return data;
-    } catch (error) {
-      throw new Error(error.message)
+    } catch (e) {
+      const details = e.response.data.details;
+      console.log(Object.values(details)[0]);
+      throw new Error(Object.values(details)[0]);
     }
   }
 
@@ -69,14 +71,12 @@ export const refreshUser =
       const refresh_token = localStorage.getItem("rjwt")
       const {data} = await axios.post('refresh-token', {refresh_token});
       setToken(data);
-      console.log(data)
 
       const {company_name} = jwtDecode(data.token);
 
       return company_name;
-    }
-    catch (e) {
-      console.log(e)
+    } catch (e) {
+      throw new Error(e.message)
     }
   }
 
@@ -86,8 +86,10 @@ export const update =
       const {data} = await axios.post('update', userData);
 
       return data;
-    } catch (error) {
-      return error.message;
+    } catch (e) {
+      const details = e.response.data.details;
+      console.log(Object.values(details)[0]);
+      throw new Error(Object.values(details)[0]);
     }
   }
 export const changePassword =
@@ -96,30 +98,7 @@ export const changePassword =
       const {data} = await axios.post('change-password');
 
       return data;
-    } catch (error) {
-      return error.message;
+    } catch (e) {
+      return e.message;
     }
   }
-
-// export const deleteMerchant =
-//   async () => {
-//     try {
-//       const {data} = await axios.post('delete');
-//
-//       return data;
-//     } catch (error) {
-//       return error.message;
-//     }
-//   }
-
-// export const refreshUser =
-//   async () => {
-//     const token = localStorage.getItem("jwt");
-//
-//     try {
-//       if (!token) return;
-//       setToken(token);
-//     } catch (error) {
-//       return error.message;
-//     }
-//   }

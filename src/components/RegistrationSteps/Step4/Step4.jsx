@@ -36,7 +36,6 @@ const Step4 = ({submitFunc, userData, prevStep}) => {
     }
     catch (e) {
       if (e instanceof Error) {
-        console.log(e)
         toast.error(e.message);
       } else {
         console.error('Помилка:', e);

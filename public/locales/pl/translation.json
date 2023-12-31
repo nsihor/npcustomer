@@ -154,6 +154,8 @@
     "customers": "miliony aktywnych klientów online"
   },
   "toastCopy": "Kod skopiowany!",
+  "toastUnauthorized": "Błąd autoryzacji",
+  "toastUpdateSuccess": "Profil zaktualizowany",
   "Page404": {
     "title": "Wygląda na to, że się zgubiłeś",
     "p": "strona, której szukasz, nie jest dostępna",

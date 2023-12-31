@@ -34,13 +34,15 @@ const PayUSettings = ({userData}) => {
 
     try {
       await update(filteredValues)
-      toast.success('Profile updated -t')
+      toast.success(t('toastUpdateSuccess'))
     }
     catch (e) {
-      toast.error('Profile update error -t')
+      if (e instanceof Error) {
+        toast.error(e.message);
+      } else {
+        console.error('Помилка:', e);
+      }
     }
-
-    console.log(filteredValues);
   };
 
   return (

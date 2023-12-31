@@ -1,50 +1,34 @@
-import {useEffect, useRef, useState} from 'react';
-import { useNavigate  } from 'react-router-dom';
-import {profile, refreshUser} from '../../services/api';
+import {useEffect, useState} from 'react';
+import {profile} from '../../services/api';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import Profile from '../../components/Profile/Profile';
 import {useTranslation} from "react-i18next";
 import toast from "react-hot-toast";
 
-const ProfilePage = ({addCompanyName}) => {
-  const navigate = useNavigate ();
-
+const ProfilePage = ({updateCompany}) => {
   const [userData, setUserData] = useState({});
+  const [firstRender, setFirstRender] = useState(true)
 
   const {t} = useTranslation();
 
-  const isFirstRender = useRef(true);
-
   useEffect(() => {
-    console.log(userData)
-    if (isFirstRender.current) {
-      const fetchProfile = async () => {
-        try {
-          const data = await profile();
-          setUserData(data);
-        } catch (e) {
-          try {
-            const company = await refreshUser();
-            addCompanyName(company)
-
-            console.log('company', company)
-
-            const data = await profile();
-            setUserData(data);
-          }
-          catch (e) {
-            console.log(e);
-            navigate('/');
-            addCompanyName('')
-            toast.error('Помилка авторизації');
-          }
+    const fetchProfile = async () => {
+      try {
+        const data = await profile();
+        setUserData(data);
+      } catch (e) {
+        if (e instanceof Error) {
+          toast.error(e.message);
+        } else {
+          console.error(e);
         }
-      };
-      fetchProfile();
-
-      isFirstRender.current = false;
+      }
     }
-  }, [addCompanyName, navigate, userData]);
+
+    firstRender && updateCompany(fetchProfile)
+    setFirstRender(false)
+
+  }, [firstRender, updateCompany]);
 
   return (
     <>

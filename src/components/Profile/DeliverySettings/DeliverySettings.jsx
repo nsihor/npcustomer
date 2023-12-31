@@ -41,12 +41,10 @@ const DeliverySettings = ({userData}) => {
       )
       .test('NIP', t('Validation.controlSumNIP'),
         function (value) {
-          const сhecksum = (
+          return (
             ((value[0] * 6 + value[1] * 5 + value[2] * 7 + value[3] * 2 + value[4] * 3 +
               value[5] * 4 + value[6] * 5 + value[7] * 6 + value[8] * 7
             ) % 11) % 10) === value[9] * 1;
-
-          return сhecksum;
         }).required(t('Validation.required')),
     companyName: Yup.string().trim().required(t('Validation.required')),
     phone: Yup.string().trim().required(t('Validation.required')),
@@ -67,14 +65,15 @@ const DeliverySettings = ({userData}) => {
 
     try {
       await update(filteredValues)
-      toast.success('Profile updated -t')
+      toast.success(t('toastUpdateSuccess'))
     }
     catch (e) {
-      console.log(e)
-      toast.error('Profile update error -t')
+      if (e instanceof Error) {
+        toast.error(e.message);
+      } else {
+        console.error('Помилка:', e);
+      }
     }
-
-    console.log(filteredValues);
   };
 
 

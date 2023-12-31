@@ -8,6 +8,7 @@ import ChangeEmailModal from "../../modals/ChangeEmail/ChangeEmailModal";
 import ChangePasswordModal from "../../modals/ChangePassword/ChangePasswordModal";
 import {useTranslation} from "react-i18next";
 import * as Yup from "yup";
+import toast from "react-hot-toast";
 
 const UserDataChanging = ({userData}) => {
   const [isChangeEmailModal, setIsChangeEmailModal] = useState(false);
@@ -30,10 +31,18 @@ const UserDataChanging = ({userData}) => {
       .email(t('Validation.email'))
   })
 
-  const onSubmit = () => {
-    update(userData).then((data) => {
-      console.log(data);
-    }).catch(console.log)
+  const onSubmit = async (value) => {
+    try {
+      await update(value)
+      toast.success(t('toastUpdateSuccess'))
+    }
+    catch (e) {
+      if (e instanceof Error) {
+        toast.error(e.message);
+      } else {
+        console.error('Помилка:', e);
+      }
+    }
   }
 
   const switchEmailModal = () => {
