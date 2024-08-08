@@ -5,7 +5,6 @@ import * as Yup from "yup";
 import Btn from "../../Btn/Btn";
 import PasswordInput from "../../PasswordInput/PasswordInput";
 import {useTranslation} from "react-i18next";
-import {changePassword} from '../../../services/api';
 
 const ChangeEmailModal = ({onClose}) => {
     const {t} = useTranslation();
@@ -16,7 +15,7 @@ const ChangeEmailModal = ({onClose}) => {
                 <h2 className={clsx(css.title, 'mb-4')}>{t("modal.changeTitle")} Email</h2>
                 <Formik
                     initialValues={{oldPassword: '', newPassword: ''}}
-                    onSubmit={(values) => {
+                    onSubmit={() => {
                     }}
                     validationSchema={Yup.object( {
                         newPassword: Yup.string()
