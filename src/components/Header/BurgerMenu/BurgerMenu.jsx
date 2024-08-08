@@ -10,7 +10,6 @@ const BurgerMenu = ({onClose}) => {
 
     const handleBackdropClick = (e) => {
         e.target === e.currentTarget && onClose();
-        console.log(e.target, e.currentTarget)
     }
 
     return (

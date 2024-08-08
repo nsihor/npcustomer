@@ -17,7 +17,6 @@ const ChangeEmailModal = ({onClose}) => {
                 <Formik
                     initialValues={{oldPassword: '', newPassword: ''}}
                     onSubmit={(values) => {
-                        changePassword(values).then().catch(console.log)
                     }}
                     validationSchema={Yup.object( {
                         newPassword: Yup.string()

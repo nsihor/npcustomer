@@ -37,7 +37,6 @@ const RegistrationSteps = () => {
   };
 
   useEffect(() => {
-    console.log(userData);
   }, [userData]);
 
   const renderStep = (step) => {
