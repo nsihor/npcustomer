@@ -1,0 +1,179 @@
+{
+  "constants": {
+    "Countries": [
+      {
+        "value": "PL",
+        "label": "Польща"
+      }
+    ]
+  },
+  "header": {
+    "about": "Хто ми",
+    "advantages": "Наші переваги",
+    "authorize": "Вхід",
+    "logoutToast": "Вихід із профілю був успішно виконаний",
+    "exitTitle": "Вихід",
+    "profileTitle": "Профіль"
+  },
+  "Breadcrumbs": "Головна",
+  "BreadcrumbsPages": {
+    "profile": "Профіль компанії"
+  },
+  "Delivery": {
+    "title": "Nova Post - доставка майбутнього",
+    "slide1Title": "Nova Post в Україні",
+    "slide2Title": "Nova Post в Польщі"
+  },
+  "FirstBlock": {
+    "title": "маркетплейс польських товарів в Україні",
+    "text": "Ставайте продавцем в найбільшому українському додатку, а логістику, технічну підтримку і знання українського e-commerce ми беремо на себе.",
+    "btn": "Стати партнером"
+  },
+  "footer": {
+    "rights": "Усі права захищено",
+    "confidentiality": "Політика конфіденційності"
+  },
+  "modal": {
+    "changeTitle": "Змінити",
+    "closeBtn": "Скасувати",
+    "successBtn": "Зберегти"
+  },
+  "FinishedRegistrationModal": {
+    "title": "Вітаємо",
+    "infoText": "Для повного функціонування сервісу додай інформацію про оплату та доставку в особистому кабінеті",
+    "tokenText": "Ми згенерувати тобі токен. Скопіюй цей ключ та встав його в кабінеті BaseLinker.",
+    "link": "В кабінет компанії"
+  },
+  "LoginModal": {
+    "errorToast": "Email не підтверждений або не існує",
+    "successToast": "Вхід успішно виконаний",
+    "title": "Вхід",
+    "btn": "Продовжити",
+    "link": "Зареєструватися"
+  },
+  "NewOpportunities": {
+    "title": "Відкрийте нові можливості для свого бізнесу в Україні",
+    "description": "Ми забезпечуємо доступ до мільйонів клієнтів, які хочуть купувати польські товари",
+    "turnover": "мільярдів доларів становить обсяг електронної комерції",
+    "activeCards": "мільйонів активних банківських карток для онлайн-платежів",
+    "customsClearance": "для вартості < 150 євро митне оформлення не вимагається"
+  },
+  "PasswordInputPlaceholder": {
+    "default": "Пароль",
+    "old": "Старий пароль",
+    "new": "Новий пароль"
+  },
+  "PostCountryList": {
+    "slide1": [
+      "Найбільша логістична компанія, працює з 2001 року",
+      "Понад 23 000 точок видачі",
+      "Понад 1 млн доставок на день",
+      "Лояльність споживачів - 99%",
+      "Впізнаваність бренду - 100%",
+      "Додаток Nova Post входить в топ3 мобільних додатків України"
+    ],
+    "slide2": [
+      "Працює з жовтня 2022 року",
+      "На березень 2023 року має 21 відділення у 9 містах",
+      "До кінця року планується відкрити 200 нових відділень",
+      "Середній час доставки між Польщею та Україною - 2,5 доби"
+    ]
+  },
+  "ProfileNav": "Інформація про компанію",
+  "PayUSettings": {
+    "title": "Налаштування способу оплати PayU",
+    "saveBtn": "Зберегти зміни"
+  },
+  "DeliverySettings": {
+    "title": "Налаштування способу доставки Nova Post",
+    "inputCompanyName": "Назва компанії",
+    "inputPhone": "Номер телефону контактної особи",
+    "inputName": "Контактна особа",
+    "selectCountryCode": "Країна місцезнаходження компанії",
+    "selectRegion": "Воєводство",
+    "inputCity": "Місто",
+    "inputStreet": "Вулиця",
+    "inputHouse": "Будинок",
+    "inputOffice": "Офіс (опціонально)",
+    "saveBtn": "Зберегти зміни"
+  },
+  "BaseLinker": {
+    "title": "Підключення BaseLinker",
+    "copyText": "Скопіюй цей ключ та встав його в кабінеті BaseLinker."
+  },
+  "UserDataChanging": {
+    "title": "Дані для входу в профіль компанії",
+    "changeText": "Змінити",
+    "inputPassword": "Пароль"
+  },
+  "RegistrationSteps": {
+    "title": "Реєструйся всього за 4 кроки:",
+    "step": "крок",
+    "authorizationStep": "Авторизація",
+    "aboutStep": "Про компанію",
+    "addressStep": "Адреса",
+    "additionalStep": "Додаткова інформація",
+    "btnContinue": "Продовжити",
+    "btnBack": "Назад",
+    "Step1": "Авторизація",
+    "Step2": {
+      "title": "Про компанію",
+      "inputFloatingCompanyPlaceholder": "Назва компанії",
+      "selectFloatingPlaceholder": "Країна місцезнаходження компанії",
+      "inputFloatingNIPPlaceholder": "Назва компанії"
+    },
+    "Step3": {
+      "title": "Адреса",
+      "selectFloatingRegionPlaceholder": "Воєводство",
+      "inputFloatingCityPlaceholder": "Місто",
+      "inputFloatingStreetPlaceholder": "Вулиця",
+      "inputFloatingHousePlaceholder": "Будинок",
+      "inputFloatingOfficePlaceholder": "Офіс (опціонально)"
+    },
+    "Step4": {
+      "title": "Додаткова інформація",
+      "label": "Контактна особа",
+      "inputFloatingNamePlaceholder": "Ім'я та прізвище",
+      "inputFloatingPhonePlaceholder": "Номер телефону",
+      "inputFloatingLogoPlaceholder": "URL адреса логотипу, для додаткової персоналізації",
+      "inputFloatingLogoPlaceholderShort": "URL адреса логотипу",
+      "btn": "Готово"
+    }
+  },
+  "selectFloating": "Виберіть країну",
+  "Shopping": {
+    "app": "Додаток",
+    "marketPlace": "Маркетплейс",
+    "p1": "має 7 мільйонів активних користувачів",
+    "p2": "біля 1 мільярду взаємодій в місяць",
+    "p3": "зручна платформа для керування товарами та обробки замовлень",
+    "p4": "унікальні інтеграції з Google, що забезпечують максимальну присутність у всіх рекламних каналах"
+  },
+  "Statistic": {
+    "users": "мільйонів потенційних користувачів",
+    "customers": "мільйонів активних покупців через Інтернет"
+  },
+  "toastCopy": "Код скопійовано!",
+  "toastUnauthorized": "Помилка авторизації",
+  "toastUpdateSuccess": "Профіль оновленно",
+  "Page404": {
+    "title": "Схоже ви заблукали",
+    "p": "сторінка яку ви шукаєте не доступна",
+    "btn": "На головну"
+  },
+  "Validation": {
+    "required": "Поле обов'язкове для заповнення",
+    "email": "Некоректний email",
+    "min8": "Мінімум 8 символів",
+    "max128": "Максимум 128 символів",
+    "matchesWithoutSpace": "Заборонено символи відступів",
+    "matchesLowerCase": "Хоча б одна Мала буква (лише англійські символи)",
+    "matchesUpperCase": "Хоча б одна Велика буква (лише англійські символи)",
+    "matchesNumber": "Хача б одна цифра",
+    "matchesSpecSymbol": "Хоча б один символ:",
+    "repeatPassword": "Паролі мають співпадати",
+    "controlSumNIP": "NIP має розрахунок контрольної суми",
+    "nipSymbolCount": "NIP складається з 10 цифр"
+  },
+  "PrivacyPolicy": "Політика конфіденційності"
+}
